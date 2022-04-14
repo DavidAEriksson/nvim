@@ -1,16 +1,14 @@
 local o = vim.opt
 
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 -- Path defaults --
-vim.cmd(
-	[[
+vim.cmd([[
 		set path+=*
 		set shell=/bin/zsh
 		set wildignore+=**./.git/
 		set wildignore+=**/node_modules
-	]]
-)
+	]])
 
 -- File encodings --
 o.encoding = 'UTF-8'
@@ -44,7 +42,7 @@ o.cursorline = true
 o.scrolloff = 5
 
 -- Search --
-vim.cmd [[set nohlsearch]]
+vim.cmd([[set nohlsearch]])
 vim.g.incsearch = true
 
 -- Always show statusline
