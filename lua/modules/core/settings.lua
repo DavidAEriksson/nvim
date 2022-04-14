@@ -1,5 +1,7 @@
 local o = vim.opt
 
+vim.g.mapleader = " "
+
 -- Path defaults --
 vim.cmd(
 	[[
