@@ -1,6 +1,6 @@
 column_width = 120
 line_endings = 'Unix'
-indend_type = 'Spaces'
+indent_type = 'Spaces'
 indent_width = '2'
 quite_style = 'AutoPreferSingle'
 no_call_parentheses = false
