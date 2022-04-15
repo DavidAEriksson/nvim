@@ -126,6 +126,8 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Setup language servers from server name
 for _, server in ipairs({
   'sumneko_lua',
+  'tsserver',
+  'null-ls'
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
