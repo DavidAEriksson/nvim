@@ -66,7 +66,6 @@ global.lsp = {
   formatting = formatting,
 }
 
---- on_attach
 local on_attach = function(client, bufnr)
   require('lsp_signature').on_attach()
 

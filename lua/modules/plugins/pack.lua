@@ -115,10 +115,11 @@ return require('packer').startup(function(use)
     run = ':call doge#install()',
   })
 
-  -- Colors and icons
+  -- Colors, indentation and blankline
   use({
     'EdenEast/nightfox.nvim',
     'kyazdani42/nvim-web-devicons',
+    'lukas-reineke/indent-blankline.nvim'
   })
 
   -- Statusline
