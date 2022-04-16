@@ -60,3 +60,11 @@ o.laststatus = 3
 vim.api.nvim_create_autocmd({ 'VimEnter' }, {
   command = ':highlight WinSeparator guibg=none',
 })
+
+-- Stop newline comment continuation
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  command = 'set formatoptions-=cro'
+})
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  command = 'setlocal formatoptions-=cro'
+})
