@@ -8,7 +8,7 @@ vim.cmd([[
 		set shell=/bin/zsh
 		set wildignore+=**./.git/
 		set wildignore+=**/node_modules
-	]])
+  ]])
 
 -- File encodings --
 o.encoding = 'UTF-8'
