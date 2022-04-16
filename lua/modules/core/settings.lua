@@ -47,3 +47,16 @@ vim.g.incsearch = true
 
 -- Always show statusline
 o.laststatus = 1
+
+-- Colors
+o.termguicolors = true
+o.colorcolumn = '120'
+o.background = 'dark'
+
+-- Laststatus
+o.laststatus = 3
+-- If we're running a coloscheme that does not yet
+-- support >0.7 global status line.
+vim.api.nvim_create_autocmd({'VimEnter'}, {
+  command = ':highlight WinSeparator guibg=none'
+})
