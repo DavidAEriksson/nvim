@@ -63,8 +63,8 @@ vim.api.nvim_create_autocmd({ 'VimEnter' }, {
 
 -- Stop newline comment continuation
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  command = 'set formatoptions-=cro'
+  command = 'set formatoptions-=cro',
 })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-  command = 'setlocal formatoptions-=cro'
+  command = 'setlocal formatoptions-=cro',
 })
