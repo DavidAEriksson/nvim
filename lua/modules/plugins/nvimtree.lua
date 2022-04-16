@@ -1,39 +1,39 @@
-require'nvim-tree'.setup {
-  disable_netrw        = false,
-  hijack_netrw         = true,
-  open_on_setup        = false,
-  ignore_ft_on_setup   = {},
-  auto_close           = false,
+require('nvim-tree').setup({
+  disable_netrw = false,
+  hijack_netrw = true,
+  open_on_setup = false,
+  ignore_ft_on_setup = {},
+  auto_close = false,
   auto_reload_on_write = true,
-  open_on_tab          = false,
-  hijack_cursor        = false,
-  update_cwd           = false,
+  open_on_tab = false,
+  hijack_cursor = false,
+  update_cwd = false,
   hijack_unnamed_buffer_when_opening = false,
-  hijack_directories   = {
+  hijack_directories = {
     enable = true,
     auto_open = true,
   },
   diagnostics = {
     enable = false,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    }
+      hint = '',
+      info = '',
+      warning = '',
+      error = '',
+    },
   },
   update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
-    ignore_list = {}
+    enable = false,
+    update_cwd = false,
+    ignore_list = {},
   },
   system_open = {
-    cmd  = nil,
-    args = {}
+    cmd = nil,
+    args = {},
   },
   filters = {
     dotfiles = false,
-    custom = {}
+    custom = {},
   },
   git = {
     enable = true,
@@ -49,15 +49,15 @@ require'nvim-tree'.setup {
     preserve_window_proportions = false,
     mappings = {
       custom_only = false,
-      list = {}
+      list = {},
     },
     number = false,
     relativenumber = false,
-    signcolumn = "yes"
+    signcolumn = 'yes',
   },
   trash = {
-    cmd = "trash",
-    require_confirm = true
+    cmd = 'trash',
+    require_confirm = true,
   },
   actions = {
     change_dir = {
@@ -68,15 +68,15 @@ require'nvim-tree'.setup {
       quit_on_open = false,
       window_picker = {
         enable = true,
-        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
         exclude = {
           filetype = {
-            "notify",
-            "packer",
-            "qf"
-          }
-        }
-      }
-    }
-  }
-}
+            'notify',
+            'packer',
+            'qf',
+          },
+        },
+      },
+    },
+  },
+})
