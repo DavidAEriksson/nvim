@@ -57,6 +57,6 @@ o.background = 'dark'
 o.laststatus = 3
 -- If we're running a coloscheme that does not yet
 -- support >0.7 global status line.
-vim.api.nvim_create_autocmd({'VimEnter'}, {
-  command = ':highlight WinSeparator guibg=none'
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+  command = ':highlight WinSeparator guibg=none',
 })

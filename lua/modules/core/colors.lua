@@ -17,7 +17,7 @@ require('material').setup({
   disable = {
     background = true,
   },
-  lualine_style = 'stealth'
+  lualine_style = 'stealth',
 })
 
-vim.cmd 'colorscheme material'
+vim.cmd('colorscheme material')
