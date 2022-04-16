@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
   use({
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
-    'ThePrimeagen/harpoon'
+    'ThePrimeagen/harpoon',
   })
 
   --- Lsp
@@ -165,7 +165,7 @@ return require('packer').startup(function(use)
   use({
     'airblade/vim-rooter',
     'tpope/vim-fugitive',
-    'APZelos/blamer.nvim'
+    'APZelos/blamer.nvim',
   })
 
   if packer_bootstrap then
