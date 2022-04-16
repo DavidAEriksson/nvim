@@ -86,3 +86,6 @@ nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git
 
 -- NvimTree
 nmap('<leader>e', ':NvimTreeToggle<CR>')
+
+-- Floating terminal
+nmap('<leader>ter', '<cmd>:FloatermNew<CR>')

@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   -- Plugin manager
   use('wbthomason/packer.nvim')
 
-  -- Libs lua
+  -- Sanity libraries
   use({
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
@@ -55,7 +55,6 @@ return require('packer').startup(function(use)
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lua',
-    'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-nvim-lsp-signature-help',
   })
 
@@ -140,12 +139,24 @@ return require('packer').startup(function(use)
     },
   })
 
+  -- Alpha welcome screen
   use({
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       require('alpha').setup(require('alpha.themes.startify').config)
     end,
+  })
+
+  -- Floating terminal
+  use({
+    'voldikss/vim-floaterm'
+  })
+
+  -- Bufferline
+  use({
+    'akinsho/bufferline.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
   })
 
   if packer_bootstrap then
