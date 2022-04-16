@@ -16,6 +16,7 @@ end
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 require('luasnip/loaders/from_vscode').lazy_load()
+
 vim.api.nvim_command('hi LuasnipChoiceNodePassive cterm=italic')
 vim.opt.completeopt = 'menu,menuone,noselect'
 

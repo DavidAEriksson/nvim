@@ -89,3 +89,11 @@ nmap('<leader>e', ':NvimTreeToggle<CR>')
 
 -- Floating terminal
 nmap('<leader>ter', '<cmd>:FloatermNew<CR>')
+
+-- Harpoon
+nmap('<leader>ha', "<cmd> lua require('harpoon.mark').add_file()<CR>")
+nmap('<leader>hm', "<cmd> lua require('harpoon.ui').toggle_quick_menu()<CR>")
+nmap('<leader>h1', "<cmd> lua require('harpoon.ui').nav_file(1)<CR>")
+nmap('<leader>h2', "<cmd> lua require('harpoon.ui').nav_file(2)<CR>")
+nmap('<leader>h3', "<cmd> lua require('harpoon.ui').nav_file(3)<CR>")
+nmap('<leader>h4', "<cmd> lua require('harpoon.ui').nav_file(4)<CR>")

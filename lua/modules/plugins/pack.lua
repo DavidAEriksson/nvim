@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use({
     'nvim-lua/plenary.nvim',
     'nvim-lua/popup.nvim',
+    'ThePrimeagen/harpoon'
   })
 
   --- Lsp
@@ -103,7 +104,6 @@ return require('packer').startup(function(use)
     ft = { 'typescript', 'typescriptreact' },
   })
 
-  -- Dev div tools
   use({
     'tpope/vim-surround',
     'windwp/nvim-autopairs',
@@ -159,6 +159,13 @@ return require('packer').startup(function(use)
   use({
     'akinsho/bufferline.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
+  })
+
+  -- Git
+  use({
+    'airblade/vim-rooter',
+    'tpope/vim-fugitive',
+    'APZelos/blamer.nvim'
   })
 
   if packer_bootstrap then
