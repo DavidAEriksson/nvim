@@ -128,6 +128,7 @@ for _, server in ipairs({
   'sumneko_lua',
   'tsserver',
   'null-ls',
+  -- 'omnisharp'
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end

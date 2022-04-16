@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
     'jose-elias-alvarez/nvim-lsp-ts-utils',
     'onsails/lspkind-nvim',
     'williamboman/nvim-lsp-installer',
+    'omnisharp/omnisharp-vim'
   })
 
   use({
