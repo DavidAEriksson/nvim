@@ -114,9 +114,9 @@ return require('packer').startup(function(use)
     run = ':call doge#install()',
   })
 
-  -- Colors
+  -- Colors and icons
   use({
-    'marko-cerovac/material.nvim',
+    'EdenEast/nightfox.nvim',
     'kyazdani42/nvim-web-devicons',
   })
 
