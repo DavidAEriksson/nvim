@@ -5,7 +5,7 @@
 local config = {
   options = {
     icons_enabled = true,
-    theme = 'material-nvim',
+    theme = 'nightfox',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {},

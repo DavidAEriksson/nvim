@@ -166,6 +166,7 @@ return require('packer').startup(function(use)
     'airblade/vim-rooter',
     'tpope/vim-fugitive',
     'APZelos/blamer.nvim',
+    'lewis6991/gitsigns.nvim',
   })
 
   if packer_bootstrap then
