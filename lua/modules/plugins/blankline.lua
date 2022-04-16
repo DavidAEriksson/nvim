@@ -10,16 +10,16 @@ g.indent_blankline_show_first_indent_level = true
 g.indent_blankline_show_trailing_blankline_indent = true
 
 g.indent_blankline_context_patterns = {
-    'class',
-    'function',
-    'method',
-    '^if',
-    '^while',
-    '^for',
-    '^object',
-    '^table',
-    'block',
-    'arguments',
+  'class',
+  'function',
+  'method',
+  '^if',
+  '^while',
+  '^for',
+  '^object',
+  '^table',
+  'block',
+  'arguments',
 }
 
 g.indent_blankline_filetype_exclude = { 'help', 'packer', 'terminal' }

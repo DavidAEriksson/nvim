@@ -119,7 +119,7 @@ return require('packer').startup(function(use)
   use({
     'EdenEast/nightfox.nvim',
     'kyazdani42/nvim-web-devicons',
-    'lukas-reineke/indent-blankline.nvim'
+    'lukas-reineke/indent-blankline.nvim',
   })
 
   -- Statusline
