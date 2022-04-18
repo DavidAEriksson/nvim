@@ -96,3 +96,8 @@ nmap('<leader>h1', "<cmd> lua require('harpoon.ui').nav_file(1)<CR>")
 nmap('<leader>h2', "<cmd> lua require('harpoon.ui').nav_file(2)<CR>")
 nmap('<leader>h3', "<cmd> lua require('harpoon.ui').nav_file(3)<CR>")
 nmap('<leader>h4', "<cmd> lua require('harpoon.ui').nav_file(4)<CR>")
+
+vim.cmd([[
+  imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+  let g:copilot_no_tab_map = v:true
+]])

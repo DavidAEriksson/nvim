@@ -99,6 +99,7 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
       vim_item.menu = ({
+        copilot = '[異]',
         nvim_lsp = '[LSP]',
         nvim_lua = '[LUA]',
         luasnip = '[SNIP]',
@@ -109,6 +110,7 @@ cmp.setup({
     end,
   },
   sources = {
+    { name = 'copilot', group_index = 2 },
     { name = 'nvim_lsp', priority = 10 },
     { name = 'nvim_lua' },
     { name = 'luasnip' },

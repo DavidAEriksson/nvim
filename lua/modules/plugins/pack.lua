@@ -1,5 +1,4 @@
-vim.cmd('packadd packer.nvim')
-local cmd = vim.api.nvim_command
+vim.cmd('packadd packer.nvim') local cmd = vim.api.nvim_command
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local fn = vim.fn
 
@@ -100,11 +99,6 @@ return require('packer').startup({
     })
 
     use({
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      ft = { 'typescript', 'typescriptreact', 'lua' },
-    })
-
-    use({
       'numToStr/Comment.nvim',
       'JoosepAlviste/nvim-ts-context-commentstring',
     })
@@ -172,6 +166,26 @@ return require('packer').startup({
       'tpope/vim-fugitive',
       'APZelos/blamer.nvim',
       'lewis6991/gitsigns.nvim',
+    })
+
+    -- Copilot
+    use({
+      'github/copilot.vim'
+    })
+
+    use{
+      "zbirenbaum/copilot.lua",
+      event = {"VimEnter"},
+      config = function()
+        vim.defer_fn(function()
+          require("copilot").setup()
+        end, 100)
+      end,
+    }
+
+    use({
+      'zbirenbaum/copilot-cmp',
+      after = { 'copilot.lua', 'nvim-cmp'}
     })
 
     if packer_bootstrap then
