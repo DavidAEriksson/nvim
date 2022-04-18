@@ -124,13 +124,16 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Setup language servers from server name
 for _, server in ipairs({
-  'sumneko_lua',
+  -- 'sumneko_lua',
   'tsserver',
   'null-ls',
   -- 'omnisharp'
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
+
+require('modules.lsp.sumneko_lua')
+
 
 -- suppress lspconfig messages
 local notify = vim.notify
