@@ -3,7 +3,7 @@ local cmd = vim.api.nvim_command
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local fn = vim.fn
 
--- install packer if needed
+-- Ensure packer installed, if not, install it
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({
     'git',
@@ -16,7 +16,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require('packer').init({
-  -- /home/stef/.local/share/nvim/site/pack/packer/start/packer.nvim/packer_compiled.lua
   compile_path = install_path .. '/packer_compiled.lua',
 })
 
@@ -102,11 +101,12 @@ return require('packer').startup({
 
     use({
       'JoosepAlviste/nvim-ts-context-commentstring',
-      ft = { 'typescript', 'typescriptreact' },
+      ft = { 'typescript', 'typescriptreact', 'lua' },
     })
 
     use({
       'numToStr/Comment.nvim',
+      'JoosepAlviste/nvim-ts-context-commentstring',
     })
 
     use({

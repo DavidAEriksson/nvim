@@ -27,7 +27,6 @@ end
 -- Escape? More like shut the hell up
 imap('jk', '<Esc>')
 imap('kj', '<Esc>')
-nmap('<leader>q', '<Esc>')
 
 -- Tab to next S-Tab to prev buf
 nmap('<TAB>', ':bnext<CR>')
