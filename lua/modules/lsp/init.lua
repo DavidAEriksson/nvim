@@ -134,7 +134,6 @@ end
 
 require('modules.lsp.sumneko_lua')
 
-
 -- suppress lspconfig messages
 local notify = vim.notify
 vim.notify = function(msg, ...)
