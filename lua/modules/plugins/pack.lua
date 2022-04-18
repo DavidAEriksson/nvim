@@ -20,7 +20,7 @@ require('packer').init({
   compile_path = install_path .. '/packer_compiled.lua',
 })
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- Plugin manager
   use('wbthomason/packer.nvim')
 
@@ -105,6 +105,10 @@ return require('packer').startup(function(use)
   })
 
   use({
+    'numToStr/Comment.nvim'
+  })
+
+  use({
     'tpope/vim-surround',
     'windwp/nvim-autopairs',
     'norcalli/nvim-colorizer.lua',
@@ -172,4 +176,12 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+config = {
+  display = {
+    open_fn = function ()
+      return require('packer.util').float({ border = 'single' })
+    end
+  }
+}
+})
