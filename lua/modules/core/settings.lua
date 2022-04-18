@@ -57,14 +57,14 @@ o.background = 'dark'
 o.laststatus = 3
 
 -- Stop newline comment continuation
-local bufEn = vim.api.nvim_create_augroup('Startup', { clear = true})
+local bufEn = vim.api.nvim_create_augroup('Startup', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'set formatoptions-=cro',
-  group = bufEn
+  group = bufEn,
 })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'setlocal formatoptions-=cro',
-  group = bufEn
+  group = bufEn,
 })
 
 -- Highlight yanked area for 300 ms
