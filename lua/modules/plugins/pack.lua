@@ -1,4 +1,5 @@
-vim.cmd('packadd packer.nvim') local cmd = vim.api.nvim_command
+vim.cmd('packadd packer.nvim')
+local cmd = vim.api.nvim_command
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local fn = vim.fn
 
@@ -170,22 +171,22 @@ return require('packer').startup({
 
     -- Copilot
     use({
-      'github/copilot.vim'
+      'github/copilot.vim',
     })
 
-    use{
-      "zbirenbaum/copilot.lua",
-      event = {"VimEnter"},
+    use({
+      'zbirenbaum/copilot.lua',
+      event = { 'VimEnter' },
       config = function()
         vim.defer_fn(function()
-          require("copilot").setup()
+          require('copilot').setup()
         end, 100)
       end,
-    }
+    })
 
     use({
       'zbirenbaum/copilot-cmp',
-      after = { 'copilot.lua', 'nvim-cmp'}
+      after = { 'copilot.lua', 'nvim-cmp' },
     })
 
     if packer_bootstrap then
