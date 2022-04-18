@@ -55,18 +55,16 @@ o.background = 'dark'
 
 -- Laststatus
 o.laststatus = 3
--- If we're running a coloscheme that does not yet
--- support >0.7 global status line.
-vim.api.nvim_create_autocmd({ 'VimEnter' }, {
-  command = ':highlight WinSeparator guibg=none',
-})
 
 -- Stop newline comment continuation
+local bufEn = vim.api.nvim_create_augroup('Startup', { clear = true})
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'set formatoptions-=cro',
+  group = bufEn
 })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'setlocal formatoptions-=cro',
+  group = bufEn
 })
 
 -- Highlight yanked area for 300 ms
