@@ -132,8 +132,6 @@ for _, server in ipairs({
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
 
-require('modules.lsp.sumneko_lua')
-
 -- suppress lspconfig messages
 local notify = vim.notify
 vim.notify = function(msg, ...)

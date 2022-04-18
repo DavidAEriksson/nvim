@@ -68,3 +68,8 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'setlocal formatoptions-=cro',
 })
+
+-- Highlight yanked area for 300 ms
+vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
+  command = 'silent! lua vim.highlight.on_yank({higroup="Visual", timeout=300})',
+})
