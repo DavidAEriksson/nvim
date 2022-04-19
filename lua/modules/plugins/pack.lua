@@ -22,8 +22,9 @@ require('packer').init({
 return require('packer').startup({
   function(use)
     -- Plugin manager
-    use('wbthomason/packer.nvim')
-
+    use({
+      'wbthomason/packer.nvim'
+    })
     -- Sanity libraries
     use({
       'nvim-lua/plenary.nvim',
