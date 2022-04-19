@@ -192,7 +192,7 @@ return require('packer').startup({
 
     use({
       'prettier/vim-prettier',
-      run = 'yarn install'
+      run = 'yarn install',
     })
 
     if packer_bootstrap then
