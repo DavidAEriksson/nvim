@@ -73,3 +73,8 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
   command = 'silent! lua vim.highlight.on_yank({higroup="Visual", timeout=300})',
 })
+
+vim.cmd([[
+	let g:prettier#autoformat = 1
+	let g:prettier#autoformat_require_pragma = 0
+]])

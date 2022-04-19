@@ -190,6 +190,11 @@ return require('packer').startup({
       after = { 'copilot.lua', 'nvim-cmp' },
     })
 
+    use({
+      'prettier/vim-prettier',
+      run = 'yarn install'
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end
