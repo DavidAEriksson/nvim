@@ -1,6 +1,6 @@
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
-local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
+local plugins_count = vim.fn.len(vim.fn.globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))
 
 local function footer()
   local datetime = os.date(' %d-%m-%Y   %H:%M:%S')
