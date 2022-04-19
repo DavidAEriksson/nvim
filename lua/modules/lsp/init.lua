@@ -109,7 +109,7 @@ local on_attach = function(client, bufnr)
       global.lsp.formatting(vim.fn.expand('<abuf>'))
     end
 
-    lsp_au_group = vim.api.nvim_create_augroup('LspFormatting', { clear = false })
+    vim.api.nvim_create_augroup('LspFormatting', { clear = false })
 
     vim.api.nvim_create_autocmd({ 'BufWritePost <buffer>' }, {
       desc = 'Trigger LSP Autoformat on save',
@@ -124,13 +124,15 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Setup language servers from server name
 for _, server in ipairs({
-  -- 'sumneko_lua',
   'tsserver',
   'null-ls',
   -- 'omnisharp'
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
+
+-- This needs to be invoked as a spearate module as sumneko_lua runs its own setup function
+require('modules.lsp.sumneko_lua')
 
 -- suppress lspconfig messages
 local notify = vim.notify
