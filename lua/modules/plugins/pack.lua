@@ -23,7 +23,7 @@ return require('packer').startup({
   function(use)
     -- Plugin manager
     use({
-      'wbthomason/packer.nvim'
+      'wbthomason/packer.nvim',
     })
     -- Sanity libraries
     use({
