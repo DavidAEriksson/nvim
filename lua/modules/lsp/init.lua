@@ -93,7 +93,7 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<C-n>', ':LspDiagNext<CR>')
   u.buf_map(bufnr, 'n', 'gf', ':LspDiagLine<CR>')
   u.buf_map(bufnr, 'n', '<leader>q', ':LspDiagQuickfix<CR>')
-  u.buf_map(bufnr, 'n', '<C-x><C-x>', ':LspSignatureHelp<CR>')
+  u.buf_map(bufnr, 'n', '<C-k>', ':LspSignatureHelp<CR>')
 
   --- Telescope LSP mappings
   u.buf_map(bufnr, 'n', '<leader>gr', ':Telescope lsp_references<CR>')

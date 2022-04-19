@@ -29,7 +29,9 @@ o.shiftwidth = 2
 o.autoindent = true
 o.smartindent = true
 o.smarttab = true
-vim.g.nowrap = true
+vim.cmd([[
+	set nowrap
+]])
 
 -- Windows --
 o.splitbelow = true
