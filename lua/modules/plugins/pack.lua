@@ -197,13 +197,12 @@ return require('packer').startup({
     })
 
     use({
-      "narutoxy/dim.lua",
-      requires = { "nvim-treesitter/nvim-treesitter", "neovim/nvim-lspconfig" },
+      'narutoxy/dim.lua',
+      requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
       config = function()
         require('dim').setup({})
-      end
+      end,
     })
-
 
     if packer_bootstrap then
       require('packer').sync()
