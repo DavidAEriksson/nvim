@@ -2,10 +2,10 @@ local u = require('utils')
 local lsp = vim.lsp
 local api = vim.api
 local fn = vim.fn
-local border_opts = { border = 'rounded', focusable = false, scope = 'line' }
+local border_opts = { border = 'rounded', focusable = true, scope = 'line' }
 
 -- diagnostics
-vim.diagnostic.config({ virtual_text = false, float = border_opts })
+vim.diagnostic.config({ virtual_text = true, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
 fn.sign_define('DiagnosticSignWarn', { text = '!', texthl = 'DiagnosticSignWarn' })
 fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'DiagnosticSignInfo' })
