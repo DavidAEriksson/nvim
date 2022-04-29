@@ -14,14 +14,6 @@ local function vmap(shortcut, command)
   map('v', shortcut, command)
 end
 
-local function cmap(shortcut, command)
-  map('c', shortcut, command)
-end
-
-local function tmap(shortcut, command)
-  map('t', shortcut, command)
-end
-
 -- Escape? More like shut the hell up
 imap('jk', '<Esc>')
 imap('kj', '<Esc>')
@@ -99,3 +91,20 @@ vim.cmd([[
   imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
   let g:copilot_no_tab_map = v:true
 ]])
+
+--DAP
+
+nmap('<leader>dct', '<cmd>lua require"dap".continue()<CR>')
+nmap('<leader>dsv', '<cmd>lua require"dap".step_over()<CR>')
+nmap('<leader>dsi', '<cmd>lua require"dap".step_into()<CR>')
+nmap('<leader>dso', '<cmd>lua require"dap".step_out()<CR>')
+nmap('<leader>dtb', '<cmd>lua require"dap".toggle_breakpoint()<CR>')
+
+-- DAP Telescope
+
+-- telescope-dap
+nmap('<leader>dcc', '<cmd>lua require"telescope".extensions.dap.commands{}<CR>')
+nmap('<leader>dco', '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>')
+nmap('<leader>dlb', '<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>')
+nmap('<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<CR>')
+nmap('<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
