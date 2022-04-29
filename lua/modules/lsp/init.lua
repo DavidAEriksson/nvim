@@ -98,7 +98,7 @@ local on_attach = function(client, bufnr)
   --- Telescope LSP mappings
   u.buf_map(bufnr, 'n', '<leader>gr', ':Telescope lsp_references<CR>')
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
-  u.buf_map(bufnr, 'n', '<leader>ca', ':Telescope lsp_code_actions<CR>')
+  u.buf_map(bufnr, 'n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
 
   if client.resolved_capabilities.signature_help then
     vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
