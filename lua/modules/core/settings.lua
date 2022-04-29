@@ -55,18 +55,23 @@ o.termguicolors = true
 o.colorcolumn = '120'
 o.background = 'dark'
 
--- Laststatus
-o.laststatus = 3
-
 -- Stop newline comment continuation
 local bufEn = vim.api.nvim_create_augroup('Startup', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  pattern = '*',
   command = 'set formatoptions-=cro',
   group = bufEn,
 })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'setlocal formatoptions-=cro',
   group = bufEn,
+  pattern = '*',
+})
+
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  command = 'set laststatus=3',
+  group = bufEn,
+  pattern = '*',
 })
 
 -- Highlight yanked area for 300 ms
