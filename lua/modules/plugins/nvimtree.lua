@@ -1,12 +1,12 @@
 require('nvim-tree').setup({
-  disable_netrw = false,
+  disable_netrw = true,
   hijack_netrw = true,
   open_on_setup = false,
   ignore_ft_on_setup = {},
   auto_close = false,
   auto_reload_on_write = true,
   open_on_tab = false,
-  hijack_cursor = false,
+  hijack_cursor = true,
   update_cwd = false,
   hijack_unnamed_buffer_when_opening = false,
   hijack_directories = {
@@ -58,6 +58,11 @@ require('nvim-tree').setup({
   trash = {
     cmd = 'trash',
     require_confirm = true,
+  },
+  renderer = {
+    indent_markers = {
+      enable = true
+    }
   },
   actions = {
     change_dir = {
