@@ -42,6 +42,7 @@ o.showtabline = 1
 o.ruler = true
 o.cursorline = true
 o.scrolloff = 5
+o.clipboard = 'unnamedplus'
 
 -- Search --
 vim.cmd([[set nohlsearch]])
