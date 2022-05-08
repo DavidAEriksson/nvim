@@ -20,6 +20,21 @@ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 local preferred_formatting_clients = { 'eslint' }
 local fallback_formatting_client = 'null-ls'
 
+vim.api.nvim_create_user_command('LspLog', [[exe 'tabnew ' .. luaeval("vim.lsp.get_log_path()")]], {})
+
+require('nvim-lsp-installer').setup({
+  ensure_installed = { 'omnisharp' },
+  automatic_installation = true,
+  log_level = vim.log.levels.DEBUG,
+  ui = {
+    icons = {
+      server_installed = '✓',
+      server_pending = '➜',
+      server_uninstalled = '✗',
+    },
+  },
+})
+
 local formatting = function(bufnr)
   bufnr = tonumber(bufnr) or api.nvim_get_current_buf()
 
@@ -125,8 +140,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Setup language servers from server name
 for _, server in ipairs({
   'tsserver',
-  'null-ls',
-  -- 'omnisharp'
+  -- 'null-ls',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
