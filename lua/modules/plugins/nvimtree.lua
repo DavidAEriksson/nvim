@@ -61,8 +61,8 @@ require('nvim-tree').setup({
   },
   renderer = {
     indent_markers = {
-      enable = true
-    }
+      enable = true,
+    },
   },
   actions = {
     change_dir = {
