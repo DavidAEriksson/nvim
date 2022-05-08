@@ -122,6 +122,7 @@ return require('packer').startup({
       'EdenEast/nightfox.nvim',
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
+      'Shatur/neovim-ayu',
     })
 
     -- Statusline
