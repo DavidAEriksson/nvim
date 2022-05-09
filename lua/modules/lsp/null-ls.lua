@@ -1,3 +1,5 @@
+local M = {}
+
 -- null-ls
 local null_ls = require('null-ls')
 local b = null_ls.builtins
@@ -16,20 +18,14 @@ local sources = {
   with_root_file(b.formatting.stylua, 'stylua.toml'),
   b.formatting.trim_whitespace,
   b.formatting.fixjson,
-  ---diagnostics
-  b.diagnostics.tsc,
-  b.diagnostics.zsh,
-  b.diagnostics.trail_space,
 }
 
-local M = {
-  setup = function(on_attach, capabilities)
-    require('null-ls').setup({
-      sources = sources,
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
-  end,
-}
+M.setup = function(on_attach, capabilities)
+  require('null-ls').setup({
+    sources = sources,
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+end
 
 return M
