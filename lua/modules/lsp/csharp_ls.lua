@@ -1,4 +1,3 @@
-
 local M = {}
 
 M.setup = function(on_attach, capabilities)

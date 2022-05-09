@@ -4,7 +4,7 @@ table.insert(runtime_path, 'lua/?/init.lua')
 
 local M = {}
 
-M.setup = function (on_attach, capabilities)
+M.setup = function(on_attach, capabilities)
   local lspconfig = require('lspconfig')
   lspconfig['sumneko_lua'].setup({
     settings = {
