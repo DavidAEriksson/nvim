@@ -2,6 +2,9 @@ local o = vim.opt
 
 vim.g.mapleader = ' '
 
+-- Startup augroup
+local buf_en = vim.api.nvim_create_augroup('Startup', { clear = true })
+
 -- Path defaults --
 vim.cmd([[
 		set path+=*
@@ -56,22 +59,31 @@ o.termguicolors = true
 o.colorcolumn = '120'
 o.background = 'dark'
 
+-- Folds
+-- o.foldmethod = "expr"
+-- o.foldexpr = "nvim_treesitter#foldexpr()"
+--
+-- vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+--   pattern = '*',
+--   command = 'normal zR',
+--   group = buf_en,
+-- })
+
 -- Stop newline comment continuation
-local bufEn = vim.api.nvim_create_augroup('Startup', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   pattern = '*',
   command = 'set formatoptions-=cro',
-  group = bufEn,
+  group = buf_en,
 })
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'setlocal formatoptions-=cro',
-  group = bufEn,
+  group = buf_en,
   pattern = '*',
 })
 
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'set laststatus=3',
-  group = bufEn,
+  group = buf_en,
   pattern = '*',
 })
 
