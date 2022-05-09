@@ -22,19 +22,6 @@ local fallback_formatting_client = 'null-ls'
 
 vim.api.nvim_create_user_command('LspLog', [[exe 'tabnew ' .. luaeval("vim.lsp.get_log_path()")]], {})
 
-require('nvim-lsp-installer').setup({
-  ensure_installed = { 'omnisharp' },
-  automatic_installation = true,
-  log_level = vim.log.levels.DEBUG,
-  ui = {
-    icons = {
-      server_installed = '✓',
-      server_pending = '➜',
-      server_uninstalled = '✗',
-    },
-  },
-})
-
 local formatting = function(bufnr)
   bufnr = tonumber(bufnr) or api.nvim_get_current_buf()
 
@@ -140,13 +127,11 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Setup language servers from server name
 for _, server in ipairs({
   'tsserver',
-  -- 'null-ls',
+  'sumneko_lua',
+  'csharp_ls',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
-
--- This needs to be invoked as a spearate module as sumneko_lua runs its own setup function
-require('modules.lsp.sumneko_lua')
 
 -- suppress lspconfig messages
 local notify = vim.notify
@@ -157,3 +142,15 @@ vim.notify = function(msg, ...)
 
   notify(msg, ...)
 end
+
+require("nvim-lsp-installer").setup({
+    ensure_installed = { "csharp_ls" }, -- ensure these servers are always installed
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
