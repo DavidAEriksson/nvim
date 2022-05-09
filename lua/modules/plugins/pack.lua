@@ -197,13 +197,7 @@ return require('packer').startup({
       run = 'yarn install',
     })
 
-    use({
-      'narutoxy/dim.lua',
-      requires = { 'nvim-treesitter/nvim-treesitter', 'neovim/nvim-lspconfig' },
-      config = function()
-        require('dim').setup({})
-      end,
-    })
+    
 
     if packer_bootstrap then
       require('packer').sync()
