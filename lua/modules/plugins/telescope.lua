@@ -2,8 +2,8 @@ require('telescope').setup({
   picker = {
     hidden = false,
     layout_config = {
-      scroll_speed = 1
-    }
+      scroll_speed = 1,
+    },
   },
   defaults = {
     prompt_prefix = '   ',
@@ -52,7 +52,7 @@ require('telescope').setup({
       width = 0.87,
       height = 0.80,
       preview_cutoff = 120,
-      scroll_speed = 1
+      scroll_speed = 1,
     },
     file_sorter = require('telescope.sorters').get_fuzzy_file,
     generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
