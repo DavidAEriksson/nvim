@@ -1,6 +1,9 @@
 require('telescope').setup({
+  picker = {
+    hidden = false
+  },
   defaults = {
-    prompt_prefix = '  ',
+    prompt_prefix = '    ',
     selection_caret = '❯ ',
     entry_prefix = '  ',
     sorting_strategy = 'ascending',
@@ -52,8 +55,9 @@ require('telescope').setup({
     path_display = { 'truncate' },
     winblend = 0,
     border = {},
-    borderchars = { '', '', '', '', '', '', '', '' },
+    borderchars = { '' },
     color_devicons = true,
+    use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
     grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
