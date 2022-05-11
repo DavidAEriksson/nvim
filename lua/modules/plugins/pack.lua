@@ -123,6 +123,7 @@ return require('packer').startup({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
       'Shatur/neovim-ayu',
+      'rmehri01/onenord.nvim'
     })
 
     -- Statusline
