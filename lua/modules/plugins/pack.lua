@@ -123,7 +123,7 @@ return require('packer').startup({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
       'Shatur/neovim-ayu',
-      'rmehri01/onenord.nvim'
+      'rmehri01/onenord.nvim',
     })
 
     -- Statusline
@@ -197,8 +197,6 @@ return require('packer').startup({
       'prettier/vim-prettier',
       run = 'yarn install',
     })
-
-    
 
     if packer_bootstrap then
       require('packer').sync()

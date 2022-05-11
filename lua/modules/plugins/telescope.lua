@@ -1,6 +1,6 @@
 require('telescope').setup({
   picker = {
-    hidden = false
+    hidden = false,
   },
   defaults = {
     prompt_prefix = '    ',
