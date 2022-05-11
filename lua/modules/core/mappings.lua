@@ -74,7 +74,10 @@ nmap('<leader>wt', ':lua require("telescope").extensions.git_worktree.git_worktr
 nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>')
 
 -- NvimTree
-nmap('<leader>e', ':NvimTreeToggle<CR>')
+nmap('<leader>e', '<cmd>:NvimTreeToggle<CR>')
+nmap('<leader>te', '<cmd>:NvimTreeResize +20<CR>')
+nmap('<leader>ts', '<cmd>:NvimTreeResize -20<CR>')
+nmap('<leader>c', '<cmd>:NvimTreeCollapse<CR>')
 
 -- Floating terminal
 nmap('<leader>ter', '<cmd>:FloatermNew<CR>')
@@ -107,4 +110,4 @@ nmap('<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<CR>')
 nmap('<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
 
 -- Fugitive
-nmap('<leader>g', '<cmd>Git<CR>')
+nmap('<leader>g', '<cmd>:Git<CR>')
