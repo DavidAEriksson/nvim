@@ -92,6 +92,22 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
   command = 'silent! lua vim.highlight.on_yank({higroup="Visual", timeout=300})',
 })
 
+-- Disable statusline in alpha
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  pattern = 'alpha',
+  callback = function()
+    vim.cmd('set laststatus=0')
+  end,
+})
+
+-- Set global statusline
+vim.api.nvim_create_autocmd({ 'BufUnload' }, {
+  buffer = 0,
+  callback = function()
+    vim.cmd('set laststatus=3')
+  end,
+})
+
 vim.cmd([[
 	let g:prettier#autoformat = 1
 	let g:prettier#autoformat_require_pragma = 0
