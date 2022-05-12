@@ -60,8 +60,8 @@ o.colorcolumn = '120'
 o.background = 'dark'
 
 -- Folds
-o.foldmethod = "manual"
-o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldmethod = 'manual'
+o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Stop newline comment continuation
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
