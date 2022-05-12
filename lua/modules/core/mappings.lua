@@ -111,3 +111,8 @@ nmap('<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
 
 -- Fugitive
 nmap('<leader>g', '<cmd>:Git<CR>')
+
+-- Trouble
+nmap('<leader>tt', '<cmd>:TroubleToggle<CR>')
+nmap('<leader>tw', '<cmd>:TroubleToggle workspace_diagnostics<CR>')
+nmap('<leader>td', '<cmd>:TroubleToggle document_diagnostics<CR>')

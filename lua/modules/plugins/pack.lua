@@ -61,6 +61,11 @@ return require('packer').startup({
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'folke/lua-dev.nvim',
     })
+  
+    -- Trouble
+    use({
+      'folke/trouble.nvim'
+    })
 
     -- Snippets
     use({
