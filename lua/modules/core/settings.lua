@@ -60,14 +60,8 @@ o.colorcolumn = '120'
 o.background = 'dark'
 
 -- Folds
--- o.foldmethod = "expr"
--- o.foldexpr = "nvim_treesitter#foldexpr()"
---
--- vim.api.nvim_create_autocmd({ 'BufEnter' }, {
---   pattern = '*',
---   command = 'normal zR',
---   group = buf_en,
--- })
+o.foldmethod = "manual"
+o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Stop newline comment continuation
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
@@ -80,7 +74,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   group = buf_en,
   pattern = '*',
 })
-
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   command = 'set laststatus=3',
   group = buf_en,
