@@ -35,7 +35,7 @@ local colors = {
 if isExistNord then
   onenord.setup({
     borders = true,
-    fade_nc = false,
+    fade_nc = true,
     styles = {
       comments = 'italic',
       strings = 'italic',
@@ -82,6 +82,7 @@ if isExistNord then
 
       LspFloatWinNormal = { fg = colors.fg, bg = colors.grey14 },
       LspFloatWinBorder = { fg = colors.grey14 },
+      IncSearch = { fg = colors.orange },
     },
   })
 end
