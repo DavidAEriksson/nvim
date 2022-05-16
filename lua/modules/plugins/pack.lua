@@ -25,11 +25,27 @@ return require('packer').startup({
     use({
       'wbthomason/packer.nvim',
     })
+
+    -- DAP
+    use({
+      "mfussenegger/nvim-dap",
+      "Pocco81/DAPInstall.nvim",
+      "theHamsta/nvim-dap-virtual-text",
+      "rcarriga/nvim-dap-ui",
+      "nvim-telescope/telescope-dap.nvim",
+      "leoluz/nvim-dap-go",
+      opt = true,
+      event = "BufReadPre",
+      module = { "dap" },
+      wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+    })
+
     -- Sanity libraries
     use({
       'nvim-lua/plenary.nvim',
       'nvim-lua/popup.nvim',
       'ThePrimeagen/harpoon',
+      'folke/which-key.nvim',
     })
 
     --- Lsp
@@ -117,10 +133,10 @@ return require('packer').startup({
       'norcalli/nvim-colorizer.lua',
     })
 
-    use({
-      'kkoomen/vim-doge',
-      run = ':call doge#install()',
-    })
+    -- use({
+    --   'kkoomen/vim-doge',
+    --   run = ':call doge#install()',
+    -- })
 
     -- Colors, indentation and blankline
     use({
@@ -202,6 +218,8 @@ return require('packer').startup({
       'prettier/vim-prettier',
       run = 'yarn install',
     })
+
+    
 
     if packer_bootstrap then
       require('packer').sync()
