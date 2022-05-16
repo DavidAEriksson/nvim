@@ -72,7 +72,7 @@ if isExistNord then
       TelescopeResultsBorder = { bg = colors.grey15, fg = colors.grey15 },
       TelescopePreviewBorder = { bg = colors.grey16, fg = colors.grey16 },
 
-      TelescopePromptTitle = { fg = colors.grey14 , bg = colors.orange },
+      TelescopePromptTitle = { fg = colors.grey14, bg = colors.orange },
       TelescopeResultsTitle = { fg = colors.grey15 },
       TelescopePreviewTitle = { fg = colors.grey16, bg = colors.orange },
 
