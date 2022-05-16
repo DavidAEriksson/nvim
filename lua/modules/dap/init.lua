@@ -47,6 +47,7 @@ end
 
 local function configure_debuggers()
   require('modules.dap.go').setup()
+  require('modules.dap.node').setup()
 end
 
 function M.setup()
