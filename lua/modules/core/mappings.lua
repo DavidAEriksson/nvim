@@ -2,14 +2,26 @@ local function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
 
+--[[
+  `nmap`
+  Map keys to normal mode.
+]]
 local function nmap(shortcut, command)
   map('n', shortcut, command)
 end
 
+--[[
+  `imap`
+  Map keys to insert mode.
+]]
 local function imap(shortcut, command)
   map('i', shortcut, command)
 end
 
+--[[
+  `vmap`
+  Map keys to visual mode.
+]]
 local function vmap(shortcut, command)
   map('v', shortcut, command)
 end
@@ -21,7 +33,7 @@ imap('kj', '<Esc>')
 -- Tab to next S-Tab to prev buf
 nmap('<TAB>', ':bnext<CR>')
 nmap('<S-TAB>', ':bprevious<CR>')
-nmap('<leader>bd', ':bd<CR>')
+nmap('<leader>bd', ':bd | bprevious | NvimTreeToggle | NvimTreeToggle<CR>')
 
 -- Visual mode tabbing
 vmap('<', '<gv')
@@ -34,7 +46,7 @@ nmap('<C-k>', '<C-w>k')
 nmap('<C-l>', '<C-w>l')
 
 -- Save all open buffers
-nmap('<Leader>ww', '<cmd>bufdo w<CR>')
+nmap('<Leader>ww', '<cmd>:wa<CR>')
 
 -- Behave like the rest of us Y
 nmap('Y', 'y$')
