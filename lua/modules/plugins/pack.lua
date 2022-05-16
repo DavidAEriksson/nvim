@@ -28,16 +28,16 @@ return require('packer').startup({
 
     -- DAP
     use({
-      "mfussenegger/nvim-dap",
-      "Pocco81/DAPInstall.nvim",
-      "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
-      "nvim-telescope/telescope-dap.nvim",
-      "leoluz/nvim-dap-go",
+      'mfussenegger/nvim-dap',
+      'Pocco81/DAPInstall.nvim',
+      'theHamsta/nvim-dap-virtual-text',
+      'rcarriga/nvim-dap-ui',
+      'nvim-telescope/telescope-dap.nvim',
+      'leoluz/nvim-dap-go',
       opt = true,
-      event = "BufReadPre",
-      module = { "dap" },
-      wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
+      event = 'BufReadPre',
+      module = { 'dap' },
+      wants = { 'nvim-dap-virtual-text', 'DAPInstall.nvim', 'nvim-dap-ui', 'nvim-dap-python', 'which-key.nvim' },
     })
 
     -- Sanity libraries
@@ -218,8 +218,6 @@ return require('packer').startup({
       'prettier/vim-prettier',
       run = 'yarn install',
     })
-
-    
 
     if packer_bootstrap then
       require('packer').sync()

@@ -107,7 +107,6 @@ vim.cmd([[
   let g:copilot_no_tab_map = v:true
 ]])
 
-
 -- Fugitive
 nmap('<leader>g', '<cmd>:Git<CR>')
 
