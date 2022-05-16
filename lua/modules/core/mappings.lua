@@ -107,19 +107,6 @@ vim.cmd([[
   let g:copilot_no_tab_map = v:true
 ]])
 
---DAP
-nmap('<leader>dct', '<cmd>lua require"dap".continue()<CR>')
-nmap('<leader>dsv', '<cmd>lua require"dap".step_over()<CR>')
-nmap('<leader>dsi', '<cmd>lua require"dap".step_into()<CR>')
-nmap('<leader>dso', '<cmd>lua require"dap".step_out()<CR>')
-nmap('<leader>dtb', '<cmd>lua require"dap".toggle_breakpoint()<CR>')
-
--- telescope-dap
-nmap('<leader>dcc', '<cmd>lua require"telescope".extensions.dap.commands{}<CR>')
-nmap('<leader>dco', '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>')
-nmap('<leader>dlb', '<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>')
-nmap('<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<CR>')
-nmap('<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
 
 -- Fugitive
 nmap('<leader>g', '<cmd>:Git<CR>')
