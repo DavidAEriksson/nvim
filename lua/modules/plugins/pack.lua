@@ -48,7 +48,7 @@ return require('packer').startup({
       'folke/which-key.nvim',
     })
 
-    --- Lsp
+    -- Lsp
     use({
       'neovim/nvim-lspconfig',
       'ray-x/lsp_signature.nvim',
@@ -63,6 +63,15 @@ return require('packer').startup({
       requires = {
         'nvim-lua/plenary.nvim',
         'neovim/nvim-lspconfig',
+      },
+    })
+
+    -- Refactoring
+    use({
+      'ThePrimeagen/refactoring.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-treesitter/nvim-treesitter',
       },
     })
 
