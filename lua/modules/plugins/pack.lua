@@ -227,6 +227,11 @@ return require('packer').startup({
       'prettier/vim-prettier',
       run = 'yarn install',
     })
+    
+    use({
+      'phaazon/hop.nvim',
+      branch = 'v1'
+    })
 
     if packer_bootstrap then
       require('packer').sync()
