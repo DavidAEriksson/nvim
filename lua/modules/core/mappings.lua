@@ -144,9 +144,8 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, expr = false }
 )
 vim.api.nvim_set_keymap(
-    "v",
-    "<leader>rr",
-    ":lua require('refactoring').select_refactor()<CR>",
-    { noremap = true, silent = true, expr = false }
+  'v',
+  '<leader>rr',
+  ":lua require('refactoring').select_refactor()<CR>",
+  { noremap = true, silent = true, expr = false }
 )
-
