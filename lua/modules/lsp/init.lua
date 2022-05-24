@@ -130,6 +130,7 @@ for _, server in ipairs({
   'sumneko_lua',
   'csharp_ls',
   'go',
+  'clangd'
   -- 'null-ls', TODO: re-enable null-ls when it's fixed
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
