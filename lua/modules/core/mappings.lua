@@ -120,6 +120,9 @@ vim.cmd([[
   let g:copilot_no_tab_map = v:true
 ]])
 
+imap("<C-H>", "<Plug>(copilot-next)")
+imap("<C-L>", "<Plug>(copilot-previous)")
+
 -- Fugitive
 nmap('<leader>g', '<cmd>:Git<CR>')
 
