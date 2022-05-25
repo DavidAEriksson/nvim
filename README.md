@@ -41,11 +41,9 @@ end
 
 #### Lua LSP
 
-The Lua LSP available through `sumneko_lua` requires a different setup:
+The Lua LSP available through `sumneko_lua` requires a different installation setup:
 
 1. Install `sumneko_lua` with `brew install lua-language-server`
 2. Install `stylua` to handle formatting:
    1. Install `cargo`: `curl https://sh.rustup.rs -sSf | sh`
    2. Install `stylua`: `cargo install stylua`
-
-`sumneko_lua` cannot be handled from the previously mentioned LSP table and is invoked directly somewhere in `init.lua`: `require(modules.lsp.sumneko_lua)`
