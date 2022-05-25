@@ -5,6 +5,9 @@ end
 --[[
   `nmap`
   Map keys to normal mode.
+
+  @param {string} shortcut - The key combination to map.
+  @param {string} command - The command to execute.
 ]]
 local function nmap(shortcut, command)
   map('n', shortcut, command)
@@ -13,6 +16,9 @@ end
 --[[
   `imap`
   Map keys to insert mode.
+
+  @param {string} shortcut - The key combination to map.
+  @param {string} command - The command to execute.
 ]]
 local function imap(shortcut, command)
   map('i', shortcut, command)
@@ -21,6 +27,9 @@ end
 --[[
   `vmap`
   Map keys to visual mode.
+
+  @param {string} shortcut - The key combination to map.
+  @param {string} command - The command to execute.
 ]]
 local function vmap(shortcut, command)
   map('v', shortcut, command)
