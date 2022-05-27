@@ -233,6 +233,10 @@ return require('packer').startup({
       branch = 'v1',
     })
 
+    use({
+      'napmn/react-extract.nvim'
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end
