@@ -1,1 +1,1 @@
-require("react-extract").setup()
+require('react-extract').setup()

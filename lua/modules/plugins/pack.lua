@@ -234,7 +234,7 @@ return require('packer').startup({
     })
 
     use({
-      'napmn/react-extract.nvim'
+      'napmn/react-extract.nvim',
     })
 
     if packer_bootstrap then
