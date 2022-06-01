@@ -131,6 +131,7 @@ for _, server in ipairs({
   'csharp_ls',
   'go',
   'clangd',
+  'rust_analyzer',
   -- 'null-ls', TODO: re-enable null-ls when it's fixed
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
@@ -146,14 +147,14 @@ vim.notify = function(msg, ...)
   notify(msg, ...)
 end
 
-require('nvim-lsp-installer').setup({
-  ensure_installed = { 'csharp_ls' }, -- ensure these servers are always installed
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-  ui = {
-    icons = {
-      server_installed = '✓',
-      server_pending = '➜',
-      server_uninstalled = '✗',
-    },
-  },
-})
+-- require('nvim-lsp-installer').setup({
+--   ensure_installed = { 'csharp_ls' }, -- ensure these servers are always installed
+--   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+--   ui = {
+--     icons = {
+--       server_installed = '✓',
+--       server_pending = '➜',
+--       server_uninstalled = '✗',
+--     },
+--   },
+-- })
