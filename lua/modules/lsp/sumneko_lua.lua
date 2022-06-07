@@ -31,7 +31,7 @@ M.setup = function(on_attach, capabilities)
     },
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
-      client.resolved_capabilities.document_formatting = false
+      -- client.resolved_capabilities.document_formatting = false
     end,
     capabilities = capabilities,
   })

@@ -102,23 +102,23 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
   u.buf_map(bufnr, 'n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
 
-  if client.resolved_capabilities.signature_help then
-    vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
-  end
+  -- if client.resolved_capabilities.signature_help then
+  --   vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
+  -- end
 
-  if client.supports_method('textDocument/formatting') then
-    local lsp_format_buf = function()
-      global.lsp.formatting(vim.fn.expand('<abuf>'))
-    end
-
-    vim.api.nvim_create_augroup('LspFormatting', { clear = false })
-
-    vim.api.nvim_create_autocmd({ 'BufWritePost <buffer>' }, {
-      desc = 'Trigger LSP Autoformat on save',
-      callback = lsp_format_buf,
-      group = 'LspFormatting',
-    })
-  end
+  -- if client.supports_method('textDocument/formatting') then
+  --   local lsp_format_buf = function()
+  --     global.lsp.formatting(vim.fn.expand('<abuf>'))
+  --   end
+  --
+  --   vim.api.nvim_create_augroup('LspFormatting', { clear = false })
+  --
+  --   vim.api.nvim_create_autocmd({ 'BufWritePost <buffer>' }, {
+  --     desc = 'Trigger LSP Autoformat on save',
+  --     callback = lsp_format_buf,
+  --     group = 'LspFormatting',
+  --   })
+  -- end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -146,15 +146,3 @@ vim.notify = function(msg, ...)
 
   notify(msg, ...)
 end
-
--- require('nvim-lsp-installer').setup({
---   ensure_installed = { 'csharp_ls' }, -- ensure these servers are always installed
---   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
---   ui = {
---     icons = {
---       server_installed = '✓',
---       server_pending = '➜',
---       server_uninstalled = '✗',
---     },
---   },
--- })
