@@ -106,4 +106,4 @@ vim.cmd([[
 	let g:prettier#autoformat_require_pragma = 0
 ]])
 
-require'colorizer'.setup()
+require('colorizer').setup()
