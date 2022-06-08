@@ -109,7 +109,6 @@ local on_attach = function(client, bufnr)
   local lsp_formatting = function(bnr)
     vim.lsp.buf.format({
       filter = function(c)
-        -- apply whatever logic you want (in this example, we'll only use null-ls)
         return c.name == 'null-ls'
       end,
       bufnr = bnr,
