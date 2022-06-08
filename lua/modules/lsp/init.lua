@@ -102,23 +102,32 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
   u.buf_map(bufnr, 'n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
 
-  -- if client.resolved_capabilities.signature_help then
-  --   vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
-  -- end
+  if client.supports_method('textDocument/signatureHelp') then
+    vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
+  end
 
-  -- if client.supports_method('textDocument/formatting') then
-  --   local lsp_format_buf = function()
-  --     global.lsp.formatting(vim.fn.expand('<abuf>'))
-  --   end
-  --
-  --   vim.api.nvim_create_augroup('LspFormatting', { clear = false })
-  --
-  --   vim.api.nvim_create_autocmd({ 'BufWritePost <buffer>' }, {
-  --     desc = 'Trigger LSP Autoformat on save',
-  --     callback = lsp_format_buf,
-  --     group = 'LspFormatting',
-  --   })
-  -- end
+  local lsp_formatting = function(bufnr)
+    vim.lsp.buf.format({
+      filter = function(c)
+        -- apply whatever logic you want (in this example, we'll only use null-ls)
+        return c.name == 'null-ls'
+      end,
+      bufnr = bufnr,
+    })
+  end
+
+  local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+
+  if client.supports_method('textDocument/formatting') then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        lsp_formatting(bufnr)
+      end,
+    })
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -132,7 +141,7 @@ for _, server in ipairs({
   'go',
   'clangd',
   'rust_analyzer',
-  -- 'null-ls', TODO: re-enable null-ls when it's fixed
+  'null-ls',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
