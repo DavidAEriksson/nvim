@@ -106,13 +106,13 @@ local on_attach = function(client, bufnr)
     vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
   end
 
-  local lsp_formatting = function(bufnr)
+  local lsp_formatting = function(bnr)
     vim.lsp.buf.format({
       filter = function(c)
         -- apply whatever logic you want (in this example, we'll only use null-ls)
         return c.name == 'null-ls'
       end,
-      bufnr = bufnr,
+      bufnr = bnr,
     })
   end
 
