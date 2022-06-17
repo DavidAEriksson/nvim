@@ -136,8 +136,8 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 for _, server in ipairs({
   'tsserver',
   'sumneko_lua',
-  'csharp_ls',
-  'go',
+  'omnisharp',
+  -- 'go',
   'clangd',
   'rust_analyzer',
   'null-ls',

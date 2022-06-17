@@ -50,11 +50,11 @@ return require('packer').startup({
 
     -- Lsp
     use({
+      'williamboman/nvim-lsp-installer',
       'neovim/nvim-lspconfig',
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'onsails/lspkind-nvim',
-      'williamboman/nvim-lsp-installer',
       'omnisharp/omnisharp-vim',
     })
 
