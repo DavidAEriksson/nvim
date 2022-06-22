@@ -237,6 +237,15 @@ return require('packer').startup({
       'napmn/react-extract.nvim',
     })
 
+    use({
+      'stevearc/dressing.nvim',
+    })
+
+    use({
+      'kevinhwang91/nvim-ufo',
+      requires = 'kevinhwang91/promise-async',
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end
