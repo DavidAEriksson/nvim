@@ -115,14 +115,6 @@ nmap('<leader>h4', "<cmd> lua require('harpoon.ui').nav_file(4)<CR>")
 nmap('<leader>h', '<cmd>:HopWord<CR>')
 nmap('<leader>hl', '<cmd>:HopLine<CR>')
 
-vim.cmd([[
-  imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-  let g:copilot_no_tab_map = v:true
-]])
-
-imap('<C-H>', '<Plug>(copilot-next)')
-imap('<C-L>', '<Plug>(copilot-previous)')
-
 -- Fugitive
 nmap('<leader>g', '<cmd>:Git<CR>')
 
