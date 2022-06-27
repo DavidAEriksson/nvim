@@ -141,7 +141,7 @@ for _, server in ipairs({
   'clangd',
   'rust_analyzer',
   'null-ls',
-  'bashls'
+  'bashls',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
