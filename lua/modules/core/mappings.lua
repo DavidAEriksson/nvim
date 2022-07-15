@@ -87,7 +87,7 @@ nmap('<leader>j', '<esc>:m .+1<CR>==')
 nmap('<leader>k', '<esc>:m .-2<CR>==')
 
 -- Telescope
-nmap('<S-f>', ':Telescope find_files<CR>')
+nmap('<leader>f', ':Telescope find_files<CR>')
 nmap('<leader>rg', ':Telescope live_grep<CR>')
 nmap('<leader>fb', ':Telescope buffers<CR>')
 nmap('<leader>fh', ':Telescope help_tags<CR>')
