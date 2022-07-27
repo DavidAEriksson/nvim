@@ -68,7 +68,6 @@ nmap('n', 'nzzzv')
 nmap('N', 'nzzzv')
 nmap('J', 'mzJ`z')
 
-
 -- Move all the text (:
 vmap('J', ":m '>+1<CR>gv=gv")
 vmap('K', ":m '<-2<CR>gv=gv")
