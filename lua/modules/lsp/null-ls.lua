@@ -18,6 +18,7 @@ local sources = {
   with_root_file(b.formatting.stylua, 'stylua.toml'),
   b.formatting.trim_whitespace,
   b.formatting.fixjson,
+  b.formatting.prettier
 }
 
 M.setup = function(on_attach, capabilities)

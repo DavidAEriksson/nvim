@@ -1,10 +1,10 @@
 vim.cmd('packadd packer.nvim')
-local cmd = vim.api.nvim_command
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local fn = vim.fn
+local packer_bootstrap = nil
 
 -- Ensure packer installed, if not, install it
-if fn.empty(fn.glob(install_path)) > 0 then
+if fn.empty(fn.glob(install_path, nil, 0)) > 0 then
   packer_bootstrap = fn.system({
     'git',
     'clone',

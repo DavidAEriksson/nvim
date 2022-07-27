@@ -140,10 +140,10 @@ for _, server in ipairs({
   -- 'go',
   'clangd',
   'rust_analyzer',
-  'null-ls',
+  -- 'null-ls',
   'bashls',
   'pylsp',
-  'denols',
+  -- 'denols',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
