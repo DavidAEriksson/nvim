@@ -68,17 +68,6 @@ nmap('n', 'nzzzv')
 nmap('N', 'nzzzv')
 nmap('J', 'mzJ`z')
 
--- Undo breakpoints
-imap(',', ',<c-g>')
-imap('.', '.<c-g>')
-imap('!', '!<c-g>')
-imap('?', '?<c-g>')
-imap('(', '(<c-g>')
-imap(')', ')<c-g>')
-imap('[', '[<c-g>')
-imap(']', ']<c-g>')
-imap('{', '}<c-g>')
-imap('}', '}<c-g>')
 
 -- Move all the text (:
 vmap('J', ":m '>+1<CR>gv=gv")
