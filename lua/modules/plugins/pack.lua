@@ -154,6 +154,7 @@ return require('packer').startup({
       'lukas-reineke/indent-blankline.nvim',
       'Shatur/neovim-ayu',
       'rmehri01/onenord.nvim',
+      'rose-pine/neovim'
     })
 
     -- Statusline
@@ -164,8 +165,6 @@ return require('packer').startup({
         opt = true,
       },
     })
-
-    use({ 'arkav/lualine-lsp-progress' })
 
     -- Explorer
     use({
@@ -222,8 +221,7 @@ return require('packer').startup({
     })
 
     use({
-      'kevinhwang91/nvim-ufo',
-      requires = 'kevinhwang91/promise-async',
+      'Pocco81/true-zen.nvim'
     })
 
     if packer_bootstrap then
