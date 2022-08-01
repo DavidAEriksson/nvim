@@ -35,7 +35,7 @@ local colors = {
 if isExistNord then
   onenord.setup({
     borders = true,
-    fade_nc = true,
+    fade_nc = false,
     styles = {
       comments = 'italic',
       strings = 'italic',
