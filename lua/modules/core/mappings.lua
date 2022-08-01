@@ -77,6 +77,7 @@ nmap('<leader>k', '<esc>:m .-2<CR>==')
 
 -- Telescope
 nmap('<leader>f', ':Telescope find_files<CR>')
+nmap('<S-f>', ':Telescope find_files<CR>')
 nmap('<leader>rg', ':Telescope live_grep<CR>')
 nmap('<leader>fb', ':Telescope buffers<CR>')
 nmap('<leader>fh', ':Telescope help_tags<CR>')
@@ -146,3 +147,5 @@ vim.api.nvim_set_keymap(
   ":lua require('refactoring').select_refactor()<CR>",
   { noremap = true, silent = true, expr = false }
 )
+
+nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
