@@ -14,20 +14,20 @@ local colors = {
 }
 
 require('rose-pine').setup({
-	--- @usage 'main' | 'moon'
-	dark_variant = 'moon',
-	bold_vert_split = false,
-	dim_nc_background = false,
-	disable_background = false,
-	disable_float_background = false,
-	disable_italics = false,
+  --- @usage 'main' | 'moon'
+  dark_variant = 'moon',
+  bold_vert_split = false,
+  dim_nc_background = false,
+  disable_background = false,
+  disable_float_background = false,
+  disable_italics = false,
 
-	--- @usage string hex value or named color from rosepinetheme.com/palette
-	groups = {},
+  --- @usage string hex value or named color from rosepinetheme.com/palette
+  groups = {},
   highlights = bufferline,
 
-	-- Change specific vim highlight groups
-	highlight_groups = {
+  -- Change specific vim highlight groups
+  highlight_groups = {
     VertSplit = { fg = colors.grey14 },
     BufferLineIndicatorSelected = { fg = colors.red, bg = colors.red },
     BufferLineFill = { fg = colors.fg, bg = colors.grey14 },
@@ -62,7 +62,7 @@ require('rose-pine').setup({
     LspFloatWinNormal = { fg = colors.fg, bg = colors.grey14 },
     LspFloatWinBorder = { fg = colors.grey14 },
     IncSearch = { fg = colors.grey14, bg = colors.orange },
-	}
+  },
 })
 
 -- set colorscheme after options

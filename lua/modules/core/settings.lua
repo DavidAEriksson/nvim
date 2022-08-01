@@ -16,8 +16,8 @@ vim.cmd([[
 -- File encodings --
 o.encoding = 'UTF-8'
 o.fileencoding = 'UTF-8'
-o.timeoutlen=500
-o.ttimeoutlen=0
+o.timeoutlen = 500
+o.ttimeoutlen = 0
 
 -- Sidebar and numbers --
 o.number = true

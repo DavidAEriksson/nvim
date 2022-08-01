@@ -154,7 +154,7 @@ return require('packer').startup({
       'lukas-reineke/indent-blankline.nvim',
       'Shatur/neovim-ayu',
       'rmehri01/onenord.nvim',
-      'rose-pine/neovim'
+      'rose-pine/neovim',
     })
 
     -- Statusline
@@ -221,7 +221,7 @@ return require('packer').startup({
     })
 
     use({
-      'Pocco81/true-zen.nvim'
+      'Pocco81/true-zen.nvim',
     })
 
     if packer_bootstrap then
