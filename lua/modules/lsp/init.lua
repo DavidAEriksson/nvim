@@ -140,7 +140,7 @@ for _, server in ipairs({
   -- 'go',
   'clangd',
   'rust_analyzer',
-  -- 'null-ls',
+  'null-ls',
   'bashls',
   'pylsp',
   -- 'denols',

@@ -6,7 +6,6 @@ M.setup = function(on_attach, capabilities)
   lspconfig.omnisharp.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    use_mono = false,
   })
 end
 

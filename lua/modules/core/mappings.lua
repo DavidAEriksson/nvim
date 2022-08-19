@@ -1,3 +1,5 @@
+require('telescope').load_extension('refactoring')
+
 local function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
@@ -82,6 +84,7 @@ nmap('<leader>fb', ':Telescope buffers<CR>')
 nmap('<leader>fh', ':Telescope help_tags<CR>')
 nmap('<leader>wt', ':lua require("telescope").extensions.git_worktree.git_worktrees()<CR>')
 nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>')
+vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
 
 -- NvimTree
 nmap('<leader>e', '<cmd>:NvimTreeToggle<CR>')
@@ -116,35 +119,23 @@ nmap('<leader>td', '<cmd>:TroubleToggle document_diagnostics<CR>')
 vim.keymap.set({ 'v' }, '<leader>xf', require('react-extract').extract_to_new_file)
 vim.keymap.set({ 'v' }, '<Leader>xc', require('react-extract').extract_to_current_file)
 
-vim.api.nvim_set_keymap(
-  'v',
-  '<leader>re',
-  [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>]],
-  { noremap = true, silent = true, expr = false }
-)
-vim.api.nvim_set_keymap(
-  'v',
-  '<leader>rf',
-  [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>]],
-  { noremap = true, silent = true, expr = false }
-)
-vim.api.nvim_set_keymap(
-  'v',
-  '<leader>rv',
-  [[ <Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>]],
-  { noremap = true, silent = true, expr = false }
-)
-vim.api.nvim_set_keymap(
-  'v',
-  '<leader>ri',
-  [[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-  { noremap = true, silent = true, expr = false }
-)
-vim.api.nvim_set_keymap(
-  'v',
-  '<leader>rr',
-  ":lua require('refactoring').select_refactor()<CR>",
-  { noremap = true, silent = true, expr = false }
-)
-
 nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
+
+-- Autoclose tags
+vim.keymap.set('i', '/', function()
+  local ts_utils = require('nvim-treesitter.ts_utils')
+
+  local node = ts_utils.get_node_at_cursor()
+  if not node then
+    return '/'
+  end
+
+  if node:type() == 'jsx_opening_element' then
+    local char_at_cursor = vim.fn.strcharpart(vim.fn.strpart(vim.fn.getline('.'), vim.fn.col('.') - 2), 0, 1)
+    local already_have_space = char_at_cursor == ' '
+
+    return already_have_space and '/>' or ' />'
+  end
+
+  return '/'
+end, { expr = true, buffer = true })
