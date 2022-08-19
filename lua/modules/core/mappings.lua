@@ -138,4 +138,7 @@ vim.keymap.set('i', '/', function()
   end
 
   return '/'
-end, { expr = true, buffer = true })
+end, {
+  expr = true,
+  buffer = true,
+})
