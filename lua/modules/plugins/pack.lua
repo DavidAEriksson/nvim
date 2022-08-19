@@ -128,7 +128,6 @@ return require('packer').startup({
 
     use({
       'windwp/nvim-ts-autotag',
-      ft = { 'typescript', 'typescriptreact' },
     })
 
     use({
@@ -197,10 +196,11 @@ return require('packer').startup({
     -- Git
     use({
       'airblade/vim-rooter',
-      'tpope/vim-fugitive',
       'APZelos/blamer.nvim',
       'lewis6991/gitsigns.nvim',
     })
+
+    use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
 
     use({
       'prettier/vim-prettier',
