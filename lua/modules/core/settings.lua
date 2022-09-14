@@ -109,3 +109,8 @@ vim.cmd([[
 ]])
 
 require('colorizer').setup()
+
+vim.cmd('let g:neovide_transparency=0.0')
+vim.cmd('let g:transparency= 0.9')
+vim.cmd("let g:neovide_background_color = '#1b1e28'.printf('%x',float2nr(255*g:transparency))")
+vim.opt.guifont = { 'Liga SFMono Nerd Font,Cascadia Code SemiLight Italic', ':h16' }

@@ -127,6 +127,10 @@ return require('packer').startup({
     })
 
     use({
+      'nvim-treesitter/playground',
+    })
+
+    use({
       'windwp/nvim-ts-autotag',
     })
 
@@ -141,11 +145,6 @@ return require('packer').startup({
       'norcalli/nvim-colorizer.lua',
     })
 
-    -- use({
-    --   'kkoomen/vim-doge',
-    --   run = ':call doge#install()',
-    -- })
-
     -- Colors, indentation and blankline
     use({
       'EdenEast/nightfox.nvim',
@@ -154,7 +153,11 @@ return require('packer').startup({
       'Shatur/neovim-ayu',
       'rmehri01/onenord.nvim',
       'rose-pine/neovim',
+      --[[ 'DavidAEriksson/luna', ]]
+      'olivercederborg/poimandres.nvim',
     })
+
+    use({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' })
 
     -- Statusline
     use({
@@ -182,10 +185,8 @@ return require('packer').startup({
       end,
     })
 
-    -- Floating terminal
-    use({
-      'voldikss/vim-floaterm',
-    })
+    -- toggleterm
+    use({ 'akinsho/toggleterm.nvim' })
 
     -- Bufferline
     use({
@@ -222,6 +223,13 @@ return require('packer').startup({
 
     use({
       'Pocco81/true-zen.nvim',
+      config = function()
+        require('true-zen').setup({
+          integrations = {
+            lualine = false,
+          },
+        })
+      end,
     })
 
     if packer_bootstrap then

@@ -46,6 +46,9 @@ nmap('<TAB>', ':bnext<CR>')
 nmap('<S-TAB>', ':bprevious<CR>')
 nmap('<leader>bd', ':bd | bprevious <CR>')
 
+-- Allow S-TAB to dedent in insert mode
+imap('<S-TAB>', '<C-D>')
+
 -- Visual mode tabbing
 vmap('<', '<gv')
 vmap('>', '>gv')
@@ -88,12 +91,11 @@ vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.re
 
 -- NvimTree
 nmap('<leader>e', '<cmd>:NvimTreeToggle<CR>')
-nmap('<leader>te', '<cmd>:NvimTreeResize +20<CR>')
-nmap('<leader>ts', '<cmd>:NvimTreeResize -20<CR>')
 nmap('<leader>c', '<cmd>:NvimTreeCollapse<CR>')
 
 -- Floating terminal
-nmap('<leader>ter', '<cmd>:FloatermNew<CR>')
+nmap('<leader>ter', '<cmd>:ToggleTerm direction=tab<CR>')
+nmap('<leader>tel', '<cmd>:ToggleTerm direction=vertical<CR>')
 
 -- Harpoon
 nmap('<leader>ha', "<cmd> lua require('harpoon.mark').add_file()<CR>")
@@ -142,3 +144,6 @@ end, {
   expr = true,
   buffer = true,
 })
+
+-- Neovide paste from system clipboard
+imap('<D-v>', '"+p')

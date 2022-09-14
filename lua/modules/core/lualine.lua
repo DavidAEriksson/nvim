@@ -5,7 +5,7 @@
 local config = {
   options = {
     icons_enabled = true,
-    theme = 'rose-pine',
+    theme = 'auto',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = {},
@@ -15,7 +15,7 @@ local config = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_x = { "os.date('%a')", 'data', "require'lsp-status'.status()" },
     lualine_y = { 'progress' },
     lualine_z = { 'location' },
   },

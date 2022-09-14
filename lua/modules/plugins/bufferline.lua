@@ -6,5 +6,6 @@ require('bufferline').setup({
     diagnostics_update_in_insert = true,
     separator_style = 'thin',
     show_close_icon = false,
+    themable = true,
   },
 })
