@@ -144,6 +144,3 @@ end, {
   expr = true,
   buffer = true,
 })
-
--- Neovide paste from system clipboard
-imap('<D-v>', '"+p')
