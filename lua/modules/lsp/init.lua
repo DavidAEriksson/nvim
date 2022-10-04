@@ -17,75 +17,38 @@ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 
 -- use lsp formatting if it's available (and if it's good)
 -- otherwise, fall back to null-ls
-local preferred_formatting_clients = { 'eslint' }
-local fallback_formatting_client = 'null-ls'
 
-vim.api.nvim_create_user_command('LspLog', [[exe 'tabnew ' .. luaeval("vim.lsp.get_log_path()")]], {})
+local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
-local formatting = function(bufnr)
-  bufnr = tonumber(bufnr) or api.nvim_get_current_buf()
-
-  local selected_client
-  for _, client in ipairs(lsp.get_active_clients(bufnr)) do
-    if vim.tbl_contains(preferred_formatting_clients, client.name) then
-      selected_client = client
-      break
-    end
-
-    if client.name == fallback_formatting_client then
-      selected_client = client
-    end
-  end
-
-  if not selected_client then
-    return
-  end
-
-  local params = lsp.util.make_formatting_params()
-
-  selected_client.request('textDocument/formatting', params, function(err, res)
-    if err then
-      local err_msg = type(err) == 'string' and err or err.message
-      vim.notify('global.lsp.formatting: ' .. err_msg, vim.log.levels.WARN)
-      return
-    end
-
-    if not api.nvim_buf_is_loaded(bufnr) or api.nvim_buf_get_option(bufnr, 'modified') then
-      return
-    end
-
-    if res then
-      lsp.util.apply_text_edits(res, bufnr, selected_client.offset_encoding or 'utf-16')
-      api.nvim_buf_call(bufnr, function()
-        vim.cmd('silent noautocmd update')
-      end)
-    end
-  end, bufnr)
+local lsp_formatting = function(bufnr)
+  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+  lsp.buf.format({
+    bufnr = bufnr,
+    filter = function(client)
+      if client.name == 'eslint' then
+        return true
+      end
+      if client.name == 'null-ls' then
+        return not u.table.some(clients, function(_, other_client)
+          return other_client.name == 'eslint'
+        end)
+      end
+    end,
+  })
 end
 
-global.lsp = {
-  border_opts = border_opts,
-  formatting = formatting,
-}
-
 local on_attach = function(client, bufnr)
-  require('lsp_signature').on_attach()
-
-  -- commands
-  u.command('LspFormatting', vim.lsp.buf.formatting)
-  u.command('LspHover', vim.lsp.buf.hover)
-  u.command('LspDiagPrev', vim.diagnostic.goto_prev)
-  u.command('LspDiagNext', vim.diagnostic.goto_next)
-  u.command('LspDiagLine', vim.diagnostic.open_float)
-  u.command('LspDiagQuickfix', vim.diagnostic.setqflist)
-  u.command('LspSignatureHelp', vim.lsp.buf.signature_help)
-  u.command('LspTypeDef', vim.lsp.buf.type_definition)
-  u.command('LspDef', vim.lsp.buf.definition)
-  u.command('LspRangeAct', vim.lsp.buf.range_code_action)
-
-  u.command('LspRename', function()
+  api.nvim_buf_create_user_command(bufnr, 'LspDiagPrev', vim.diagnostic.goto_prev, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspDiagNext', vim.diagnostic.goto_next, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspDiagLine', vim.diagnostic.open_float, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspDiagQuickfix', vim.diagnostic.setqflist, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspSignatureHelp', vim.lsp.buf.signature_help, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspTypeDef', vim.lsp.buf.type_definition, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspDef', vim.lsp.buf.definition, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspHover', vim.lsp.buf.hover, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspRename', function()
     vim.lsp.buf.rename()
-  end)
+  end, {})
 
   --- LSP Mappings
   u.buf_map(bufnr, 'n', '<leader>rn', ':LspRename<CR>')
@@ -102,34 +65,21 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
   u.buf_map(bufnr, 'n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
 
-  if client.supports_method('textDocument/signatureHelp') then
-    vim.cmd('autocmd CursorHoldI <buffer> lua vim.lsp.buf.signature_help()')
-  end
-
-  local lsp_formatting = function(bnr)
-    vim.lsp.buf.format({
-      filter = function(c)
-        return c.name == 'null-ls'
-      end,
-      bufnr = bnr,
-    })
-  end
-
-  local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-
   if client.supports_method('textDocument/formatting') then
+    u.buf_command(bufnr, 'LspFormatting', function()
+      lsp_formatting(bufnr)
+    end)
+
     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
     vim.api.nvim_create_autocmd('BufWritePre', {
       group = augroup,
       buffer = bufnr,
-      callback = function()
-        lsp_formatting(bufnr)
-      end,
+      command = 'LspFormatting',
     })
   end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Setup language servers from server name
@@ -140,11 +90,12 @@ for _, server in ipairs({
   -- 'go',
   'clangd',
   'rust_analyzer',
-  -- 'null-ls',
+  'null-ls',
   'bashls',
   'pylsp',
   'css',
   'cssmodules',
+  -- 'graphql',
   -- 'denols',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)

@@ -65,6 +65,10 @@ o.background = 'dark'
 o.foldmethod = 'manual'
 o.foldexpr = 'nvim_treesitter#foldexpr()'
 
+-- Hide statusline by setting laststatus and cmdheight to 0.
+--[[ vim.o.ls = 0 ]]
+--[[ vim.o.ch = 0 ]]
+
 -- Stop newline comment continuation
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   pattern = '*',

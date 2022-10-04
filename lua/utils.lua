@@ -64,60 +64,12 @@ M.command = function(name, fn, opts)
   api.nvim_create_user_command(name, fn, opts or {})
 end
 
-M.augroup = function(name, event, fn, ft)
-  api.nvim_exec(
-    format(
-      [[
-    augroup %s
-        autocmd!
-        autocmd %s %s %s
-    augroup END
-    ]],
-      name,
-      event,
-      ft or '*',
-      fn
-    ),
-    false
-  )
+M.buf_command = function(bufnr, name, fn, opts)
+  api.nvim_buf_create_user_command(bufnr, name, fn, opts or {})
 end
 
 M.t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-M.input = function(keys, mode)
-  vim.api.nvim_feedkeys(M.t(keys), mode or 'i', true)
-end
-
-M.buf_augroup = function(name, event, fn)
-  api.nvim_exec(
-    format(
-      [[
-    augroup %s
-        autocmd! * <buffer>
-        autocmd %s <buffer> %s
-    augroup END
-    ]],
-      name,
-      event,
-      fn
-    ),
-    false
-  )
-end
-
-M.warn = function(msg)
-  api.nvim_echo({ { msg, 'WarningMsg' } }, true, {})
-end
-
-M.is_file = function(path)
-  if path == '' then
-    return false
-  end
-
-  local stat = vim.loop.fs_stat(path)
-  return stat and stat.type == 'file'
 end
 
 M.make_floating_window = function(custom_window_config, height_ratio, width_ratio)
@@ -149,5 +101,16 @@ end
 M.get_cwd = function()
   return uv.cwd
 end
+
+M.table = {
+  some = function(tbl, cb)
+    for k, v in pairs(tbl) do
+      if cb(k, v) then
+        return true
+      end
+    end
+    return false
+  end,
+}
 
 return M
