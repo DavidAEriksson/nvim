@@ -155,7 +155,7 @@ return require('packer').startup({
       'rose-pine/neovim',
       --[[ 'DavidAEriksson/luna', ]]
       'olivercederborg/poimandres.nvim',
-      'morhetz/gruvbox'
+      'morhetz/gruvbox',
     })
 
     use({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' })
