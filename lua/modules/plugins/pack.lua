@@ -26,19 +26,20 @@ return require('packer').startup({
       'wbthomason/packer.nvim',
     })
 
+    use({ 'lewis6991/impatient.nvim' })
     -- DAP
-    use({
-      'mfussenegger/nvim-dap',
-      'Pocco81/DAPInstall.nvim',
-      'theHamsta/nvim-dap-virtual-text',
-      'rcarriga/nvim-dap-ui',
-      'nvim-telescope/telescope-dap.nvim',
-      'leoluz/nvim-dap-go',
-      opt = true,
-      event = 'BufReadPre',
-      module = { 'dap' },
-      wants = { 'nvim-dap-virtual-text', 'DAPInstall.nvim', 'nvim-dap-ui', 'nvim-dap-python', 'which-key.nvim' },
-    })
+    --[[ use({ ]]
+    --[[   'mfussenegger/nvim-dap', ]]
+    --[[   'Pocco81/DAPInstall.nvim', ]]
+    --[[   'theHamsta/nvim-dap-virtual-text', ]]
+    --[[   'rcarriga/nvim-dap-ui', ]]
+    --[[   'nvim-telescope/telescope-dap.nvim', ]]
+    --[[   'leoluz/nvim-dap-go', ]]
+    --[[   opt = true, ]]
+    --[[   event = 'BufReadPre', ]]
+    --[[   module = { 'dap' }, ]]
+    --[[   wants = { 'nvim-dap-virtual-text', 'DAPInstall.nvim', 'nvim-dap-ui', 'nvim-dap-python', 'which-key.nvim' }, ]]
+    --[[ }) ]]
 
     -- Sanity libraries
     use({
@@ -147,18 +148,22 @@ return require('packer').startup({
 
     -- Colors, indentation and blankline
     use({
-      'EdenEast/nightfox.nvim',
+      --[[ 'EdenEast/nightfox.nvim', ]]
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
-      'Shatur/neovim-ayu',
-      'rmehri01/onenord.nvim',
-      'rose-pine/neovim',
+      --[[ 'Shatur/neovim-ayu', ]]
+      --[[ 'rmehri01/onenord.nvim', ]]
+      --[[ 'rose-pine/neovim', ]]
       --[[ 'DavidAEriksson/luna', ]]
-      'olivercederborg/poimandres.nvim',
-      'morhetz/gruvbox',
+      --[[ 'olivercederborg/poimandres.nvim', ]]
+      -- 'morhetz/gruvbox',
+    })
+    use({
+      'luisiacc/gruvbox-baby',
+      branch = 'main'
     })
 
-    use({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' })
+    --[[ use({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' }) ]]
 
     -- Statusline
     use({
@@ -231,6 +236,21 @@ return require('packer').startup({
           },
         })
       end,
+    })
+
+    use({
+      'folke/noice.nvim',
+      requires = {
+        'MunifTanjim/nui.nvim',
+        'rcarriga/nvim-notify',
+        'hrsh7th/nvim-cmp',
+      },
+    })
+
+    use({
+      'nvim-neorg/neorg',
+      run = ':Neorg sync-parsers',
+      requires = 'nvim-lua/plenary.nvim',
     })
 
     if packer_bootstrap then
