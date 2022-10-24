@@ -160,7 +160,7 @@ return require('packer').startup({
     })
     use({
       'luisiacc/gruvbox-baby',
-      branch = 'main'
+      branch = 'main',
     })
 
     --[[ use({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' }) ]]
