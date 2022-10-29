@@ -1,5 +1,13 @@
-local alpha = require('alpha')
-local dashboard = require('alpha.themes.dashboard')
+local ok_alpha, alpha = pcall(require, 'alpha')
+if not ok_alpha then
+  return
+end
+
+local ok_dash, dashboard = pcall(require, 'alpha.themes.dashboard')
+if not ok_dash then
+  return
+end
+
 local plugins_count = vim.fn.len(vim.fn.globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))
 
 local function footer()

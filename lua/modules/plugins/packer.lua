@@ -56,7 +56,7 @@ return require('packer').startup({
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'onsails/lspkind-nvim',
-      'omnisharp/omnisharp-vim',
+      --[[ 'omnisharp/omnisharp-vim', ]]
     })
 
     use({
@@ -217,10 +217,6 @@ return require('packer').startup({
     use({
       'phaazon/hop.nvim',
       branch = 'v1',
-    })
-
-    use({
-      'napmn/react-extract.nvim',
     })
 
     use({

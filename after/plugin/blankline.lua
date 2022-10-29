@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local g = vim.g
 
 g.indent_blankline_char = '▏'

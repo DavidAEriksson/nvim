@@ -117,10 +117,6 @@ nmap('<leader>tt', '<cmd>:TroubleToggle<CR>')
 nmap('<leader>tw', '<cmd>:TroubleToggle workspace_diagnostics<CR>')
 nmap('<leader>td', '<cmd>:TroubleToggle document_diagnostics<CR>')
 
--- Extract React component
-vim.keymap.set({ 'v' }, '<leader>xf', require('react-extract').extract_to_new_file)
-vim.keymap.set({ 'v' }, '<Leader>xc', require('react-extract').extract_to_current_file)
-
 nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
 
 -- Autoclose tags

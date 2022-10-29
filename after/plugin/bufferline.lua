@@ -1,4 +1,10 @@
-require('bufferline').setup({
+local ok, bufferline = pcall(require, 'bufferline')
+
+if not ok then
+  return
+end
+
+bufferline.setup{
   options = {
     numbers = 'ordinal',
     tab_size = 4,
@@ -8,4 +14,4 @@ require('bufferline').setup({
     show_close_icon = false,
     themable = true,
   },
-})
+}
