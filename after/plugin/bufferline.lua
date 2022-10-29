@@ -4,7 +4,7 @@ if not ok then
   return
 end
 
-bufferline.setup{
+bufferline.setup({
   options = {
     numbers = 'ordinal',
     tab_size = 4,
@@ -14,4 +14,4 @@ bufferline.setup{
     show_close_icon = false,
     themable = true,
   },
-}
+})

@@ -6,7 +6,6 @@ end
 
 luadev.setup({})
 
-
 local lsp_ok, lspconfig = pcall(require, 'lspconfig')
 
 if not lsp_ok then

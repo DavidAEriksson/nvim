@@ -1,4 +1,3 @@
-
 local ok, autotag = pcall(require, 'nvim-ts-autotag')
 
 if not ok then
@@ -6,4 +5,3 @@ if not ok then
 end
 
 autotag.setup()
-

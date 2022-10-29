@@ -11,7 +11,7 @@ require('nvim-treesitter.configs').setup({
     'markdown',
     'go',
     'rust',
-    'norg'
+    'norg',
   }, -- you can also do ensure_installed = 'all'
   highlight = {
     enable = true,
