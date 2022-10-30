@@ -1,10 +1,10 @@
-local ldev_ok, luadev = pcall(require, 'lua-dev')
+local ldev_ok, neodev = pcall(require, 'neodev')
 
 if not ldev_ok then
   return
 end
 
-luadev.setup({})
+neodev.setup({})
 
 local lsp_ok, lspconfig = pcall(require, 'lspconfig')
 
@@ -12,4 +12,4 @@ if not lsp_ok then
   return
 end
 
-lspconfig.sumneko_lua.setup(luadev)
+lspconfig.sumneko_lua.setup(neodev)

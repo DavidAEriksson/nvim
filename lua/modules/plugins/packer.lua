@@ -27,19 +27,6 @@ return require('packer').startup({
     })
 
     use({ 'lewis6991/impatient.nvim' })
-    -- DAP
-    --[[ use({ ]]
-    --[[   'mfussenegger/nvim-dap', ]]
-    --[[   'Pocco81/DAPInstall.nvim', ]]
-    --[[   'theHamsta/nvim-dap-virtual-text', ]]
-    --[[   'rcarriga/nvim-dap-ui', ]]
-    --[[   'nvim-telescope/telescope-dap.nvim', ]]
-    --[[   'leoluz/nvim-dap-go', ]]
-    --[[   opt = true, ]]
-    --[[   event = 'BufReadPre', ]]
-    --[[   module = { 'dap' }, ]]
-    --[[   wants = { 'nvim-dap-virtual-text', 'DAPInstall.nvim', 'nvim-dap-ui', 'nvim-dap-python', 'which-key.nvim' }, ]]
-    --[[ }) ]]
 
     -- Sanity libraries
     use({
@@ -56,7 +43,11 @@ return require('packer').startup({
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'onsails/lspkind-nvim',
-      --[[ 'omnisharp/omnisharp-vim', ]]
+    })
+
+    use({
+      'SmiteshP/nvim-navic',
+      requires = 'neovim/nvim-lspconfig',
     })
 
     use({

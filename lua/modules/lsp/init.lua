@@ -38,6 +38,11 @@ local lsp_formatting = function(bufnr)
 end
 
 local on_attach = function(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    local navic = require('nvim-navic')
+    navic.attach(client, bufnr)
+  end
+
   api.nvim_buf_create_user_command(bufnr, 'LspDiagPrev', vim.diagnostic.goto_prev, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagNext', vim.diagnostic.goto_next, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagLine', vim.diagnostic.open_float, {})
@@ -90,7 +95,7 @@ for _, server in ipairs({
   -- 'go',
   'clangd',
   'rust_analyzer',
-  --[[ 'null-ls', ]]
+  'null-ls',
   'bashls',
   'pylsp',
   'css',
