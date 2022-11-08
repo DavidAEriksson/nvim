@@ -4,6 +4,13 @@ local api = vim.api
 local fn = vim.fn
 local border_opts = { border = 'rounded', focusable = true, scope = 'line' }
 
+local navic = require('nvim-navic')
+
+navic.setup({
+  highlight = true,
+})
+
+require('lsp-inlayhints').setup()
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
@@ -19,6 +26,21 @@ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 -- otherwise, fall back to null-ls
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+
+-- Inlay hints autocommand
+vim.api.nvim_create_augroup('LspAttach_inlayhints', {})
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = 'LspAttach_inlayhints',
+  callback = function(args)
+    if not (args.data and args.data.client_id) then
+      return
+    end
+
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    require('lsp-inlayhints').on_attach(client, bufnr, true)
+  end,
+})
 
 local lsp_formatting = function(bufnr)
   local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
@@ -39,9 +61,9 @@ end
 
 local on_attach = function(client, bufnr)
   if client.server_capabilities.documentSymbolProvider then
-    local navic = require('nvim-navic')
     navic.attach(client, bufnr)
   end
+  vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
   api.nvim_buf_create_user_command(bufnr, 'LspDiagPrev', vim.diagnostic.goto_prev, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagNext', vim.diagnostic.goto_next, {})

@@ -119,6 +119,9 @@ nmap('<leader>td', '<cmd>:TroubleToggle document_diagnostics<CR>')
 
 nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
 
+-- Zippy
+nmap('<leader>l', "<cmd>: lua require('zippy').insert_print()<CR>")
+
 -- Autoclose tags
 vim.keymap.set('i', '/', function()
   local ts_utils = require('nvim-treesitter.ts_utils')

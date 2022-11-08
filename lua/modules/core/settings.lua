@@ -1,5 +1,3 @@
-local o = vim.opt
-
 vim.g.mapleader = ' '
 
 -- Startup augroup
@@ -14,60 +12,59 @@ vim.cmd([[
   ]])
 
 -- File encodings --
-o.encoding = 'UTF-8'
-o.fileencoding = 'UTF-8'
-o.timeoutlen = 500
-o.ttimeoutlen = 0
+vim.o.encoding = 'UTF-8'
+vim.o.fileencoding = 'UTF-8'
+vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 0
 
 -- Sidebar and numbers --
-o.number = true
-o.numberwidth = 3
-o.signcolumn = 'yes'
-o.modelines = 0
-o.showcmd = true
-o.relativenumber = true
-
+vim.o.number = true
+vim.o.numberwidth = 3
+vim.o.signcolumn = 'yes'
+vim.o.modelines = 0
+vim.o.showcmd = true
+vim.o.relativenumber = true
 -- Tabs and whitespace --
-o.tabstop = 2
-o.expandtab = true
-o.shiftwidth = 2
-o.autoindent = true
-o.smartindent = true
-o.smarttab = true
+vim.o.tabstop = 2
+vim.o.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.smarttab = true
 vim.cmd([[
 	set nowrap
 ]])
 
 -- Windows --
-o.splitbelow = true
-o.splitright = true
-o.showtabline = 1
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.showtabline = 1
 
 -- Cursor --
-o.ruler = true
-o.cursorline = false
-o.scrolloff = 5
-o.clipboard = 'unnamedplus'
+vim.o.ruler = true
+vim.o.cursorline = false
+vim.o.scrolloff = 5
+vim.o.clipboard = 'unnamedplus'
 
 -- Search --
 vim.cmd([[set nohlsearch]])
 vim.g.incsearch = true
 
 -- Always show statusline
-o.laststatus = 1
+vim.o.laststatus = 1
 
 -- Colors
-o.termguicolors = true
-o.colorcolumn = '120'
-o.background = 'dark'
+vim.o.termguicolors = true
+vim.o.colorcolumn = '120'
+vim.o.background = 'dark'
 
 -- Folds
-o.foldmethod = 'manual'
-o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldmethod = 'manual'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- Hide statusline by setting laststatus and cmdheight to 0.
---[[ vim.o.ls = 0 ]]
---[[ vim.o.ch = 0 ]]
+--[[ vim.vim.o.ls = 0 ]]
+--[[ vim.vim.o.ch = 0 ]]
 
 -- Stop newline comment continuation
 vim.api.nvim_create_autocmd({ 'BufEnter' }, {
@@ -113,8 +110,3 @@ vim.cmd([[
 ]])
 
 require('colorizer').setup()
-
-vim.cmd('let g:neovide_transparency=0.0')
-vim.cmd('let g:transparency= 0.9')
-vim.cmd("let g:neovide_background_color = '#1b1e28'.printf('%x',float2nr(255*g:transparency))")
-vim.opt.guifont = { 'Liga SFMono Nerd Font,Cascadia Code SemiLight Italic', ':h16' }

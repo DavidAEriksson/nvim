@@ -43,11 +43,11 @@ return require('packer').startup({
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'onsails/lspkind-nvim',
+      'lvimuser/lsp-inlayhints.nvim',
     })
 
     use({
       'SmiteshP/nvim-navic',
-      requires = 'neovim/nvim-lspconfig',
     })
 
     use({
@@ -139,22 +139,20 @@ return require('packer').startup({
 
     -- Colors, indentation and blankline
     use({
-      --[[ 'EdenEast/nightfox.nvim', ]]
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
+      --[[ 'EdenEast/nightfox.nvim', ]]
       --[[ 'Shatur/neovim-ayu', ]]
       --[[ 'rmehri01/onenord.nvim', ]]
       --[[ 'rose-pine/neovim', ]]
       --[[ 'DavidAEriksson/luna', ]]
       --[[ 'olivercederborg/poimandres.nvim', ]]
-      -- 'morhetz/gruvbox',
+      --[[ 'morhetz/gruvbox', ]]
+      --[[ 'Yazeed1s/oh-lucy.nvim', ]]
+      --[[ ({ 'luisiacc/gruvbox-baby', branch = 'main' }) ]]
+      --[[ ({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' }) ]]
+      'folke/tokyonight.nvim',
     })
-    use({
-      'luisiacc/gruvbox-baby',
-      branch = 'main',
-    })
-
-    --[[ use({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' }) ]]
 
     -- Statusline
     use({
@@ -238,6 +236,9 @@ return require('packer').startup({
       'nvim-neorg/neorg',
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
+    })
+    use({
+      'PatschD/zippy.nvim',
     })
 
     if packer_bootstrap then
