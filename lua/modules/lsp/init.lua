@@ -10,9 +10,9 @@ navic.setup({
   highlight = true,
 })
 
-require('lsp-inlayhints').setup()
+--[[ require('lsp-inlayhints').setup() ]]
 -- diagnostics
-vim.diagnostic.config({ virtual_text = true, float = border_opts })
+vim.diagnostic.config({ virtual_text = false, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
 fn.sign_define('DiagnosticSignWarn', { text = '!', texthl = 'DiagnosticSignWarn' })
 fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'DiagnosticSignInfo' })
@@ -26,21 +26,6 @@ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 -- otherwise, fall back to null-ls
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-
--- Inlay hints autocommand
-vim.api.nvim_create_augroup('LspAttach_inlayhints', {})
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = 'LspAttach_inlayhints',
-  callback = function(args)
-    if not (args.data and args.data.client_id) then
-      return
-    end
-
-    local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    require('lsp-inlayhints').on_attach(client, bufnr, true)
-  end,
-})
 
 local lsp_formatting = function(bufnr)
   local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
@@ -106,6 +91,21 @@ local on_attach = function(client, bufnr)
   end
 end
 
+-- Inlay hints autocommand
+--[[ vim.api.nvim_create_augroup('LspAttach_inlayhints', {}) ]]
+--[[ vim.api.nvim_create_autocmd('LspAttach', { ]]
+--[[   group = 'LspAttach_inlayhints', ]]
+--[[   callback = function(args) ]]
+--[[     if not (args.data and args.data.client_id) then ]]
+--[[       return ]]
+--[[     end ]]
+--[[]]
+--[[     local bufnr = args.buf ]]
+--[[     local client = vim.lsp.get_client_by_id(args.data.client_id) ]]
+--[[     require('lsp-inlayhints').on_attach(client, bufnr, true) ]]
+--[[   end, ]]
+--[[ }) ]]
+
 local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -113,8 +113,8 @@ capabilities = require('cmp_nvim_lsp').default_capabilities()
 for _, server in ipairs({
   'tsserver',
   'sumneko_lua',
-  'csharp_ls',
-  -- 'go',
+  'omnisharp',
+  'go',
   'clangd',
   'rust_analyzer',
   'null-ls',
@@ -124,6 +124,7 @@ for _, server in ipairs({
   'cssmodules',
   'astro',
   'tailwind',
+  'svelte',
   -- 'graphql',
   -- 'denols',
 }) do

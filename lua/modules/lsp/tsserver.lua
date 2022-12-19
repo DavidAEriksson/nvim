@@ -32,28 +32,28 @@ M.setup = function(on_attach, capabilities)
     },
     capabilities = capabilities,
     settings = {
-      typescript = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        },
-      },
-      typescriptreact = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        },
-      },
+      --[[ typescript = { ]]
+      --[[   inlayHints = { ]]
+      --[[     includeInlayParameterNameHints = 'all', ]]
+      --[[     includeInlayParameterNameHintsWhenArgumentMatchesName = false, ]]
+      --[[     includeInlayFunctionParameterTypeHints = true, ]]
+      --[[     includeInlayVariableTypeHints = true, ]]
+      --[[     includeInlayPropertyDeclarationTypeHints = true, ]]
+      --[[     includeInlayFunctionLikeReturnTypeHints = true, ]]
+      --[[     includeInlayEnumMemberValueHints = true, ]]
+      --[[   }, ]]
+      --[[ }, ]]
+      --[[ typescriptreact = { ]]
+      --[[   inlayHints = { ]]
+      --[[     includeInlayParameterNameHints = 'all', ]]
+      --[[     includeInlayParameterNameHintsWhenArgumentMatchesName = false, ]]
+      --[[     includeInlayFunctionParameterTypeHints = true, ]]
+      --[[     includeInlayVariableTypeHints = true, ]]
+      --[[     includeInlayPropertyDeclarationTypeHints = true, ]]
+      --[[     includeInlayFunctionLikeReturnTypeHints = true, ]]
+      --[[     includeInlayEnumMemberValueHints = true, ]]
+      --[[   }, ]]
+      --[[ }, ]]
     },
   })
 end
