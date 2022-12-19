@@ -25,5 +25,10 @@ neorg.setup({
         zen_mode = 'truezen',
       },
     },
+    ['core.norg.news'] = {
+      config = {
+        get_content = false,
+      },
+    },
   },
 })

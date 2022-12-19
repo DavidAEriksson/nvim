@@ -38,7 +38,9 @@ return require('packer').startup({
 
     -- Lsp
     use({
-      'williamboman/nvim-lsp-installer',
+      --[[ 'williamboman/nvim-lsp-installer', ]]
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
@@ -65,6 +67,10 @@ return require('packer').startup({
         'nvim-lua/plenary.nvim',
         'nvim-treesitter/nvim-treesitter',
       },
+    })
+
+    use({
+      'napmn/react-extract.nvim',
     })
 
     -- Completion
@@ -141,18 +147,24 @@ return require('packer').startup({
     use({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
+      --[[ 'B4mbus/oxocarbon-lua.nvim' ]]
+      'folke/tokyonight.nvim',
       --[[ 'EdenEast/nightfox.nvim', ]]
-      --[[ 'Shatur/neovim-ayu', ]]
+      'Shatur/neovim-ayu',
       --[[ 'rmehri01/onenord.nvim', ]]
       --[[ 'rose-pine/neovim', ]]
       --[[ 'DavidAEriksson/luna', ]]
       --[[ 'olivercederborg/poimandres.nvim', ]]
       --[[ 'morhetz/gruvbox', ]]
       --[[ 'Yazeed1s/oh-lucy.nvim', ]]
+      --[[ { ]]
+      --[[   'ramojus/meliora.nvim', ]]
+      --[[   requires = { 'rktjmp/lush.nvim' }, ]]
+      --[[ }, ]]
+      --[[ 'Yazeed1s/minimal.nvim', ]]
       --[[ ({ 'luisiacc/gruvbox-baby', branch = 'main' }) ]]
-      --[[ ({ 'shaunsingh/oxocarbon.nvim', run = './install.sh' }) ]]
-      'folke/tokyonight.nvim',
     })
+    use({ 'rktjmp/lush.nvim' })
 
     -- Statusline
     use({
@@ -195,6 +207,7 @@ return require('packer').startup({
       'APZelos/blamer.nvim',
       'lewis6991/gitsigns.nvim',
     })
+    use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
 
     use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
 
@@ -237,9 +250,30 @@ return require('packer').startup({
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
     })
+
     use({
       'PatschD/zippy.nvim',
     })
+
+    use({
+      'mfussenegger/nvim-dap',
+      'theHamsta/nvim-dap-virtual-text',
+      'rcarriga/nvim-dap-ui',
+    })
+
+    use({
+      'Maan2003/lsp_lines.nvim',
+    })
+    use({
+      'narutoxy/silicon.lua',
+    })
+
+    use({
+      'famiu/bufdelete.nvim',
+    })
+
+    -- WHY IS THIS INSTALLED?
+    use({ 'tamton-aquib/duck.nvim' })
 
     if packer_bootstrap then
       require('packer').sync()
