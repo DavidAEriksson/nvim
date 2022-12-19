@@ -44,7 +44,7 @@ imap('kj', '<Esc>')
 -- Tab to next S-Tab to prev buf
 nmap('<TAB>', ':bnext<CR>')
 nmap('<S-TAB>', ':bprevious<CR>')
-nmap('<leader>bd', ':bd | bprevious <CR>')
+nmap('<leader>bd', ':lua require("bufdelete").bufdelete(0, true) <CR>')
 
 -- Allow S-TAB to dedent in insert mode
 imap('<S-TAB>', '<C-D>')
@@ -72,12 +72,18 @@ nmap('<leader>yf', 'y<S-V>a<S-B><CR>')
 nmap('n', 'nzzzv')
 nmap('N', 'nzzzv')
 nmap('J', 'mzJ`z')
+nmap('<C-d>', '<C-d>zz')
+nmap('<C-u>', '<C-u>zz')
 
 -- Move all the text (:
 vmap('J', ":m '>+1<CR>gv=gv")
 vmap('K', ":m '<-2<CR>gv=gv")
 nmap('<leader>j', '<esc>:m .+1<CR>==')
 nmap('<leader>k', '<esc>:m .-2<CR>==')
+
+-- Move view horizontally
+nmap('zh', '100zh')
+nmap('zl', '100zl')
 
 -- Telescope
 nmap('<leader>f', ':Telescope find_files<CR>')
@@ -88,6 +94,12 @@ nmap('<leader>fh', ':Telescope help_tags<CR>')
 nmap('<leader>wt', ':lua require("telescope").extensions.git_worktree.git_worktrees()<CR>')
 nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>')
 vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
+
+-- Refactoring
+--[[ vmap('<leader>rxf', ':lua require("react-extract").extract_to_new_file<CR>') ]]
+--[[ vmap('<leader>rx', ':lua require("react-extract").extract_to_current_file<CR>') ]]
+vim.keymap.set({ 'v' }, '<Leader>rxf', require('react-extract').extract_to_new_file)
+vim.keymap.set({ 'v' }, '<Leader>rx', require('react-extract').extract_to_current_file)
 
 -- NvimTree
 nmap('<leader>e', '<cmd>:NvimTreeToggle<CR>')
@@ -121,6 +133,8 @@ nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
 
 -- Zippy
 nmap('<leader>l', "<cmd>: lua require('zippy').insert_print()<CR>")
+
+vmap('<leader>s', "<cmd>: lua require('silicon').visualise_cmdline({ to_clip = true })<CR>")
 
 -- Autoclose tags
 vim.keymap.set('i', '/', function()
