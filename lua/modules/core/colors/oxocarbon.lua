@@ -1,4 +1,4 @@
-vim.cmd('colorscheme oxocarbon')
+vim.cmd('colorscheme oxocarbon-lua')
 
 vim.api.nvim_set_hl(0, 'TelescopeSelection', { bg = '#33b1ff', fg = '#161616' })
 
