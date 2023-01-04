@@ -11,19 +11,21 @@ require('nvim-treesitter.configs').setup({
     'markdown',
     'go',
     'rust',
-    'norg',
   }, -- you can also do ensure_installed = 'all'
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
+      init_selection = '<c-space>',
+      node_incremental = '<leader><space>',
       scope_incremental = 'grc',
-      node_decremental = 'grm',
+      node_decremental = '<c-backspace>',
     },
   },
   playground = {
