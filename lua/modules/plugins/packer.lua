@@ -4,6 +4,7 @@ local fn = vim.fn
 local packer_bootstrap = nil
 
 -- Ensure packer installed, if not, install it
+---@diagnostic disable-next-line: param-type-mismatch
 if fn.empty(fn.glob(install_path, nil, 0)) > 0 then
   packer_bootstrap = fn.system({
     'git',
