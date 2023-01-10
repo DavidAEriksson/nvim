@@ -136,6 +136,8 @@ nmap('<leader>l', "<cmd>: lua require('zippy').insert_print()<CR>")
 
 vmap('<leader>s', "<cmd>: lua require('silicon').visualise_cmdline({ to_clip = true })<CR>")
 
+nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
+
 -- Autoclose tags
 vim.keymap.set('i', '/', function()
   local ts_utils = require('nvim-treesitter.ts_utils')
