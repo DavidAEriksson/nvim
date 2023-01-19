@@ -165,7 +165,6 @@ return require('packer').startup({
       --[[ 'Yazeed1s/minimal.nvim', ]]
       --[[ ({ 'luisiacc/gruvbox-baby', branch = 'main' }) ]]
     })
-    use({ 'rktjmp/lush.nvim' })
 
     -- Statusline
     use({
