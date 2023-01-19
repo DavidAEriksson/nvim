@@ -4,6 +4,7 @@
         "vim",
         "setup"
     ],
+    "Lua.workspace.checkThirdParty": false,
     "Lua.workspace.library": [
         "/Users/david.eriksson/.local/share/nvim/site/pack/packer/start/lua-dev.nvim/types/nightly",
         "/opt/homebrew/Cellar/neovim/HEAD-c3aba40/share/nvim/runtime",
