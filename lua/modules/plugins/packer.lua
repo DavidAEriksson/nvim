@@ -164,6 +164,7 @@ return require('packer').startup({
       --[[ }, ]]
       --[[ 'Yazeed1s/minimal.nvim', ]]
       --[[ ({ 'luisiacc/gruvbox-baby', branch = 'main' }) ]]
+      'AlexvZyl/nordic.nvim',
     })
 
     -- Statusline

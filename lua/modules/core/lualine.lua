@@ -5,19 +5,23 @@
 local config = {
   options = {
     icons_enabled = true,
-    theme = 'ayu',
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    theme = 'nordic',
+    component_separators = '|',
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {},
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = {
+      { 'mode', separator = { left = '', right = '' }, left_padding = 20 },
+    },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
     lualine_c = { 'filename' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },
-    lualine_z = { 'location' },
+    lualine_z = {
+      { 'location', separator = { left = '', right = '' }, right_padding = 20 },
+    },
   },
   extensions = {
     'quickfix',
