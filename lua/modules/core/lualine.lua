@@ -1,7 +1,61 @@
 -- statusline
 
 -- https://github.com/nvim-lualine/lualine.nvim
--- https://github.com/arkav/lualine-lsp-progress
+
+local modes = {
+  'mode',
+  separator = { left = '', right = '' },
+}
+
+local branch = {
+  'branch',
+}
+
+local space = {
+  function()
+    return ' '
+  end,
+}
+
+local filename = {
+  'filename',
+  color = { bg = '#D08770', fg = '#242933' },
+  separator = { left = '', right = '' },
+}
+
+local filetype = {
+  'filetype',
+  icon_only = true,
+  colored = true,
+  color = { bg = '#D08770', fg = '#242933' },
+  separator = { left = '', right = '' },
+}
+
+local diagnostics = {
+  'diagnostics',
+  separator = { left = '', right = '' },
+}
+
+local lsp = {
+  function()
+    local msg = 'No Active Lsp'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+      return msg
+    end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return '  ' .. client.name
+      end
+    end
+    return '  ' .. msg
+  end,
+  separator = { left = '', right = '' },
+  color = { bg = '#D08770', fg = '#242933' },
+}
+
 local config = {
   options = {
     icons_enabled = true,
@@ -13,14 +67,14 @@ local config = {
   },
   sections = {
     lualine_a = {
-      { 'mode', separator = { left = '', right = '' }, left_padding = 20 },
+      modes,
     },
-    lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { 'filename' },
-    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_b = { space },
+    lualine_c = { filename, filetype, branch },
+    lualine_x = { diagnostics, lsp },
     lualine_y = { 'progress' },
     lualine_z = {
-      { 'location', separator = { left = '', right = '' }, right_padding = 20 },
+      { 'location', separator = { left = '', right = '' } },
     },
   },
   extensions = {
@@ -28,25 +82,5 @@ local config = {
     'nvim-tree',
   },
 }
-
-local function ins_left(component)
-  table.insert(config.sections.lualine_c, component)
-end
-
-ins_left({
-  'lsp_progress',
-  display_components = { 'lsp_client_name', 'spinner', { 'title', 'percentage', 'message' } },
-  separators = {
-    component = ' ',
-    progress = ' | ',
-    message = { pre = '(', post = ')', commenced = 'In Progress', completed = 'Completed' },
-    percentage = { pre = '', post = '%% ' },
-    title = { pre = '', post = ': ' },
-    lsp_client_name = { pre = '[', post = ']' },
-    spinner = { pre = '', post = '' },
-  },
-  timer = { progress_enddelay = 500, spinner = 1000, lsp_client_name_enddelay = 1000 },
-  spinner_symbols = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
-})
 
 require('lualine').setup(config)
