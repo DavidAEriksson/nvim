@@ -8,6 +8,12 @@ nordic.setup({
   telescope = {
     style = 'flat',
   },
+  syntax = {
+    keywords = {
+      italic = true,
+      bold = false,
+    },
+  },
 })
 
 vim.cmd('colorscheme nordic')
