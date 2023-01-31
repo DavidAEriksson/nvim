@@ -11,7 +11,6 @@ require('modules.core')
 require('modules.lsp')
 require('modules.plugins')
 
-
 if vim.g.neovide then
-  vim.opt.guifont = { "Jetbrains Mono", ":h11" }
+  vim.opt.guifont = { 'Jetbrains Mono', ':h11' }
 end
