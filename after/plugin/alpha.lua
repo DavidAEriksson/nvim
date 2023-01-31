@@ -44,6 +44,7 @@ dashboard.section.buttons.val = {
   dashboard.button('r', '  > Recent', ':Telescope oldfiles<CR>', {}),
   dashboard.button('g', '  > Grep', ':Telescope live_grep<CR>', {}),
   dashboard.button('s', '  > Settings', ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>', {}),
+  dashboard.button('d', '⭐️ > Devdir', ':e ~/Development/BMW | :cd %:p:h | pwd<CR>', {}),
   dashboard.button('p', '  > Sync all (' .. plugins_count .. ') plugins', ':PackerSync<CR>', {}),
   dashboard.button('q', '  > Quit NVIM', ':qa<CR>', {}),
 }
