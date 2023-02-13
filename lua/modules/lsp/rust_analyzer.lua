@@ -8,6 +8,9 @@ M.setup = function(on_attach, capabilities)
       on_attach(client, bufnr)
     end,
     capabilities = capabilities,
+    checkOnSave = {
+      command = 'clippy',
+    },
   })
 end
 
