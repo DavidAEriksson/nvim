@@ -4,6 +4,18 @@ local api = vim.api
 local fn = vim.fn
 local border_opts = { border = 'rounded', focusable = true, scope = 'line' }
 
+require('neodev').setup({})
+
+require('lspconfig').lua_ls.setup({
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = 'Replace',
+      },
+    },
+  },
+})
+
 local navic = require('nvim-navic')
 
 navic.setup({
@@ -49,6 +61,8 @@ local on_attach = function(client, bufnr)
     navic.attach(client, bufnr)
   end
   vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+  require('barbecue').setup({})
 
   api.nvim_buf_create_user_command(bufnr, 'LspDiagPrev', vim.diagnostic.goto_prev, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagNext', vim.diagnostic.goto_next, {})
@@ -112,7 +126,6 @@ capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Setup language servers from server name
 for _, server in ipairs({
   'tsserver',
-  'sumneko_lua',
   'omnisharp',
   'go',
   'clangd',
@@ -126,7 +139,7 @@ for _, server in ipairs({
   'tailwind',
   'svelte',
   -- 'graphql',
-  -- 'denols',
+  'denols',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end

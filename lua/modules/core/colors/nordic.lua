@@ -4,14 +4,24 @@ if not ok then
   return
 end
 
+local palette = require('nordic.colors').palette
+
 nordic.setup({
   telescope = {
     style = 'flat',
   },
-  syntax = {
-    keywords = {
-      italic = true,
-      bold = false,
+  bold_keywords = true,
+  italic_comments = true,
+  noice = {
+    style = 'classic',
+  },
+  nordic = {
+    reduced_blue = true,
+  },
+  override = {
+    NavicSeparator = {
+      bg = "#FFFFFF",
+      fg = "#FFFFFF"
     },
   },
 })

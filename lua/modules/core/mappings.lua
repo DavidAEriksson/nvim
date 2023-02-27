@@ -138,6 +138,8 @@ vmap('<leader>s', "<cmd>: lua require('silicon').visualise_cmdline({ to_clip = t
 
 nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
 
+nmap('<leader>n', "<cmd>: :lua require('neogen').generate()<CR>")
+
 -- Autoclose tags
 vim.keymap.set('i', '/', function()
   local ts_utils = require('nvim-treesitter.ts_utils')

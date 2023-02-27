@@ -1,33 +1,12 @@
-local ok, neorg = pcall(require, 'neorg')
-
-if not ok then
-  return
-end
-
-neorg.setup({
+require('neorg').setup({
   load = {
-    ['core.defaults'] = {},
-    ['core.norg.dirman'] = {
+    ['core.defaults'] = {}, -- Loads default behaviour
+    ['core.norg.concealer'] = {}, -- Adds pretty icons to your documents
+    ['core.norg.dirman'] = { -- Manages Neorg workspaces
       config = {
         workspaces = {
-          work = '~/Development/notes/work',
+          notes = '~/Development/notes',
         },
-      },
-    },
-    ['core.norg.completion'] = {
-      config = {
-        engine = 'nvim-cmp',
-      },
-    },
-    ['core.norg.concealer'] = {},
-    ['core.presenter'] = {
-      config = {
-        zen_mode = 'truezen',
-      },
-    },
-    ['core.norg.news'] = {
-      config = {
-        get_content = false,
       },
     },
   },

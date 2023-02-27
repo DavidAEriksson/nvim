@@ -1,3 +1,4 @@
+require('nvim-treesitter.install').compilers = { 'gcc-12' }
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     'lua',

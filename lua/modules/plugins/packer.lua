@@ -50,7 +50,12 @@ return require('packer').startup({
     })
 
     use({
-      'SmiteshP/nvim-navic',
+      'utilyre/barbecue.nvim',
+      tag = '*',
+      requires = {
+        'SmiteshP/nvim-navic',
+        'nvim-tree/nvim-web-devicons', -- optional dependency
+      },
     })
 
     use({
@@ -247,12 +252,6 @@ return require('packer').startup({
     })
 
     use({
-      'nvim-neorg/neorg',
-      run = ':Neorg sync-parsers',
-      requires = 'nvim-lua/plenary.nvim',
-    })
-
-    use({
       'PatschD/zippy.nvim',
     })
 
@@ -276,6 +275,18 @@ return require('packer').startup({
     use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 
     use({ 'mbbill/undotree' })
+
+    use({
+      'danymat/neogen',
+      requires = 'nvim-treesitter/nvim-treesitter',
+    })
+
+    use({
+      'nvim-neorg/neorg',
+      run = ':Neorg sync-parsers',
+      requires = 'nvim-lua/plenary.nvim',
+    })
+
     -- WHY IS THIS INSTALLED?
     use({ 'tamton-aquib/duck.nvim' })
 
