@@ -20,8 +20,8 @@ nordic.setup({
   },
   override = {
     NavicSeparator = {
-      bg = "#FFFFFF",
-      fg = "#FFFFFF"
+      bg = '#FFFFFF',
+      fg = '#FFFFFF',
     },
   },
 })
