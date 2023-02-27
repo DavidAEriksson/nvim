@@ -4,8 +4,6 @@ if not ok then
   return
 end
 
-local palette = require('nordic.colors').palette
-
 nordic.setup({
   telescope = {
     style = 'flat',
@@ -19,9 +17,8 @@ nordic.setup({
     reduced_blue = true,
   },
   override = {
-    NavicSeparator = {
-      bg = '#FFFFFF',
-      fg = '#FFFFFF',
+    NormalFloat = {
+      bg = '#191C24',
     },
   },
 })
