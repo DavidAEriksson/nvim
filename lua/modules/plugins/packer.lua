@@ -46,7 +46,6 @@ return require('packer').startup({
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'onsails/lspkind-nvim',
-      'lvimuser/lsp-inlayhints.nvim',
     })
 
     use({
@@ -261,9 +260,6 @@ return require('packer').startup({
       'rcarriga/nvim-dap-ui',
     })
 
-    use({
-      'Maan2003/lsp_lines.nvim',
-    })
     use({
       'narutoxy/silicon.lua',
     })
