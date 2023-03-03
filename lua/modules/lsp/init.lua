@@ -27,7 +27,6 @@ vim.diagnostic.config({ virtual_text = true, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
 fn.sign_define('DiagnosticSignWarn', { text = '!', texthl = 'DiagnosticSignWarn' })
 fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'DiagnosticSignInfo' })
-fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
 
 -- handlers
 lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_help, border_opts)
