@@ -39,13 +39,21 @@ return require('packer').startup({
 
     -- Lsp
     use({
-      --[[ 'williamboman/nvim-lsp-installer', ]]
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
       'ray-x/lsp_signature.nvim',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       'onsails/lspkind-nvim',
+    })
+
+    use({
+      'glepnir/lspsaga.nvim',
+      branch = 'main',
+      requires = {
+        { 'nvim-tree/nvim-web-devicons' },
+        { 'nvim-treesitter/nvim-treesitter' },
+      },
     })
 
     use({
@@ -224,10 +232,6 @@ return require('packer').startup({
     use({
       'phaazon/hop.nvim',
       branch = 'v1',
-    })
-
-    use({
-      'stevearc/dressing.nvim',
     })
 
     use({
