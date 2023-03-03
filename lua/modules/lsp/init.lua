@@ -62,33 +62,35 @@ local on_attach = function(client, bufnr)
   vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
   require('barbecue').setup({})
+  require('lspsaga').setup({
+    symbols_in_winbar = {
+      enable = false,
+    },
+  })
 
-  api.nvim_buf_create_user_command(bufnr, 'LspDiagPrev', vim.diagnostic.goto_prev, {})
-  api.nvim_buf_create_user_command(bufnr, 'LspDiagNext', vim.diagnostic.goto_next, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagLine', vim.diagnostic.open_float, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagQuickfix', vim.diagnostic.setqflist, {})
   api.nvim_buf_create_user_command(bufnr, 'LspSignatureHelp', vim.lsp.buf.signature_help, {})
-  api.nvim_buf_create_user_command(bufnr, 'LspTypeDef', vim.lsp.buf.type_definition, {})
-  api.nvim_buf_create_user_command(bufnr, 'LspDef', vim.lsp.buf.definition, {})
-  api.nvim_buf_create_user_command(bufnr, 'LspHover', vim.lsp.buf.hover, {})
-  api.nvim_buf_create_user_command(bufnr, 'LspRename', function()
-    vim.lsp.buf.rename()
-  end, {})
 
   --- LSP Mappings
-  u.buf_map(bufnr, 'n', '<leader>rn', ':LspRename<CR>')
-  u.buf_map(bufnr, 'n', 'gd', ':LspDef<CR>')
-  u.buf_map(bufnr, 'n', 'K', ':LspHover<CR>')
-  u.buf_map(bufnr, 'n', '<C-p>', ':LspDiagPrev<CR>')
-  u.buf_map(bufnr, 'n', '<C-n>', ':LspDiagNext<CR>')
   u.buf_map(bufnr, 'n', 'gf', ':LspDiagLine<CR>')
   u.buf_map(bufnr, 'n', '<leader>q', ':LspDiagQuickfix<CR>')
   u.buf_map(bufnr, 'n', '<C-k>', ':LspSignatureHelp<CR>')
 
-  --- Telescope LSP mappings
+  --- LSP Saga Mappings
+  u.buf_map(bufnr, 'n', '<leader>rn', ':Lspsaga rename<CR>')
+  u.buf_map(bufnr, 'n', 'K', ':Lspsaga hover_doc<CR>')
+  u.buf_map(bufnr, 'n', '<C-n>', ':Lspsaga diagnostic_jump_next<CR>')
+  u.buf_map(bufnr, 'n', '<C-p>', ':Lspsaga diagnostic_jump_prev<CR>')
+  u.buf_map(bufnr, 'n', '<leader>pd', ':Lspsaga peek_definition<CR>')
+  u.buf_map(bufnr, 'n', 'gd', ':Lspsaga goto_definition<CR>')
+  u.buf_map(bufnr, 'n', 'gh', ':Lspsaga lsp_finder<CR>')
+  u.buf_map(bufnr, 'n', '<leader>o', ':Lspsaga outline<CR>')
+
+  --- LSP Telescope mappings
   u.buf_map(bufnr, 'n', '<leader>gr', ':Telescope lsp_references<CR>')
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
-  u.buf_map(bufnr, 'n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
+  u.buf_map(bufnr, 'n', '<leader>ca', ':Lspsaga code_action<CR>')
 
   if client.supports_method('textDocument/formatting') then
     u.buf_command(bufnr, 'LspFormatting', function()
