@@ -63,6 +63,9 @@ local on_attach = function(client, bufnr)
 
   require('barbecue').setup({})
   require('lspsaga').setup({
+    ui = {
+      border = 'rounded',
+    },
     symbols_in_winbar = {
       enable = false,
     },
