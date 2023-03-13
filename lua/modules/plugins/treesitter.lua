@@ -10,6 +10,7 @@ require('nvim-treesitter.configs').setup({
     'html',
     'javascript',
     'markdown',
+    'markdown_inline',
     'go',
     'rust',
   }, -- you can also do ensure_installed = 'all'
