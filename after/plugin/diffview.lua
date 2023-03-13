@@ -104,13 +104,13 @@ diffview.setup({
       ['<leader>e'] = actions.focus_files, -- Bring focus to the file panel
       ['<leader>b'] = actions.toggle_files, -- Toggle the file panel.
       ['g<C-x>'] = actions.cycle_layout, -- Cycle through available layouts.
-      ['[x'] = actions.prev_conflict, -- In the merge_tool: jump to the previous conflict
-      [']x'] = actions.next_conflict, -- In the merge_tool: jump to the next conflict
-      ['<leader>co'] = actions.conflict_choose('ours'), -- Choose the OURS version of a conflict
-      ['<leader>ct'] = actions.conflict_choose('theirs'), -- Choose the THEIRS version of a conflict
-      ['<leader>cb'] = actions.conflict_choose('base'), -- Choose the BASE version of a conflict
-      ['<leader>ca'] = actions.conflict_choose('all'), -- Choose all the versions of a conflict
-      ['dx'] = actions.conflict_choose('none'), -- Delete the conflict region
+      { 'n', '<leader>cn', actions.next_conflict, { desc = 'Next conflict' } },
+      { 'n', '<leader>cp', actions.prev_conflict, { desc = 'Previous conflict' } },
+      { 'n', '<leader>co', actions.conflict_choose('ours'), { desc = 'Choose the OURS version of a conflict' } },
+      { 'n', '<leader>ct', actions.conflict_choose('theirs'), { desc = 'Choose the THEIRS version of a conflict' } },
+      { 'n', '<leader>cb', actions.conflict_choose('both'), { desc = 'Choose the BASE version of a conflict' } },
+      { 'n', '<leader>ca', actions.conflict_choose('all'), { desc = 'Choose all the versions of a conflict' } },
+      { 'n', '<leader>dx', actions.conflict_choose('none'), { desc = 'Delete the conflicting region' } },
     },
     diff1 = { --[[ Mappings in single window diff layouts ]]
     },
