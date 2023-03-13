@@ -13,14 +13,17 @@ nordic.setup({
   noice = {
     style = 'classic',
   },
+  theme = 'onedark',
   nordic = {
     reduced_blue = true,
-  },
-  override = {
-    NormalFloat = {
-      bg = '#191C24',
-    },
   },
 })
 
 vim.cmd('colorscheme nordic')
+
+vim.api.nvim_set_hl(0, 'PMenu', { bg = '#282c34' })
+vim.api.nvim_set_hl(0, 'PMenuSel', { bg = '#D89079', fg = '#282c34' })
+vim.api.nvim_set_hl(0, 'PMenuThumb', { bg = '#D89079' })
+
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#282c34' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#282c34', fg = '#282c34' })
