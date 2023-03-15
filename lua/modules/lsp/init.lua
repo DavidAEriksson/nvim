@@ -63,7 +63,7 @@ local on_attach = function(client, bufnr)
   require('barbecue').setup({})
   require('lspsaga').setup({
     ui = {
-      border = 'rounded',
+      border = 'single',
     },
     symbols_in_winbar = {
       enable = false,
@@ -111,10 +111,10 @@ end
 local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Setup language servers from server name
+-- setup language servers from server name
 for _, server in ipairs({
   'tsserver',
-  'omnisharp',
+  'csharp_ls',
   'go',
   'clangd',
   'rust_analyzer',
