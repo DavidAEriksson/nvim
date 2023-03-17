@@ -109,9 +109,9 @@ cmp.setup({
     end,
   },
   sources = {
+    { name = 'luasnip', priority = 20 },
     { name = 'nvim_lsp', priority = 10 },
     { name = 'nvim_lua' },
-    { name = 'luasnip' },
     { name = 'buffer' },
     { name = 'path' },
     { name = 'nvim_lsp_signature_help' },
