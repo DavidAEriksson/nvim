@@ -33,4 +33,6 @@ ls.add_snippets('typescript', {
   }),
 })
 
-ls.filetype_extend('typescript', { 'typescriptreact' })
+-- First arg is the target we are extending with snippets from the table
+-- in the second arg.
+ls.filetype_extend('typescriptreact', { 'typescript' })
