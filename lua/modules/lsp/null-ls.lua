@@ -36,13 +36,14 @@ local sources = {
   b.diagnostics.trail_space,
 }
 
-local M = {
-  setup = function(on_attach, capabilities)
-    require('null-ls').setup({
-      sources = sources,
-      on_attach = on_attach,
-    })
-  end,
-}
+local M = {}
+
+M.setup = function(on_attach, capabilities)
+  require('null-ls').setup({
+    sources = sources,
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+end
 
 return M
