@@ -95,12 +95,6 @@ nmap('<leader>wt', ':lua require("telescope").extensions.git_worktree.git_worktr
 nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>')
 vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
 
--- Refactoring
---[[ vmap('<leader>rxf', ':lua require("react-extract").extract_to_new_file<CR>') ]]
---[[ vmap('<leader>rx', ':lua require("react-extract").extract_to_current_file<CR>') ]]
-vim.keymap.set({ 'v' }, '<Leader>rxf', require('react-extract').extract_to_new_file)
-vim.keymap.set({ 'v' }, '<Leader>rx', require('react-extract').extract_to_current_file)
-
 -- NvimTree
 nmap('<leader>e', '<cmd>:NvimTreeToggle<CR>')
 nmap('<leader>c', '<cmd>:NvimTreeCollapse<CR>')
