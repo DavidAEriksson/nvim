@@ -16,12 +16,6 @@ require('lspconfig').lua_ls.setup({
   },
 })
 
-local navic = require('nvim-navic')
-
-navic.setup({
-  highlight = true,
-})
-
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
@@ -55,21 +49,6 @@ local lsp_formatting = function(bufnr)
 end
 
 local on_attach = function(client, bufnr)
-  if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client, bufnr)
-  end
-  vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-
-  require('barbecue').setup({})
-  require('lspsaga').setup({
-    ui = {
-      border = 'single',
-    },
-    symbols_in_winbar = {
-      enable = false,
-    },
-  })
-
   api.nvim_buf_create_user_command(bufnr, 'LspDiagLine', vim.diagnostic.open_float, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagQuickfix', vim.diagnostic.setqflist, {})
   api.nvim_buf_create_user_command(bufnr, 'LspSignatureHelp', vim.lsp.buf.signature_help, {})

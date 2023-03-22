@@ -57,15 +57,6 @@ return require('packer').startup({
     })
 
     use({
-      'utilyre/barbecue.nvim',
-      tag = '*',
-      requires = {
-        'SmiteshP/nvim-navic',
-        'nvim-tree/nvim-web-devicons', -- optional dependency
-      },
-    })
-
-    use({
       'jose-elias-alvarez/null-ls.nvim',
       requires = {
         'nvim-lua/plenary.nvim',
@@ -80,10 +71,6 @@ return require('packer').startup({
         'nvim-lua/plenary.nvim',
         'nvim-treesitter/nvim-treesitter',
       },
-    })
-
-    use({
-      'napmn/react-extract.nvim',
     })
 
     -- Completion
