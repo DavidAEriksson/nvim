@@ -52,11 +52,13 @@ local on_attach = function(client, bufnr)
   api.nvim_buf_create_user_command(bufnr, 'LspDiagLine', vim.diagnostic.open_float, {})
   api.nvim_buf_create_user_command(bufnr, 'LspDiagQuickfix', vim.diagnostic.setqflist, {})
   api.nvim_buf_create_user_command(bufnr, 'LspSignatureHelp', vim.lsp.buf.signature_help, {})
+  api.nvim_buf_create_user_command(bufnr, 'LspImplementation', vim.lsp.buf.implementation, {})
 
   --- LSP Mappings
   u.buf_map(bufnr, 'n', 'gf', ':LspDiagLine<CR>')
   u.buf_map(bufnr, 'n', '<leader>q', ':LspDiagQuickfix<CR>')
   u.buf_map(bufnr, 'n', '<C-k>', ':LspSignatureHelp<CR>')
+  u.buf_map(bufnr, 'n', '<leader>gi', ':LspImplementation<CR>')
 
   --- LSP Saga Mappings
   u.buf_map(bufnr, 'n', '<leader>rn', ':Lspsaga rename<CR>')
