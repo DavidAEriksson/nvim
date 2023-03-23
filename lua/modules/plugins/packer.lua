@@ -269,6 +269,10 @@ return require('packer').startup({
     })
 
     use({
+      'zbirenbaum/neodim',
+    })
+
+    use({
       'nvim-neorg/neorg',
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
