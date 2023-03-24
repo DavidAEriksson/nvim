@@ -252,10 +252,6 @@ return require('packer').startup({
     })
 
     use({
-      'narutoxy/silicon.lua',
-    })
-
-    use({
       'famiu/bufdelete.nvim',
     })
 
@@ -276,6 +272,11 @@ return require('packer').startup({
       'nvim-neorg/neorg',
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
+    })
+
+    use({
+      'narutoxy/silicon.lua',
+      requires = { 'nvim-lua/plenary.nvim' },
     })
 
     -- WHY IS THIS INSTALLED?

@@ -128,8 +128,6 @@ nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
 -- Zippy
 nmap('<leader>l', "<cmd>: lua require('zippy').insert_print()<CR>")
 
-vmap('<leader>s', "<cmd>: lua require('silicon').visualise_cmdline({ to_clip = true })<CR>")
-
 nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
 
 nmap('<leader>n', "<cmd>: :lua require('neogen').generate()<CR>")
