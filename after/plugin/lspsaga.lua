@@ -11,6 +11,5 @@ saga.setup({
   },
   symbol_in_winbar = {
     separator = ' > ',
-    respect_root = true,
   },
 })
