@@ -12,4 +12,7 @@ saga.setup({
   symbol_in_winbar = {
     separator = ' > ',
   },
+  lightbulb = {
+    enable = false,
+  },
 })
