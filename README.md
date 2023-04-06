@@ -39,11 +39,34 @@ for _, server in ipairs({
 end
 ```
 
-#### Lua LSP
+### Showcase
 
-The Lua LSP available through `sumneko_lua` requires a different installation setup:
+#### Alpha
 
-1. Install `sumneko_lua` with `brew install lua-language-server`
-2. Install `stylua` to handle formatting:
-   1. Install `cargo`: `curl https://sh.rustup.rs -sSf | sh`
-   2. Install `stylua`: `cargo install stylua`
+<details>
+    <summary>Custom welcome screen</summary>
+    <img width="2056" alt="Screenshot 2023-04-06 at 10 54 40" src="https://user-images.githubusercontent.com/33936705/230327842-96ef582a-fa8a-4e22-831b-aeb3061dd44d.png">
+</details>
+
+#### Telescope
+
+<details>
+    <summary>Flat theme</summary>
+    <img width="2056" alt="Screenshot 2023-04-06 at 10 56 09" src="https://user-images.githubusercontent.com/33936705/230327826-452fa042-f0bc-4220-a554-6498a47681cf.png">
+</details>
+
+#### Saga
+
+<details>
+    <summary>peek_definition example</summary>
+    <img width="2056" alt="Screenshot 2023-04-06 at 10 56 44" src="https://user-images.githubusercontent.com/33936705/230327805-76f5181f-3537-451a-bd76-99d6d59b865d.png">
+</details>
+
+#### Transparent terminal emulator
+
+I'm using Kitty here;
+
+<details>
+    <summary>Kitty with <code>background_opacity 0.7</code></summary>
+    <img width="2056" alt="Screenshot 2023-04-06 at 11 00 11" src="https://user-images.githubusercontent.com/33936705/230328381-98ffcb3f-27c3-4e83-b667-9d6316d955b1.png">
+</details>
