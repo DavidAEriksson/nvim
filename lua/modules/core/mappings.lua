@@ -132,6 +132,10 @@ nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
 
 nmap('<leader>n', "<cmd>: :lua require('neogen').generate()<CR>")
 
+vim.keymap.set('n', '<leader>ps', function()
+  require('plenary.reload').reload_module('instalog')
+end)
+
 -- Autoclose tags
 vim.keymap.set('i', '/', function()
   local ts_utils = require('nvim-treesitter.ts_utils')
