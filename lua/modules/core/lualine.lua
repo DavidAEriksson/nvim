@@ -12,6 +12,7 @@ local branch = {
 }
 
 local space = {
+  color = { bg = '#191D24', fg = '#191D24' },
   function()
     return ' '
   end,
