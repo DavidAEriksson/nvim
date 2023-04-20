@@ -11,6 +11,8 @@ vim.cmd([[
 		set wildignore+=**/node_modules
   ]])
 
+vim.g.editorconfig = false
+
 -- File encodings --
 vim.o.encoding = 'UTF-8'
 vim.o.fileencoding = 'UTF-8'
