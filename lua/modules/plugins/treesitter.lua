@@ -13,6 +13,7 @@ require('nvim-treesitter.configs').setup({
     'markdown_inline',
     'go',
     'rust',
+    'vimdoc',
   }, -- you can also do ensure_installed = 'all'
   highlight = {
     enable = true,
