@@ -64,6 +64,10 @@ return require('packer').startup({
       },
     })
 
+    use({
+      'davidosomething/format-ts-errors.nvim',
+    })
+
     -- Refactoring
     use({
       'ThePrimeagen/refactoring.nvim',
@@ -147,22 +151,12 @@ return require('packer').startup({
     use({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
-      --[[ 'B4mbus/oxocarbon-lua.nvim' ]]
-      'folke/tokyonight.nvim',
+      --[[ 'nyoom-engineering/oxocarbon.nvim', ]]
+      --[[ 'folke/tokyonight.nvim', ]]
       --[[ 'EdenEast/nightfox.nvim', ]]
-      'Shatur/neovim-ayu',
+      --[[ 'Shatur/neovim-ayu', ]]
       --[[ 'rmehri01/onenord.nvim', ]]
       --[[ 'rose-pine/neovim', ]]
-      --[[ 'DavidAEriksson/luna', ]]
-      --[[ 'olivercederborg/poimandres.nvim', ]]
-      --[[ 'morhetz/gruvbox', ]]
-      --[[ 'Yazeed1s/oh-lucy.nvim', ]]
-      --[[ { ]]
-      --[[   'ramojus/meliora.nvim', ]]
-      --[[   requires = { 'rktjmp/lush.nvim' }, ]]
-      --[[ }, ]]
-      --[[ 'Yazeed1s/minimal.nvim', ]]
-      --[[ ({ 'luisiacc/gruvbox-baby', branch = 'main' }) ]]
       'AlexvZyl/nordic.nvim',
     })
 
