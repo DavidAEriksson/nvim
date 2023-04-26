@@ -94,4 +94,7 @@ nvim_tree.setup({
       },
     },
   },
+  on_attach = function()
+    vim.keymap.set('n', '<S-F>', ':Telescope find_files<CR>', {})
+  end,
 })
