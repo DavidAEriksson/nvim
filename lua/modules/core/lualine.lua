@@ -12,7 +12,7 @@ local branch = {
 }
 
 local space = {
-  color = { bg = '#191D24', fg = '#191D24' },
+  color = { bg = '#25363B', fg = '#25363B' },
   function()
     return ' '
   end,
@@ -20,7 +20,7 @@ local space = {
 
 local filename = {
   'filename',
-  color = { bg = '#D08770', fg = '#242933' },
+  color = { bg = '#7C4DFF', fg = '#1C2C30' },
   separator = { left = '', right = '' },
 }
 
@@ -28,7 +28,7 @@ local filetype = {
   'filetype',
   icon_only = true,
   colored = true,
-  color = { bg = '#D08770', fg = '#242933' },
+  color = { bg = '#7C4DFF', fg = '#1C2C30' },
   separator = { left = '', right = '' },
 }
 
@@ -54,13 +54,13 @@ local lsp = {
     return '  ' .. msg
   end,
   separator = { left = '', right = '' },
-  color = { bg = '#D08770', fg = '#242933' },
+  color = { bg = '#7C4DFF', fg = '#1C2C30' },
 }
 
 local config = {
   options = {
     icons_enabled = true,
-    theme = 'nordic',
+    theme = 'material',
     component_separators = '|',
     section_separators = { left = '', right = '' },
     disabled_filetypes = {},

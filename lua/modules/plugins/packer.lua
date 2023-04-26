@@ -151,11 +151,9 @@ return require('packer').startup({
     use({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
-      --[[ 'nyoom-engineering/oxocarbon.nvim', ]]
+      'marko-cerovac/material.nvim',
       --[[ 'folke/tokyonight.nvim', ]]
       --[[ 'EdenEast/nightfox.nvim', ]]
-      --[[ 'Shatur/neovim-ayu', ]]
-      --[[ 'rmehri01/onenord.nvim', ]]
       --[[ 'rose-pine/neovim', ]]
       'AlexvZyl/nordic.nvim',
     })
