@@ -34,6 +34,7 @@ local sources = {
   b.diagnostics.gitlint,
   b.diagnostics.zsh,
   b.diagnostics.trail_space,
+  require('typescript.extensions.null-ls.code-actions'),
 }
 
 local M = {}

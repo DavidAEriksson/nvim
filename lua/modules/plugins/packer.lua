@@ -43,7 +43,7 @@ return require('packer').startup({
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
       'ray-x/lsp_signature.nvim',
-      'jose-elias-alvarez/nvim-lsp-ts-utils',
+      'jose-elias-alvarez/typescript.nvim',
       'onsails/lspkind-nvim',
     })
 
