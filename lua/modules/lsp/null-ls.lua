@@ -18,6 +18,9 @@ local sources = {
   b.code_actions.eslint,
   b.code_actions.refactoring,
   b.code_actions.shellcheck,
+  b.code_actions.ts_node_action,
+  require('typescript.extensions.null-ls.code-actions'),
+
   ---formatting
   b.formatting.eslint_d,
   b.formatting.prettier.with({
@@ -27,14 +30,15 @@ local sources = {
   b.formatting.fixjson,
   b.formatting.rustfmt,
   b.formatting.goimports,
-  b.formatting.blade_formatter,
+
   ---diagnostics
   b.diagnostics.shellcheck.with({ diagnostics_format = '#{m} [#{c}]' }),
   b.diagnostics.tsc,
   b.diagnostics.gitlint,
   b.diagnostics.zsh,
   b.diagnostics.trail_space,
-  require('typescript.extensions.null-ls.code-actions'),
+  b.diagnostics.eslint,
+  b.diagnostics.eslint_d,
 }
 
 local M = {}

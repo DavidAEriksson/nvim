@@ -130,6 +130,7 @@ return require('packer').startup({
 
     use({
       'nvim-treesitter/playground',
+      'CKolkey/ts-node-action',
     })
 
     use({
