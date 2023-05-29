@@ -127,7 +127,10 @@ cmp.setup({
   },
   experimental = {
     ghost_text = true,
-    native_menu = false,
+  },
+  view = {
+    entries = 'custom',
+    selection_order = 'near_cursor',
   },
 })
 
