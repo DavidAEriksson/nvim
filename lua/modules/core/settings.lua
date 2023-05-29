@@ -17,6 +17,7 @@ vim.g.editorconfig = false
 vim.o.encoding = 'UTF-8'
 vim.o.fileencoding = 'UTF-8'
 vim.o.timeoutlen = 500
+vim.o.updatetime = 25
 vim.o.ttimeoutlen = 0
 vim.o.list = true
 vim.o.listchars = 'eol:↲,tab:> ,trail:-,nbsp:+'
