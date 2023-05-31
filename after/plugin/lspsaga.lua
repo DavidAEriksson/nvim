@@ -10,6 +10,7 @@ saga.setup({
     border = 'single',
   },
   symbol_in_winbar = {
+    enable = false,
     separator = ' > ',
   },
   lightbulb = {

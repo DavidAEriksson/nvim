@@ -25,6 +25,5 @@ vim.api.nvim_set_hl(0, 'PMenu', { bg = '#282c34' })
 vim.api.nvim_set_hl(0, 'PMenuSel', { bg = '#D89079', fg = '#282c34' })
 vim.api.nvim_set_hl(0, 'PMenuThumb', { bg = '#D89079' })
 vim.api.nvim_set_hl(0, 'Visual', { bg = '#373b43' })
-
---[[ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#282c34' }) ]]
---[[ vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#282c34', fg = '#282c34' }) ]]
+vim.api.nvim_set_hl(0, 'DropBarMenuCurrentContext', { bg = '#D89079' })
+vim.api.nvim_set_hl(0, 'WinBar', { bg = '#1e222a' })
