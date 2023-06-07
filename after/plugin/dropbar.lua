@@ -13,16 +13,18 @@ dropbar.setup({
         and vim.api.nvim_buf_get_name(buf) ~= ''
         and not vim.wo[win].diff
     end,
-    update_events = {
-      'CursorMoved',
-      'CursorMovedI',
-      'DirChanged',
-      'FileChangedShellPost',
-      'TextChanged',
-      'TextChangedI',
-      'VimResized',
-      'WinResized',
-      'WinScrolled',
+    win = {
+      update_events = {
+        'CursorMoved',
+        'CursorMovedI',
+        'DirChanged',
+        'FileChangedShellPost',
+        'TextChanged',
+        'TextChangedI',
+        'VimResized',
+        'WinResized',
+        'WinScrolled',
+      },
     },
   },
   icons = {
@@ -105,6 +107,7 @@ dropbar.setup({
     },
   },
   bar = {
+    ---@diagnostic disable-next-line: undefined-doc-name
     ---@type dropbar_source_t[]|fun(buf: integer, win: integer): dropbar_source_t[]
     sources = function(_, _)
       local sources = require('dropbar.sources')
@@ -178,6 +181,7 @@ dropbar.setup({
         end
       end,
     },
+    ---@diagnostic disable-next-line: undefined-doc-name
     ---@alias dropbar_menu_win_config_opts_t any|fun(menu: dropbar_menu_t):any
     ---@type table<string, dropbar_menu_win_config_opts_t>
     ---@see vim.api.nvim_open_win
