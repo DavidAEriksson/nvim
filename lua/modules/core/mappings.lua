@@ -95,9 +95,8 @@ nmap('<leader>wt', ':lua require("telescope").extensions.git_worktree.git_worktr
 nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>')
 vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
 
--- NvimTree
-nmap('<leader>e', '<cmd>:NvimTreeToggle<CR>')
-nmap('<leader>c', '<cmd>:NvimTreeCollapse<CR>')
+-- NeoTree
+nmap('<leader>e', '<cmd>:NeoTreeFocusToggle<CR>')
 
 -- Floating terminal
 nmap('<leader>ter', '<cmd>:ToggleTerm direction=tab<CR>')

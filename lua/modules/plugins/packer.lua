@@ -157,9 +157,6 @@ return require('packer').startup({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
       'marko-cerovac/material.nvim',
-      --[[ 'folke/tokyonight.nvim', ]]
-      --[[ 'EdenEast/nightfox.nvim', ]]
-      --[[ 'rose-pine/neovim', ]]
       'AlexvZyl/nordic.nvim',
     })
 
@@ -172,11 +169,13 @@ return require('packer').startup({
       },
     })
 
-    -- Explorer
     use({
-      'kyazdani42/nvim-tree.lua',
+      'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v2.x',
       requires = {
-        'kyazdani42/nvim-web-devicons',
+        'nvim-lua/plenary.nvim',
+        'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+        'MunifTanjim/nui.nvim',
       },
     })
 
@@ -236,6 +235,10 @@ return require('packer').startup({
         'rcarriga/nvim-notify',
         'hrsh7th/nvim-cmp',
       },
+    })
+
+    use({
+      'folke/edgy.nvim',
     })
 
     use({

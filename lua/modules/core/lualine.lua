@@ -80,7 +80,7 @@ local config = {
   },
   extensions = {
     'quickfix',
-    'nvim-tree',
+    'neo-tree',
   },
 }
 
