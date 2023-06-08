@@ -15,6 +15,11 @@ edgy.setup({
         return vim.api.nvim_win_get_config(win).relative == ''
       end,
     },
+    {
+      title = 'Terminal',
+      ft = 'toggleterm',
+      size = { height = 0.2 },
+    },
   },
   left = {
     -- Neo-tree filesystem always takes half the screen height
