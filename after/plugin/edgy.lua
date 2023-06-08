@@ -10,6 +10,7 @@ edgy.setup({
       ft = 'trouble',
       size = { height = 0.2 },
       -- exclude floating windows
+      ---@diagnostic disable-next-line: unused-local
       filter = function(buf, win)
         return vim.api.nvim_win_get_config(win).relative == ''
       end,
@@ -37,7 +38,10 @@ edgy.setup({
     'neo-tree',
   },
   right = {
-    title = 'Lspsaga Outline',
-    open = 'Lspsaga outline',
+    {
+      title = 'File Outline',
+      ft = 'lspsagaoutline',
+      open = 'Lspsaga outline',
+    },
   },
 })
