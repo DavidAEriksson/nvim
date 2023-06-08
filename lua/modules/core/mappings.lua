@@ -99,7 +99,7 @@ vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.re
 nmap('<leader>e', '<cmd>:NeoTreeFocusToggle<CR>')
 
 -- Floating terminal
-nmap('<leader>ter', '<cmd>:ToggleTerm direction=tab<CR>')
+nmap('<leader>ter', '<cmd>:ToggleTerm<CR>')
 nmap('<leader>tel', '<cmd>:ToggleTerm direction=vertical<CR>')
 
 -- Harpoon
