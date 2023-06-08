@@ -1,5 +1,6 @@
 require('toggleterm').setup({
   start_in_insert = false,
+  shade_terminals = false,
 })
 
 function _G.set_terminal_keymaps()
