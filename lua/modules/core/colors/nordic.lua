@@ -11,9 +11,13 @@ nordic.setup({
   bold_keywords = true,
   italic_comments = true,
   noice = {
-    style = 'classic',
+    style = 'flat',
   },
   theme = 'onedark',
+  onedark = {
+    -- Brighten the whites to fit the theme better.
+    brighter_whites = true,
+  },
   nordic = {
     reduced_blue = true,
   },
