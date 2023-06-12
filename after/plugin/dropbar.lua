@@ -114,7 +114,8 @@ dropbar.setup({
       return {
         sources.path,
         {
-          get_symbols = function(buf, cursor)
+          ---@diagnostic disable-next-line: unused-local
+          get_symbols = function(buf, win, cursor)
             if vim.bo[buf].ft == 'markdown' then
               return sources.markdown.get_symbols(buf, cursor)
             end
