@@ -35,6 +35,7 @@ return require('packer').startup({
       'nvim-lua/popup.nvim',
       'ThePrimeagen/harpoon',
       'folke/which-key.nvim',
+      'folke/todo-comments.nvim',
     })
 
     -- Lsp
