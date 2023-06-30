@@ -1,4 +1,5 @@
 require('telescope').load_extension('refactoring')
+local u = require('utils')
 
 local function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
@@ -86,8 +87,7 @@ nmap('zh', '100zh')
 nmap('zl', '100zl')
 
 -- Telescope
-nmap('<leader>f', ':Telescope find_files<CR>')
-nmap('<S-f>', ':Telescope find_files<CR>')
+nmap('<leader>ff', ':Telescope find_files<CR>')
 nmap('<leader>rg', ':Telescope live_grep<CR>')
 nmap('<leader>fb', ':Telescope buffers<CR>')
 nmap('<leader>fh', ':Telescope help_tags<CR>')
