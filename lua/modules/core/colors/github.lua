@@ -21,4 +21,6 @@ github.setup({
   },
 })
 
+-- FIX: This ugly ass telescope theme
+
 vim.cmd('colorscheme github_light')
