@@ -7,6 +7,8 @@ else
   _G.packer_installed = true
 end
 
+_G.theme = 'dark'
+
 require('modules.core')
 require('modules.lsp')
 require('modules.plugins')
