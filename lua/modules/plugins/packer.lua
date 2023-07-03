@@ -125,23 +125,10 @@ return require('packer').startup({
         'kdheepak/lazygit.nvim',
       },
     })
-
-    use({
-      'nvim-telescope/telescope-project.nvim',
-      requires = {
-        'nvim-telescope/telescope.nvim',
-      },
-    })
-
     --- Treesitter
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-    })
-
-    use({
-      'nvim-treesitter/playground',
-      'CKolkey/ts-node-action',
     })
 
     use({
@@ -213,16 +200,11 @@ return require('packer').startup({
     })
     use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
 
-    use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
+    use({ 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' })
 
     use({
       'prettier/vim-prettier',
       run = 'yarn install',
-    })
-
-    use({
-      'phaazon/hop.nvim',
-      branch = 'v1',
     })
 
     use({
@@ -286,9 +268,6 @@ return require('packer').startup({
       'narutoxy/silicon.lua',
       requires = { 'nvim-lua/plenary.nvim' },
     })
-
-    -- WHY IS THIS INSTALLED?
-    use({ 'tamton-aquib/duck.nvim' })
 
     if packer_bootstrap then
       require('packer').sync()
