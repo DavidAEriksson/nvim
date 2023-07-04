@@ -269,6 +269,10 @@ return require('packer').startup({
       requires = { 'nvim-lua/plenary.nvim' },
     })
 
+    use({
+      'tomiis4/hypersonic.nvim',
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end
