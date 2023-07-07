@@ -13,7 +13,6 @@ nordic.setup({
   noice = {
     style = 'flat',
   },
-  theme = 'onedark',
   onedark = {
     -- Brighten the whites to fit the theme better.
     brighter_whites = true,
@@ -30,4 +29,4 @@ vim.api.nvim_set_hl(0, 'PMenuSel', { bg = '#D89079', fg = '#282c34' })
 vim.api.nvim_set_hl(0, 'PMenuThumb', { bg = '#D89079' })
 vim.api.nvim_set_hl(0, 'Visual', { bg = '#373b43' })
 vim.api.nvim_set_hl(0, 'DropBarMenuCurrentContext', { bg = '#D89079' })
-vim.api.nvim_set_hl(0, 'WinBar', { bg = '#1e222a' })
+vim.api.nvim_set_hl(0, 'WinBar', { bg = '#242933' })

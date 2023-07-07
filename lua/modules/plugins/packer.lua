@@ -150,7 +150,6 @@ return require('packer').startup({
     use({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
-      'marko-cerovac/material.nvim',
       'AlexvZyl/nordic.nvim',
       'projekt0n/github-nvim-theme',
     })
