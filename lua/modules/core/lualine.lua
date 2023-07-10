@@ -14,7 +14,9 @@ local function theme_switch(bg_dark, fg_dark, bg_light, fg_light)
   if _G.theme == 'dark' then
     return { bg = bg_dark, fg = fg_dark }
   end
-  return { bg = bg_light, fg = fg_light }
+  if _G.theme == 'light' then
+    return { bg = bg_light, fg = fg_light }
+  end
 end
 
 local space = {
