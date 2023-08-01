@@ -17,7 +17,7 @@ mkdir ~/.config/nvim
 This will clone the repository directly into your `nvim config` folder:
 
 ```
-git clone https://github.com/DavidAEriksson/nvim-config.git ~/.config/nvim
+git clone https://github.com/DavidAEriksson/nvim.git ~/.config/nvim
 ```
 
 ### Package manager
