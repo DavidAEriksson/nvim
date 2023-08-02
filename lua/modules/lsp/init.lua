@@ -27,7 +27,6 @@ lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_hel
 lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 
 -- use lsp formatting if it's available (and if it's good)
--- otherwise, fall back to null-ls
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
@@ -38,11 +37,6 @@ local lsp_formatting = function(bufnr)
     filter = function(client)
       if client.name == 'eslint' then
         return true
-      end
-      if client.name == 'null-ls' then
-        return not u.table.some(clients, function(_, other_client)
-          return other_client.name == 'eslint'
-        end)
       end
     end,
   })
@@ -103,7 +97,6 @@ for _, server in ipairs({
   'go',
   'clangd',
   'rust_analyzer',
-  'null-ls',
   'bashls',
   'pylsp',
   'css',
@@ -112,18 +105,9 @@ for _, server in ipairs({
   'tailwind',
   'svelte',
   'ocaml',
+  'rell',
   -- 'graphql',
   -- 'denols',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
-end
-
--- suppress lspconfig messages
-local notify = vim.notify
-vim.notify = function(msg, ...)
-  if msg:match('%[lspconfig%]') then
-    return
-  end
-
-  notify(msg, ...)
 end
