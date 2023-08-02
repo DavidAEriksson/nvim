@@ -68,14 +68,6 @@ return require('packer').startup({
     })
 
     use({
-      'jose-elias-alvarez/null-ls.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'neovim/nvim-lspconfig',
-      },
-    })
-
-    use({
       'davidosomething/format-ts-errors.nvim',
     })
 
@@ -200,11 +192,6 @@ return require('packer').startup({
     use({ 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' })
 
     use({ 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' })
-
-    use({
-      'prettier/vim-prettier',
-      run = 'yarn install',
-    })
 
     use({
       'Pocco81/true-zen.nvim',
