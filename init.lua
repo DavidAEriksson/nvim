@@ -8,7 +8,7 @@ else
 end
 
 ---@string 'dark'|'light'
-_G.theme = 'light'
+_G.theme = 'dark'
 
 require('modules.core')
 require('modules.lsp')
