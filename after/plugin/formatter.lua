@@ -49,8 +49,20 @@ formatter.setup({
     typescript = {
       require('formatter.filetypes.typescript').prettier,
     },
+    javascript = {
+      require('formatter.filetypes.javascript').prettier,
+    },
     typescriptreact = {
       require('formatter.filetypes.typescriptreact').prettier,
+    },
+    javascriptreact = {
+      require('formatter.filetypes.javascriptreact').prettier,
+    },
+    css = {
+      require('formatter.filetypes.css').prettier,
+    },
+    yaml = {
+      require('formatter.filetypes.yaml').prettier,
     },
     -- Use the special "*" filetype for defining formatter configurations on
     -- any filetype
