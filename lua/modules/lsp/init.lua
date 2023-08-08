@@ -27,7 +27,6 @@ lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_hel
 lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 
 -- use lsp formatting if it's available (and if it's good)
-
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local zero = require('lsp-zero').preset({})
@@ -54,7 +53,6 @@ if not lsp_configurations.rell then
 end
 
 local lsp_formatting = function(bufnr)
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
   lsp.buf.format({
     bufnr = bufnr,
     filter = function(client)
