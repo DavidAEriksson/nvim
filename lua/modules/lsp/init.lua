@@ -30,6 +30,29 @@ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
 
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
+local zero = require('lsp-zero').preset({})
+
+zero.on_attach(function(client, bufnr)
+  zero.default_keymaps({ buffer = bufnr })
+end)
+
+zero.setup()
+
+local lsp_configurations = require('lspconfig.configs')
+
+if not lsp_configurations.rell then
+  lsp_configurations.rell = {
+    default_config = {
+      name = 'rell-lsp',
+      cmd = {
+        'rellsp',
+      },
+      filetypes = { 'rell' },
+      root_dir = require('lspconfig.util').root_pattern('config.yml'),
+    },
+  }
+end
+
 local lsp_formatting = function(bufnr)
   local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
   lsp.buf.format({
@@ -106,6 +129,7 @@ for _, server in ipairs({
   'svelte',
   'ocaml',
   'rell',
+  'solidity',
   -- 'graphql',
   -- 'denols',
 }) do

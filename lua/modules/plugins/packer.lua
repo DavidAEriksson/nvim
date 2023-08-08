@@ -55,6 +55,11 @@ return require('packer').startup({
     })
 
     use({
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v2.x',
+    })
+
+    use({
       'glepnir/lspsaga.nvim',
       branch = 'main',
       requires = {
@@ -105,8 +110,11 @@ return require('packer').startup({
       },
     })
 
-    --- Format/Lint
+    -- Format
     use({ 'mhartington/formatter.nvim' })
+
+    -- Lint
+    use({ 'mfussenegger/nvim-lint' })
 
     --- Telescope
     use({
@@ -117,7 +125,8 @@ return require('packer').startup({
         'kdheepak/lazygit.nvim',
       },
     })
-    --- Treesitter
+
+    -- Treesitter
     use({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
@@ -257,6 +266,10 @@ return require('packer').startup({
 
     use({
       'tomiis4/hypersonic.nvim',
+    })
+
+    use({
+      'shellRaining/hlchunk.nvim',
     })
 
     if packer_bootstrap then
