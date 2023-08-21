@@ -72,5 +72,6 @@
     ],
     "diagnostics.globals": [
         "pcall"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

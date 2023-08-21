@@ -135,6 +135,14 @@ vim.keymap.set('n', '<leader>ps', function()
   require('plenary.reload').reload_module('instalog')
 end)
 
+-- Copilot accept insert
+vim.keymap.set(
+  'i',
+  '<C-J>',
+  "copilot#Accept('<CR>')",
+  { noremap = true, silent = true, expr = true, replace_keycodes = false }
+)
+
 -- Autoclose tags
 vim.keymap.set('i', '/', function()
   local ts_utils = require('nvim-treesitter.ts_utils')

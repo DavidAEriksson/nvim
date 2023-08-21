@@ -50,13 +50,7 @@ return require('packer').startup({
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
       'ray-x/lsp_signature.nvim',
-      'jose-elias-alvarez/typescript.nvim',
       'onsails/lspkind-nvim',
-    })
-
-    use({
-      'VonHeikemen/lsp-zero.nvim',
-      branch = 'v2.x',
     })
 
     use({
@@ -270,6 +264,10 @@ return require('packer').startup({
 
     use({
       'shellRaining/hlchunk.nvim',
+    })
+
+    use({
+      'github/copilot.vim',
     })
 
     if packer_bootstrap then

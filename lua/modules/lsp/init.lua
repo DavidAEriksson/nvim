@@ -6,16 +6,6 @@ local border_opts = { border = 'rounded', focusable = true, scope = 'line' }
 
 require('neodev').setup({})
 
-require('lspconfig').lua_ls.setup({
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = 'Replace',
-      },
-    },
-  },
-})
-
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = '✗', texthl = 'DiagnosticSignError' })
@@ -23,34 +13,11 @@ fn.sign_define('DiagnosticSignWarn', { text = '!', texthl = 'DiagnosticSignWarn'
 fn.sign_define('DiagnosticSignInformation', { text = '', texthl = 'DiagnosticSignInfo' })
 
 -- handlers
-lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_help, border_opts)
-lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts)
+--[[ lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_help, border_opts) ]]
+--[[ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts) ]]
 
 -- use lsp formatting if it's available (and if it's good)
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
-
-local zero = require('lsp-zero').preset({})
-
-zero.on_attach(function(client, bufnr)
-  zero.default_keymaps({ buffer = bufnr })
-end)
-
-zero.setup()
-
-local lsp_configurations = require('lspconfig.configs')
-
-if not lsp_configurations.rell then
-  lsp_configurations.rell = {
-    default_config = {
-      name = 'rell-lsp',
-      cmd = {
-        'rellsp',
-      },
-      filetypes = { 'rell' },
-      root_dir = require('lspconfig.util').root_pattern('config.yml'),
-    },
-  }
-end
 
 local lsp_formatting = function(bufnr)
   lsp.buf.format({
@@ -126,7 +93,8 @@ for _, server in ipairs({
   'tailwind',
   'svelte',
   'ocaml',
-  'rell',
+  'lua_ls',
+  --'rell',
   'solidity',
   -- 'graphql',
   -- 'denols',
