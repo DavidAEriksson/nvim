@@ -11,7 +11,7 @@ bufferline.setup({
     diagnostics = 'nvim_lsp',
     diagnostics_update_in_insert = true,
     separator_style = 'thin',
-    show_close_icon = false,
+    show_close_icon = true,
     themable = true,
     offsets = {
       {

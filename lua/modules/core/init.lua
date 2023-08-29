@@ -6,6 +6,9 @@ end
 if _G.theme == 'light' then
   require('modules.core.colors.github')
 end
+if _G.theme == 'kanagawa' then
+  require('modules.core.colors.kanagawa')
+end
 require('modules.core.lualine')
 require('modules.core.scratch')
 require('modules.core.snip')

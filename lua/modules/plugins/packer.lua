@@ -147,6 +147,7 @@ return require('packer').startup({
       'lukas-reineke/indent-blankline.nvim',
       'AlexvZyl/nordic.nvim',
       'projekt0n/github-nvim-theme',
+      'rebelot/kanagawa.nvim',
     })
 
     -- Statusline
@@ -260,10 +261,6 @@ return require('packer').startup({
 
     use({
       'tomiis4/hypersonic.nvim',
-    })
-
-    use({
-      'shellRaining/hlchunk.nvim',
     })
 
     use({

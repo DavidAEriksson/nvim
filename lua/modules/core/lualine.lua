@@ -10,17 +10,20 @@ local branch = {
   'branch',
 }
 
-local function theme_switch(bg_dark, fg_dark, bg_light, fg_light)
+local function theme_switch(bg_dark, fg_dark, bg_light, fg_light, bg_kanagawa, fg_kanagawa)
   if _G.theme == 'dark' then
     return { bg = bg_dark, fg = fg_dark }
   end
   if _G.theme == 'light' then
     return { bg = bg_light, fg = fg_light }
   end
+  if _G.theme == 'kanagawa' then
+    return { bg = bg_kanagawa, fg = fg_kanagawa }
+  end
 end
 
 local space = {
-  color = theme_switch('#191D24', '#191D24', '#FFFFFF', '#FFFFFF'),
+  color = theme_switch('#191D24', '#191D24', '#FFFFFF', '#FFFFFF', '#282727', '#282727'),
   function()
     return ' '
   end,
@@ -28,7 +31,7 @@ local space = {
 
 local filename = {
   'filename',
-  color = theme_switch('#D08770', '#242933', '#8250df', '#FFFFFF'),
+  color = theme_switch('#D08770', '#242933', '#8250df', '#FFFFFF', '#8ba4b0', '#363646'),
   separator = { left = '', right = '' },
 }
 
@@ -36,7 +39,7 @@ local filetype = {
   'filetype',
   icon_only = true,
   colored = true,
-  color = theme_switch('#D08770', '#242933', '#8250df', '#24292f'),
+  color = theme_switch('#D08770', '#242933', '#8250df', '#24292f', '#8ba4b0', '#363646'),
   separator = { left = '', right = '' },
 }
 
@@ -48,6 +51,9 @@ local diagnostics = {
 local function theme_name()
   if _G.theme == 'dark' then
     return 'nordic'
+  end
+  if _G.theme == 'kanagawa' then
+    return 'kanagawa'
   end
   return 'github_light'
 end
@@ -69,7 +75,7 @@ local lsp = {
     return '  ' .. msg
   end,
   separator = { left = '', right = '' },
-  color = theme_switch('#D08770', '#242933', '#218bff', '#24292f'),
+  color = theme_switch('#D08770', '#242933', '#218bff', '#24292f', '#87a987', '#282727'),
 }
 
 local config = {
