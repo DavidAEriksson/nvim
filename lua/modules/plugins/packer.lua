@@ -54,8 +54,7 @@ return require('packer').startup({
     })
 
     use({
-      'glepnir/lspsaga.nvim',
-      branch = 'main',
+      'nvimdev/lspsaga.nvim',
       requires = {
         { 'nvim-tree/nvim-web-devicons' },
         { 'nvim-treesitter/nvim-treesitter' },
@@ -148,6 +147,7 @@ return require('packer').startup({
       'AlexvZyl/nordic.nvim',
       'projekt0n/github-nvim-theme',
       'rebelot/kanagawa.nvim',
+      'EdenEast/nightfox.nvim',
     })
 
     -- Statusline
@@ -198,17 +198,6 @@ return require('packer').startup({
     use({ 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' })
 
     use({
-      'Pocco81/true-zen.nvim',
-      config = function()
-        require('true-zen').setup({
-          integrations = {
-            lualine = false,
-          },
-        })
-      end,
-    })
-
-    use({
       'folke/noice.nvim',
       requires = {
         'MunifTanjim/nui.nvim',
@@ -246,17 +235,6 @@ return require('packer').startup({
 
     use({
       'zbirenbaum/neodim',
-    })
-
-    use({
-      'nvim-neorg/neorg',
-      run = ':Neorg sync-parsers',
-      requires = 'nvim-lua/plenary.nvim',
-    })
-
-    use({
-      'narutoxy/silicon.lua',
-      requires = { 'nvim-lua/plenary.nvim' },
     })
 
     use({

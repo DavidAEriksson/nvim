@@ -9,6 +9,9 @@ end
 if _G.theme == 'kanagawa' then
   require('modules.core.colors.kanagawa')
 end
+if _G.theme == 'nightfox' then
+  require('modules.core.colors.nightfox')
+end
 require('modules.core.lualine')
 require('modules.core.scratch')
 require('modules.core.snip')
