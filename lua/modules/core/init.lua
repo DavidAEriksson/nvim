@@ -1,6 +1,6 @@
 require('modules.core.settings')
 require('modules.core.mappings')
-if _G.theme == 'dark' then
+if _G.theme == 'nordic' then
   require('modules.core.colors.nordic')
 end
 if _G.theme == 'light' then

@@ -10,9 +10,9 @@ local branch = {
   'branch',
 }
 
-local function theme_switch(bg_dark, fg_dark, bg_light, fg_light, bg_kanagawa, fg_kanagawa)
-  if _G.theme == 'dark' then
-    return { bg = bg_dark, fg = fg_dark }
+local function theme_switch(bg_nordic, fg_nordic, bg_light, fg_light, bg_kanagawa, fg_kanagawa)
+  if _G.theme == 'nordic' then
+    return { bg = bg_nordic, fg = fg_nordic }
   end
   if _G.theme == 'light' then
     return { bg = bg_light, fg = fg_light }
@@ -49,7 +49,7 @@ local diagnostics = {
 }
 
 local function theme_name()
-  if _G.theme == 'dark' then
+  if _G.theme == 'nordic' then
     return 'nordic'
   end
   if _G.theme == 'kanagawa' then

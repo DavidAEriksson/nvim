@@ -5,13 +5,11 @@ require('nvim-treesitter.configs').setup({
     'typescript',
     'tsx',
     'json',
-    'c_sharp',
     'css',
     'html',
     'javascript',
     'markdown',
     'markdown_inline',
-    'go',
     'rust',
     'vimdoc',
   }, -- you can also do ensure_installed = 'all'
