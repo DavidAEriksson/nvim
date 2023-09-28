@@ -37,7 +37,7 @@ local on_attach = function(client, bufnr)
   api.nvim_buf_create_user_command(bufnr, 'LspImplementation', vim.lsp.buf.implementation, {})
 
   --- LSP Mappings
-  u.buf_map(bufnr, 'n', 'gf', ':LspDiagLine<CR>')
+  u.buf_map(bufnr, 'n', 'gf', ':Lspsaga show_cursor_diagnostics<CR>')
   u.buf_map(bufnr, 'n', '<leader>q', ':LspDiagQuickfix<CR>')
   u.buf_map(bufnr, 'n', '<C-k>', ':LspSignatureHelp<CR>')
   u.buf_map(bufnr, 'n', '<leader>gi', ':LspImplementation<CR>')
@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<C-p>', ':Lspsaga diagnostic_jump_prev<CR>')
   u.buf_map(bufnr, 'n', '<leader>pd', ':Lspsaga peek_definition<CR>')
   u.buf_map(bufnr, 'n', 'gd', ':Lspsaga goto_definition<CR>')
-  u.buf_map(bufnr, 'n', 'gh', ':Lspsaga lsp_finder<CR>')
+  u.buf_map(bufnr, 'n', 'gh', ':Lspsaga finder<CR>')
   u.buf_map(bufnr, 'n', '<leader>o', ':Lspsaga outline<CR>')
 
   --- LSP Telescope mappings
