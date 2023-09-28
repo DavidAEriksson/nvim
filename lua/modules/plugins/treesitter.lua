@@ -13,6 +13,10 @@ require('nvim-treesitter.configs').setup({
     'rust',
     'vimdoc',
   }, -- you can also do ensure_installed = 'all'
+  sync_install = false,
+  ignore_install = {},
+  modules = {},
+  auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
