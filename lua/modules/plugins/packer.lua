@@ -150,6 +150,10 @@ return require('packer').startup({
       'EdenEast/nightfox.nvim',
     })
 
+    use({
+      'nvim-treesitter/playground',
+    })
+
     -- Statusline
     use({
       'nvim-lualine/lualine.nvim',
