@@ -8,7 +8,7 @@ else
 end
 
 ---@string 'nordic'|'light'|'kanagawa'
-_G.theme = 'kanagawa'
+_G.theme = 'nordic'
 
 require('modules.core')
 require('modules.lsp')

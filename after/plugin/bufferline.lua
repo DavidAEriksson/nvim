@@ -5,6 +5,7 @@ if not ok then
 end
 
 bufferline.setup({
+  ---@diagnostic disable-next-line: missing-fields
   options = {
     mode = 'buffers',
     style_preset = bufferline.style_preset.default,
@@ -48,7 +49,8 @@ bufferline.setup({
     offsets = {
       {
         filetype = 'neo-tree',
-        text_align = 'left',
+        text = 'Explorer  ',
+        text_align = 'center',
         separator = true,
       },
     },
@@ -83,7 +85,6 @@ bufferline.setup({
         toggle_hidden_on_enter = false,
       },
     },
-    show_buffer_default_icon = true,
   },
   highlights = {},
 })
