@@ -10,15 +10,10 @@ nordic.setup({
   },
   bold_keywords = true,
   italic_comments = true,
+  reduced_blue = true,
+  bright_border = false,
   noice = {
     style = 'flat',
-  },
-  onedark = {
-    -- Brighten the whites to fit the theme better.
-    brighter_whites = true,
-  },
-  nordic = {
-    reduced_blue = true,
   },
 })
 

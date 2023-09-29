@@ -137,7 +137,7 @@ return require('packer').startup({
     use({
       'tpope/vim-surround',
       'windwp/nvim-autopairs',
-      'norcalli/nvim-colorizer.lua',
+      'NvChad/nvim-colorizer.lua',
     })
 
     -- Colors, indentation and blankline
@@ -243,6 +243,10 @@ return require('packer').startup({
 
     use({
       'tomiis4/hypersonic.nvim',
+    })
+
+    use({
+      'ziontee113/color-picker.nvim',
     })
 
     use({
