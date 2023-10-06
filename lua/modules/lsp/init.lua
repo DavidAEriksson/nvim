@@ -94,7 +94,7 @@ for _, server in ipairs({
   'lua_ls',
   'solidity',
   'prismals',
-  -- 'rell',
+  'rell',
   -- 'tailwind',
   -- 'cssmodules',
   -- 'graphql',
@@ -102,23 +102,3 @@ for _, server in ipairs({
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end
-
-local start_rell = function()
-  local config = {
-    cmd = {
-      'rellsp',
-    },
-    name = 'rell',
-    root_dir = vim.fn.getcwd(),
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-
-  local client_id = vim.lsp.start_client(config)
-
-  if client_id then
-    vim.lsp.buf_attach_client(0, client_id)
-  end
-end
-
-vim.api.nvim_create_user_command('StartRell', start_rell, { desc = 'Start rell server' })

@@ -1,10 +1,13 @@
 local M = {}
 
 M.setup = function(on_attach, capabilities)
-  vim.lsp.start({
-    -- name = 'rell',
-    cmd = { '~/.vscode/extensions/chromaway.rell-language-extension-0.2.10-darwin-arm64/server/rell-lsp.sh' },
-    root_dir = vim.fn.getcwd(),
+  local lspconfig = require('lspconfig')
+
+  lspconfig['rell'].setup({
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+    end,
+    capabilities = capabilities,
   })
 end
 
