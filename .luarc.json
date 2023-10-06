@@ -68,6 +68,7 @@
         "/Users/davideriksson/.local/share/nvim/site/pack/packer/start/which-key.nvim/lua",
         "/Users/davideriksson/.local/share/nvim/site/pack/packer/start/zippy.nvim/lua",
         "/Users/davideriksson/.config/nvim/lua",
+        "${3rd}/luv/library",
         "${3rd}/luv/library"
     ],
     "diagnostics.globals": [
