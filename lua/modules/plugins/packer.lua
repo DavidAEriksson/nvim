@@ -228,8 +228,6 @@ return require('packer').startup({
       'famiu/bufdelete.nvim',
     })
 
-    use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
-
     use({ 'mbbill/undotree' })
 
     use({
