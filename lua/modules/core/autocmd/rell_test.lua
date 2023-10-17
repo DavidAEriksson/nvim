@@ -29,9 +29,16 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
     local file_errors = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
     if next(file_errors) ~= nil then
-      vim.print('Errors in file found, not running tests.')
+      require('notify')('Errors in file found, not running tests.', 'warn', {
+        title = 'Rell test runner  ',
+        timeout = 500,
+      })
       return
     end
+    require('notify')('Running tests...', 'info', {
+      title = 'Rell test runner  ',
+      timeout = 500,
+    })
     local test_file_name = vim.fn.fnamemodify(vim.fn.expand('%:t'), ':r')
     local test_file = io.open(vim.api.nvim_buf_get_name(0), 'r'):read('*all')
     local line_numbers = find_function_line_numbers(test_file)
@@ -75,6 +82,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
         end
         vim.diagnostic.set(ns, 0, diagnostics, {})
       end
+      require('notify')('Test run completed.', 'info', { title = 'Rell test runner  ', timeout = 500 })
     end
 
     vim.fn.jobstart('chr test -m test.' .. test_file_name .. ' --test-report', {
