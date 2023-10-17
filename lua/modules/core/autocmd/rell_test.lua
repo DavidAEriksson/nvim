@@ -1,5 +1,4 @@
 local ns = vim.api.nvim_create_namespace('rell_test')
-local bufnr = vim.api.nvim_get_current_buf()
 
 local function split_lines(input)
   local lines = {}
@@ -27,8 +26,8 @@ end
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*_test.rell',
   callback = function()
-    vim.api.nvim_buf_clear_namespace(bufnr, ns, 0, -1)
-    local file_errors = vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.ERROR })
+    vim.api.nvim_buf_clear_namespace(0, ns, 0, -1)
+    local file_errors = vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
     if next(file_errors) ~= nil then
       vim.print('Errors in file found, not running tests.')
       return
@@ -65,7 +64,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
         local diagnostics = {}
         for _, info in ipairs(testcases) do
           table.insert(diagnostics, {
-            bufnr = bufnr,
+            bufnr = 0,
             lnum = info.linenumber - 1,
             col = 0,
             severity = info.message and vim.diagnostic.severity.WARN or vim.diagnostic.severity.HINT,
@@ -74,7 +73,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
             user_data = {},
           })
         end
-        vim.diagnostic.set(ns, bufnr, diagnostics, {})
+        vim.diagnostic.set(ns, 0, diagnostics, {})
       end
     end
 
