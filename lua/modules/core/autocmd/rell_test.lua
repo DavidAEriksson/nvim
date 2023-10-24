@@ -1,3 +1,5 @@
+local M = {}
+
 local ns = vim.api.nvim_create_namespace('rell_test')
 
 local function split_lines(input)
@@ -67,6 +69,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
           testcases[#testcases].message = ' '
             .. message:gsub('&apos;', "'"):gsub('&quot;', '"'):gsub('&lt;', '<'):gsub('&gt;', '>')
         end
+        M.testcases = testcases
 
         local diagnostics = {}
         for _, info in ipairs(testcases) do
@@ -90,3 +93,42 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     })
   end,
 })
+
+vim.api.nvim_create_user_command('RellTestResults', function()
+  local split = require('nui.split')
+  local r_split = split({
+    relative = 'editor',
+    position = 'right',
+    size = '50%',
+  })
+  r_split:mount()
+  vim.keymap.set('n', 'q', function()
+    r_split:unmount()
+  end, { silent = true })
+  vim.api.nvim_buf_set_lines(r_split.bufnr, 0, -1, false, { ' Test results  ' })
+  vim.api.nvim_buf_set_lines(r_split.bufnr, 1, -1, false, { '----------------' })
+  if M.testcases == nil or next(M.testcases) == nil then
+    require('notify')('No testcases found', 'warn', {
+      title = 'Rell test runner  ',
+      timeout = 300,
+    })
+    return
+  end
+  vim.api.nvim_buf_set_lines(
+    r_split.bufnr,
+    2,
+    -1,
+    false,
+    vim.tbl_map(function(testcase)
+      return 'Test '
+        .. '**'
+        .. testcase.name
+        .. '**'
+        .. ':'
+        .. (testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.')
+    end, M.testcases)
+  )
+  vim.api.nvim_buf_set_option(r_split.bufnr, 'modifiable', false)
+  vim.api.nvim_buf_set_option(r_split.bufnr, 'filetype', 'markdown')
+  vim.cmd('set conceallevel=3')
+end, {})
