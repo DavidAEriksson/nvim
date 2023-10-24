@@ -94,6 +94,10 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   end,
 })
 
+vim.api.nvim_create_user_command('RellTestRemoveDiagnostics', function()
+  vim.diagnostic.reset(ns, 0)
+end, {})
+
 vim.api.nvim_create_user_command('RellTestResults', function()
   local split = require('nui.split')
   local r_split = split({
