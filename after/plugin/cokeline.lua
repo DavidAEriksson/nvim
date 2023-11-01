@@ -59,16 +59,13 @@ cokeline.setup({
     },
     {
       text = function(buffer)
-        return (buffer.index ~= 1) and '▎  ' or '│'
+        return (buffer.index ~= 1) and '▎  ' or '│   '
       end,
       underline = function(buffer)
         return not buffer.is_focused
       end,
       fg = dark_bg,
       sp = inactive_bg,
-      bg = function(buffer)
-        return (buffer.index == 1 and buffer.is_focused) and inactive_bg
-      end,
     },
     {
       text = function(buffer)
