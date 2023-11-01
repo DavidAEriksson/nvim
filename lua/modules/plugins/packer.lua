@@ -186,10 +186,10 @@ return require('packer').startup({
     -- toggleterm
     use({ 'akinsho/toggleterm.nvim' })
 
-    -- Bufferline
+    -- Cokeline
     use({
-      'akinsho/bufferline.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
+      'willothy/nvim-cokeline',
+      requires = { 'kyazdani42/nvim-web-devicons', 'nvim-lua/plenary.nvim' },
     })
 
     -- Git

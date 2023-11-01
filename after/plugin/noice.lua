@@ -5,6 +5,14 @@ if not ok then
 end
 
 noice.setup({
+  views = {
+    cmdline_popup = {
+      border = {
+        style = { '🭽', '▔', '🭾', '▕', '🭿', '▁', '🭼', '▏' },
+        padding = { 0, 0 },
+      },
+    },
+  },
   lsp = {
     progress = {
       enabled = true,

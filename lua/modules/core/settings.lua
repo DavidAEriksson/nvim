@@ -43,7 +43,7 @@ vim.cmd([[
 -- Windows --
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.showtabline = 1
+vim.o.showtabline = 2
 
 -- Cursor --
 vim.o.ruler = true
@@ -60,8 +60,7 @@ vim.o.laststatus = 1
 
 -- Colors
 vim.o.termguicolors = true
-vim.o.colorcolumn = '120'
-vim.o.background = 'dark'
+vim.o.colorcolumn = ''
 
 -- Folds
 vim.o.foldmethod = 'manual'

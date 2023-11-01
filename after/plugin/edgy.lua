@@ -24,7 +24,7 @@ edgy.setup({
   left = {
     -- Neo-tree filesystem always takes half the screen height
     {
-      title = 'Neo-Tree',
+      title = 'Filesystem',
       ft = 'neo-tree',
       filter = function(buf)
         return vim.b[buf].neo_tree_source == 'filesystem'
@@ -32,7 +32,7 @@ edgy.setup({
       size = { height = 0.5 },
     },
     {
-      title = 'Neo-Tree Git',
+      title = 'Git files',
       ft = 'neo-tree',
       filter = function(buf)
         return vim.b[buf].neo_tree_source == 'git_status'
@@ -48,5 +48,13 @@ edgy.setup({
       ft = 'lspsagaoutline',
       open = 'Lspsaga outline',
     },
+  },
+  wo = {
+    winbar = true,
+    winfixwidth = true,
+    winfixheight = false,
+    winhighlight = 'WinBar:EdgyWinBar,Normal:EdgyNormal',
+    spell = false,
+    signcolumn = 'no',
   },
 })
