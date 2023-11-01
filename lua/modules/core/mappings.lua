@@ -43,8 +43,8 @@ imap('jk', '<Esc>')
 imap('kj', '<Esc>')
 
 -- Tab to next S-Tab to prev buf
-nmap('<TAB>', ':bnext<CR>')
-nmap('<S-TAB>', ':bprevious<CR>')
+nmap('<TAB>', '<Plug>(cokeline-focus-next)')
+nmap('<S-TAB>', '<Plug>(cokeline-focus-prev)')
 nmap('<leader>bd', ':lua require("bufdelete").bufdelete(0, true) <CR>')
 
 -- Allow S-TAB to dedent in insert mode
