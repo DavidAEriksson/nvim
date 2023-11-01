@@ -49,12 +49,4 @@ edgy.setup({
       open = 'Lspsaga outline',
     },
   },
-  wo = {
-    winbar = true,
-    winfixwidth = true,
-    winfixheight = false,
-    winhighlight = 'WinBar:EdgyWinBar,Normal:EdgyNormal',
-    spell = false,
-    signcolumn = 'no',
-  },
 })
