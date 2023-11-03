@@ -34,6 +34,12 @@ cokeline.setup({
     bg = function(buffer)
       return buffer.is_focused and bg or inactive_bg
     end,
+    bold = function(buffer)
+      return buffer.is_focused and true or false
+    end,
+    italic = function(buffer)
+      return buffer.is_focused and true or false
+    end,
   },
   sidebar = {
     filetype = 'neo-tree',
@@ -65,7 +71,7 @@ cokeline.setup({
         return not buffer.is_focused
       end,
       fg = dark_bg,
-      sp = inactive_bg,
+      sp = dark_bg,
     },
     {
       text = function(buffer)
@@ -89,14 +95,14 @@ cokeline.setup({
       underline = function(buffer)
         return not buffer.is_focused
       end,
-      sp = inactive_bg,
+      sp = dark_bg,
     },
     {
       text = ' ',
       underline = function(buffer)
         return not buffer.is_focused
       end,
-      sp = inactive_bg,
+      sp = dark_bg,
     },
     {
       text = function(buffer)
@@ -105,7 +111,7 @@ cokeline.setup({
       underline = function(buffer)
         return not buffer.is_focused
       end,
-      sp = inactive_bg,
+      sp = dark_bg,
     },
     {
       text = function(buffer)
@@ -121,14 +127,14 @@ cokeline.setup({
       underline = function(buffer)
         return not buffer.is_focused
       end,
-      sp = inactive_bg,
+      sp = dark_bg,
     },
     {
       text = '   ',
       underline = function(buffer)
         return not buffer.is_focused
       end,
-      sp = inactive_bg,
+      sp = dark_bg,
     },
   },
 })
