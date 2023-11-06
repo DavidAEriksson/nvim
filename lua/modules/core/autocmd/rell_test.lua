@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
         local testcases = {}
         local log_content = log_file:read('*all')
 
-        local name_pattern = '( name="([^"]+)")([^ ])'
+        local name_pattern = '(name="([^"]+)")([^ ])'
         local failure_pattern = 'failure message="([^"]*)"'
 
         for testcase, name in log_content:gmatch(name_pattern) do
