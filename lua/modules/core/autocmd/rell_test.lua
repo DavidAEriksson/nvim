@@ -46,13 +46,13 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     local line_numbers = find_function_line_numbers(test_file)
 
     local on_exit = function()
-      local log_file = io.open('./build/reports/rell-tests.xml', 'r')
+      local log_file = io.open('./build/reports/rell-unit-tests.xml', 'r')
       if log_file then
         local testcases = {}
         local log_content = log_file:read('*all')
 
-        local name_pattern = 'name="test%.([^:]+):([^"]+)"'
-        local failure_pattern = 'failure%s+message%s*=%s*["\'](.-)["\']'
+        local name_pattern = '( name="([^"]+)")([^ ])'
+        local failure_pattern = 'failure message="([^"]*)"'
 
         for testcase, name in log_content:gmatch(name_pattern) do
           local test_information = {
@@ -129,9 +129,7 @@ vim.api.nvim_create_user_command('RellTestResults', function()
         .. testcase.name
         .. '**'
         .. ':'
-        .. (
-          testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.'
-        )
+        .. (testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.')
     end, M.testcases)
   )
   vim.api.nvim_buf_set_option(r_split.bufnr, 'modifiable', false)
