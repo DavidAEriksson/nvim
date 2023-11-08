@@ -25,6 +25,28 @@ local function find_function_line_numbers(file_content)
   return line_numbers
 end
 
+local append_testcases = function(log_content, pattern, testcases, line_numbers)
+  for testcase, name in log_content:gmatch(pattern) do
+    local test_information = {
+      testcase = testcase,
+      name = name,
+      linenumber = line_numbers[name] and line_numbers[name].line or nil,
+      fail = pattern == '(name="([^"]+)")(>)' and true or false,
+      message = nil,
+    }
+    table.insert(testcases, test_information)
+  end
+end
+
+local reverse_table = function(tbl)
+  local reversed = {}
+  for i = #tbl, 1, -1 do
+    table.insert(reversed, tbl[i])
+  end
+
+  return reversed
+end
+
 vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = '*_test.rell',
   callback = function()
@@ -49,26 +71,29 @@ vim.api.nvim_create_autocmd('BufWritePost', {
       local log_file = io.open('./build/reports/rell-unit-tests.xml', 'r')
       if log_file then
         local testcases = {}
+        local errors = {}
         local log_content = log_file:read('*all')
 
-        local name_pattern = '(name="([^"]+)")([^ ])'
-        local failure_pattern = 'failure message="([^"]*)"'
+        local success_pattern = '(name="([^"]+)")(/>)'
+        local failure_pattern = '(name="([^"]+)")(>)'
+        append_testcases(log_content, success_pattern, testcases, line_numbers)
+        append_testcases(log_content, failure_pattern, testcases, line_numbers)
 
-        for testcase, name in log_content:gmatch(name_pattern) do
-          local test_information = {
-            testcase = testcase,
-            name = name,
-            linenumber = line_numbers[name] and line_numbers[name].line or nil,
-            message = nil,
-          }
-
-          table.insert(testcases, test_information)
+        local failure_message_pattern = 'failure message="([^"]*)"'
+        for message in log_content:gmatch(failure_message_pattern) do
+          local msg = ' ' .. message:gsub('&apos;', "'"):gsub('&quot;', '"'):gsub('&lt;', '<'):gsub('&gt;', '>')
+          table.insert(errors, msg)
         end
 
-        for message, _ in log_content:gmatch(failure_pattern) do
-          testcases[#testcases].message = ' '
-            .. message:gsub('&apos;', "'"):gsub('&quot;', '"'):gsub('&lt;', '<'):gsub('&gt;', '>')
+        local testcases_reversed = reverse_table(testcases)
+
+        for k, v in pairs(testcases_reversed) do
+          if v.fail then
+            v.message = reverse_table(errors)[k]
+          end
         end
+
+        testcases = testcases_reversed
         M.testcases = testcases
 
         local diagnostics = {}
@@ -129,9 +154,7 @@ vim.api.nvim_create_user_command('RellTestResults', function()
         .. testcase.name
         .. '**'
         .. ':'
-        .. (
-          testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.'
-        )
+        .. (testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.')
     end, M.testcases)
   )
   vim.api.nvim_buf_set_option(r_split.bufnr, 'modifiable', false)
