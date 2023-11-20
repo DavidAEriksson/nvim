@@ -154,7 +154,9 @@ vim.api.nvim_create_user_command('RellTestResults', function()
         .. testcase.name
         .. '**'
         .. ':'
-        .. (testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.')
+        .. (
+          testcase.message and ' **FAILED:** ' .. testcase.message:gsub(' ', '') or '   Test passed.'
+        )
     end, M.testcases)
   )
   vim.api.nvim_buf_set_option(r_split.bufnr, 'modifiable', false)
