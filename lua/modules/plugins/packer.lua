@@ -252,6 +252,11 @@ return require('packer').startup({
       'github/copilot.vim',
     })
 
+    use({
+      'phaazon/hop.nvim',
+      branch = 'v2',
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end

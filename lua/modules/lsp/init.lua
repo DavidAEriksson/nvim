@@ -95,6 +95,7 @@ for _, server in ipairs({
   'solidity',
   'prismals',
   'rell',
+  'emmet',
   -- 'tailwind',
   -- 'cssmodules',
   -- 'graphql',

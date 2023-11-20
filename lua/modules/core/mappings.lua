@@ -131,6 +131,9 @@ nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
 
 nmap('<leader>n', "<cmd>: :lua require('neogen').generate()<CR>")
 
+-- Hop
+nmap('<leader>h', '<cmd>:HopWord<CR>')
+
 vim.keymap.set('n', '<leader>ps', function()
   require('plenary.reload').reload_module('instalog')
 end)
