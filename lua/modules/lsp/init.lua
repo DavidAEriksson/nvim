@@ -57,10 +57,6 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
   u.buf_map(bufnr, 'n', '<leader>ca', ':Lspsaga code_action<CR>')
 
-  if client.server_capabilities.inlayHintProvider then
-    vim.lsp.buf.inlay_hint(bufnr, true)
-  end
-
   if client.supports_method('textDocument/formatting') then
     u.buf_command(bufnr, 'LspFormatting', function()
       lsp_formatting(bufnr)
