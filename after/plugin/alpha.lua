@@ -18,7 +18,24 @@ local function footer()
 end
 
 -- Set header
+dashboard.section.header.opts.position = 'center'
 dashboard.section.header.val = {
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
+  '                                   ',
   '                                   ',
   '                                   ',
   '                                   ',
@@ -43,7 +60,7 @@ dashboard.section.buttons.val = {
   dashboard.button('f', '  > Find file', ':Telescope find_files<CR>', {}),
   dashboard.button('r', '  > Recent', ':Telescope oldfiles<CR>', {}),
   dashboard.button('g', '  > Grep', ':Telescope live_grep<CR>', {}),
-  dashboard.button('s', '  > Settings', ':e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>', {}),
+  dashboard.button('s', '  > Settings', ':e $MYVIMRC | :cd %:p:h | wincmd k | pwd<CR>', {}),
   dashboard.button('p', '  > Sync all (' .. plugins_count .. ') plugins', ':PackerSync<CR>', {}),
   dashboard.button('q', '  > Quit NVIM', ':qa<CR>', {}),
 }
