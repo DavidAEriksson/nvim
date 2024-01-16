@@ -167,3 +167,7 @@ end, {
   expr = true,
   buffer = true,
 })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>sa', function()
+  require('scissors').addNewSnippet()
+end)

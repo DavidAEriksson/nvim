@@ -88,6 +88,7 @@ return require('packer').startup({
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'folke/lua-dev.nvim',
+      'chrisgrieser/nvim-scissors',
     })
 
     -- Trouble
