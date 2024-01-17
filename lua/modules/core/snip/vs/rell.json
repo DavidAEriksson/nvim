@@ -1,1 +1,12 @@
-{"query + name + from + from_body + select":{"body":"query ${1:name} () = ${2:from} @ { ${3:from_body} } ( ${4:select} );","prefix":["query","name","from","from_body","select"]}}
+{
+  "query + name + from + where + select": {
+    "body": "query ${1:name} () = ${2:from} @ { ${3:where} } ( ${4:select} );",
+    "prefix": [
+      "query",
+      "name",
+      "from",
+      "where",
+      "select"
+    ]
+  }
+}
