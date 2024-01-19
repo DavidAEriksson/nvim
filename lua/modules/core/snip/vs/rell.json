@@ -1,12 +1,132 @@
 {
+  "entity + name + fields": {
+    "body": [
+      "entity ${1:name} {",
+      "    ${2:fields}",
+      "}"
+    ],
+    "prefix": [
+      "entity"
+    ],
+    "description": "Entity declaration"
+  },
+  "enum + name + field": {
+    "body": [
+      "enum ${1:name} {",
+      "    ${2:field},",
+      "}"
+    ],
+    "prefix": [
+      "enum"
+    ],
+    "description": "Enum declaration"
+  },
+  "function + name + body": {
+    "body": [
+      "function ${1:name} () {",
+      "    ${2:body}",
+      "}"
+    ],
+    "prefix": [
+      "function"
+    ],
+    "description": "Function declaration"
+  },
+  "if_body + condition + body": {
+    "body": [
+      "if (${1:condition}) {",
+      "  ${2:body}",
+      "}"
+    ],
+    "prefix": [
+      "if_body",
+      "if"
+    ],
+    "description": "If statement with bracketed body"
+  },
+  "if_else + condition + body_if + body_else": {
+    "body": [
+      "if (${1:condition}) {",
+      "    ${2:body_if}",
+      "} else {",
+      "    ${3:body_else}",
+      "}"
+    ],
+    "prefix": [
+      "if_else",
+      "if"
+    ],
+    "description": "If/else statement"
+  },
+  "if_else_if + condition + body_if + condition_else_if + body_else_if + body_else": {
+    "body": [
+      "if (${1:condition}) {",
+      "    ${2:body_if}",
+      "} else if (${3:condition_else_if}) {",
+      "    ${4:body_else_if}",
+      "} else {",
+      "    ${5:body_else}",
+      "}"
+    ],
+    "prefix": [
+      "if_else_if",
+      "if"
+    ],
+    "description": "If else/if else statement"
+  },
+  "if_oneline + condition + action": {
+    "body": "if (${1:condition}) ${2:action};",
+    "prefix": [
+      "if_oneline",
+      "if"
+    ],
+    "description": "If statement one-liner"
+  },
+  "object + name + field": {
+    "body": [
+      "object ${1:name} {",
+      "    ${2:field};",
+      "}"
+    ],
+    "prefix": [
+      "object"
+    ],
+    "description": "Object"
+  },
+  "operation + name + args + body": {
+    "body": [
+      "operation ${1:name} (${2:args}) {",
+      "    ${3:body}",
+      "}"
+    ],
+    "prefix": [
+      "operation"
+    ],
+    "description": "Operation statement"
+  },
+  "print + value": {
+    "body": "print(${1:value});",
+    "prefix": [
+      "print"
+    ],
+    "description": "Print statement"
+  },
   "query + name + from + where + select": {
     "body": "query ${1:name} () = ${2:from} @ { ${3:where} } ( ${4:select} );",
     "prefix": [
-      "query",
-      "name",
-      "from",
-      "where",
-      "select"
-    ]
+      "query"
+    ],
+    "description": "Query declaration"
+  },
+  "struct + name + field": {
+    "body": [
+      "struct ${1:name} {",
+      "    ${2:field};",
+      "}"
+    ],
+    "prefix": [
+      "struct"
+    ],
+    "description": "Struct declaration"
   }
 }
