@@ -30,6 +30,7 @@ vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { bg = '#1d2129', fg = '#1d2129
 vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = '#1d2129', fg = '#1d2129' })
 vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = '#242933', fg = '#242933' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#242933', fg = '#D89079' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#242933' })
 
 local links = {
   ['@lsp.type.rell-module.rell'] = '@namespace',
