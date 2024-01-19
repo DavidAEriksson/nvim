@@ -19,7 +19,6 @@ require('luasnip.loaders.from_vscode').lazy_load({
   paths = { vim.fn.stdpath('config') .. '/lua/modules/core/snip/vs' },
 })
 
-vim.api.nvim_command('hi LuasnipChoiceNodePassive cterm=italic')
 vim.opt.completeopt = 'menu,menuone,noselect'
 
 -- find more here: https://www.nerdfonts.com/cheat-sheet
@@ -136,6 +135,8 @@ cmp.setup({
     selection_order = 'near_cursor',
   },
 })
+
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 local ok, nvim_autopairs = pcall(require, 'nvim-autopairs')
 
