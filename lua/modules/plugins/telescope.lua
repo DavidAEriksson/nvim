@@ -70,7 +70,7 @@ require('telescope').setup({
   },
 })
 
-local extensions = { 'themes', 'terms' }
+local extensions = { 'themes', 'terms', 'fzf' }
 
 pcall(function()
   for _, ext in pairs(extensions) do
