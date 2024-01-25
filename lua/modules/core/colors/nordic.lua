@@ -31,6 +31,8 @@ vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { bg = '#1d2129', fg = '#1d2129
 vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = '#242933', fg = '#242933' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#242933', fg = '#D89079' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#242933' })
+vim.api.nvim_set_hl(0, 'SagaNormal', { bg = '#242933' })
+vim.api.nvim_set_hl(0, 'SagaBorder', { bg = '#242933', fg = '#D89079' })
 
 local links = {
   ['@lsp.type.rell-module.rell'] = '@namespace',
@@ -40,8 +42,8 @@ local links = {
   ['@lsp.type.rell-enum.rell'] = '@lsp.type.enum',
   ['@lsp.type.rell-enum_value.rell'] = '@lsp.type.enumMember',
   ['@lsp.type.rell-struct.rell'] = '@type',
-  ['@lsp.type.rell-struct_attr_val.rell'] = '@attribute',
-  ['@lsp.type.rell-struct_attr_var.rell'] = '@attribute',
+  ['@lsp.type.rell-struct_attr_val.rell'] = '@property',
+  ['@lsp.type.rell-struct_attr_var.rell'] = '@property',
   ['@lsp.type.rell-tuple_attr.rell'] = '@parameter',
   ['@lsp.type.rell-entity.rell'] = '@type',
   ['@lsp.type.rell-object.rell'] = '@type',
