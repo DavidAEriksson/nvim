@@ -258,6 +258,12 @@ return require('packer').startup({
       branch = 'v2',
     })
 
+    use({
+      'nvim-neorg/neorg',
+      run = ':Neorg sync-parsers',
+      requires = 'nvim-lua/plenary.nvim',
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end
