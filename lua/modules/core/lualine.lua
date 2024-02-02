@@ -14,7 +14,7 @@ local function theme_switch(bg_nordic, fg_nordic, bg_light, fg_light, bg_kanagaw
   if _G.theme == 'nordic' then
     return { bg = bg_nordic, fg = fg_nordic }
   end
-  if _G.theme == 'light' then
+  if _G.theme == 'gh-light' then
     return { bg = bg_light, fg = fg_light }
   end
   if _G.theme == 'kanagawa' then
@@ -55,7 +55,10 @@ local function theme_name()
   if _G.theme == 'kanagawa' then
     return 'kanagawa'
   end
-  return 'github_light'
+  if _G.theme == 'gh-light' then
+    return 'github_light'
+  end
+  print('❌ Invalid theme name. ❌')
 end
 
 local lsp = {
