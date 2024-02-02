@@ -64,7 +64,7 @@ end
 
 #### Transparent terminal emulator
 
-I'm using Kitty here;
+In Kitty:
 
 <details>
     <summary>Kitty with <code>background_opacity 0.7</code></summary>
