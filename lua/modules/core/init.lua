@@ -12,6 +12,9 @@ end
 if _G.theme == 'nightfox' then
   require('modules.core.colors.nightfox')
 end
+if _G.theme == 'chromia' then
+  require('modules.core.colors.chromia')
+end
 require('modules.core.lualine')
 require('modules.core.scratch')
 require('modules.core.snip')

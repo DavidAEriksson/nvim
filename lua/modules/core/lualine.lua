@@ -58,6 +58,9 @@ local function theme_name()
   if _G.theme == 'gh-light' then
     return 'github_light'
   end
+  if _G.theme == 'chromia' then
+    return 'chromia'
+  end
   print('❌ Invalid theme name. ❌')
 end
 

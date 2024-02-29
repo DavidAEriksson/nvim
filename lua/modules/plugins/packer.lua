@@ -151,6 +151,7 @@ return require('packer').startup({
       'projekt0n/github-nvim-theme',
       'rebelot/kanagawa.nvim',
       'EdenEast/nightfox.nvim',
+      'DavidAEriksson/chromia-theme.nvim',
     })
 
     use({

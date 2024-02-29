@@ -7,7 +7,7 @@ else
   _G.packer_installed = true
 end
 
----@string 'nordic'|'gh-light'|'kanagawa'
+---@string 'nordic'|'gh-light'|'kanagawa'|'chromia'
 _G.theme = 'nordic'
 
 require('modules.core')
