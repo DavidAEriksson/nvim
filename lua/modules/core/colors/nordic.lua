@@ -33,35 +33,3 @@ vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#242933', fg = '#D89079' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#242933' })
 vim.api.nvim_set_hl(0, 'SagaNormal', { bg = '#242933' })
 vim.api.nvim_set_hl(0, 'SagaBorder', { bg = '#242933', fg = '#D89079' })
-
-local links = {
-  ['@lsp.type.rell-module.rell'] = '@namespace',
-  ['@lsp.type.rell-annotation.rell'] = '@namespace',
-  ['@lsp.type.rell-namespace.rell'] = '@namespace',
-  ['@lsp.type.rell-type.rell'] = '@type',
-  ['@lsp.type.rell-enum.rell'] = '@lsp.type.enum',
-  ['@lsp.type.rell-enum_value.rell'] = '@lsp.type.enumMember',
-  ['@lsp.type.rell-struct.rell'] = '@type',
-  ['@lsp.type.rell-struct_attr_val.rell'] = '@property',
-  ['@lsp.type.rell-struct_attr_var.rell'] = '@property',
-  ['@lsp.type.rell-tuple_attr.rell'] = '@parameter',
-  ['@lsp.type.rell-entity.rell'] = '@type',
-  ['@lsp.type.rell-object.rell'] = '@type',
-  ['@lsp.type.rell-entity_attr_normal_val.rell'] = '@tag.attribute',
-  ['@lsp.type.rell-entity_attr_normal_var.rell'] = '@tag.attribute',
-  ['@lsp.type.rell-entity_attr_keyindex_val.rell'] = '@property',
-  ['@lsp.type.rell-entity_attr_keyindex_var.rell'] = '@property',
-  ['@lsp.type.rell-function.rell'] = '@function',
-  ['@lsp.type.rell-extendable_function.rell'] = '@function.macro',
-  ['@lsp.type.rell-operation.rell'] = '@function',
-  ['@lsp.type.rell-query.rell'] = '@function',
-  ['@lsp.type.rell-named_argument.rell'] = '@parameter',
-  ['@lsp.type.rell-global_constant.rell'] = '@constant',
-  ['@lsp.type.rell-local_val.rell'] = '@variable',
-  ['@lsp.type.rell-local_var.rell'] = '@variable',
-  ['@lsp.type.rell-at_alias.rell'] = '@type',
-  ['@lsp.type.rell-default.rell'] = '@namespace',
-}
-for newgroup, oldgroup in pairs(links) do
-  vim.api.nvim_set_hl(0, newgroup, { link = oldgroup, default = true })
-end
