@@ -175,3 +175,52 @@ vim.api.nvim_create_user_command('RellNewProject', function()
     end,
   })
 end, {})
+
+vim.api.nvim_create_user_command('RellGenerateStubs', function()
+  local stubs = {
+    { 1, 'kotlin' },
+    { 2, 'mermaid' },
+    { 3, 'typescript' },
+    { 4, 'javascript' },
+  }
+  local type = vim.fn.inputlist({
+    'Select type of stubs to generate: ',
+    '1. kotlin',
+    '2. mermaid',
+    '3. typescript',
+    '4. javascript',
+  })
+  local kt_packagename = ''
+  if stubs[type][2] == 'kotlin' then
+    kt_packagename = vim.fn.input({ prompt = '(Kotlin) Enter package name: ' })
+  end
+  local mermaid_type = ''
+  if stubs[type][2] == 'mermaid' then
+    local mermaid_type_select = vim.fn.inputlist({
+      'Select type of mermaid stubs to generate: ',
+      '1. Entity Relationship Diagram',
+      '2. Class Diagram',
+    })
+    mermaid_type = mermaid_type_select == 1 and '--entity-relation' or '--class-diagram'
+  end
+  if vim.fn.getcwd() .. 'chromia.yml' then
+    local command = 'chr generate-client-stubs --' .. stubs[type][2]
+    if kt_packagename ~= '' then
+      command = command .. ' --package ' .. kt_packagename
+    end
+    if mermaid_type ~= '' then
+      command = command .. ' ' .. mermaid_type
+    end
+    vim.fn.jobstart(command, {
+      on_exit = function(_, data, _)
+        if data == 0 then
+          vim.print('Stubs generated.')
+        else
+          vim.print('Error generating stubs.')
+        end
+      end,
+    })
+  else
+    vim.print('No chromia.yml found in current directory.')
+  end
+end, {})
