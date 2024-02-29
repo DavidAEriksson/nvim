@@ -161,3 +161,17 @@ vim.api.nvim_create_user_command('RellTestResults', function()
   vim.api.nvim_set_option_value('filetype', 'markdown', { buf = r_split.bufnr })
   vim.cmd('set conceallevel=3')
 end, {})
+
+vim.api.nvim_create_user_command('RellNewProject', function()
+  local project_name =
+    vim.fn.input({ prompt = 'Enter project name (or <CR> for default name "my_rell_dapp"): ', default = '' })
+  vim.fn.jobstart('chr create-rell-dapp ' .. project_name, {
+    on_exit = function(_, data, _)
+      if data == 0 then
+        vim.print('Project ' .. project_name .. ' created at location: ' .. vim.fn.getcwd() .. '/' .. project_name)
+      else
+        vim.print('Error creating project, name ' .. project_name .. ' might already exist.')
+      end
+    end,
+  })
+end, {})
