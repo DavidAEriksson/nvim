@@ -224,3 +224,21 @@ vim.api.nvim_create_user_command('RellGenerateStubs', function()
     vim.print('No chromia.yml found in current directory.')
   end
 end, {})
+
+vim.api.nvim_create_user_command('RellNewModule', function()
+  if vim.fn.filereadable(vim.fn.getcwd() .. '/chromia.yml') == 0 then
+    local cwd = vim.fn.input({
+      prompt = 'No chromia.yml found in current directory, please set correct cwd (--completion=dir supported) for your project: ',
+      completion = 'dir',
+    })
+    vim.fn.chdir(cwd)
+    vim.print('Changed directory to: ' .. cwd)
+  end
+  local module_name = vim.fn.input({ prompt = 'Enter name for new module: ' })
+  local path = vim.fn.getcwd() .. '/src/' .. module_name
+  vim.fn.mkdir(path)
+  vim.fn.writefile({ '@mount(' .. '"' .. module_name .. '"' .. ')', 'module;' }, path .. '/module.rell', 'a')
+  vim.fn.writefile({}, path .. '/function.rell', 'a')
+  vim.fn.writefile({}, path .. '/query.rell', 'a')
+  vim.fn.writefile({}, path .. '/operation.rell', 'a')
+end, {})
