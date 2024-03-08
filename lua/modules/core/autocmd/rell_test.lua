@@ -1,7 +1,12 @@
 local M = {}
 
+--- TODO: should probably export a lot of these to utils
+---@type number
 local ns = vim.api.nvim_create_namespace('rell_test')
 
+--- Split a string into lines
+---@param input string
+---@return string[]
 local function split_lines(input)
   local lines = {}
   for line in input:gmatch('([^\r\n]*)\r?\n') do
@@ -10,6 +15,9 @@ local function split_lines(input)
   return lines
 end
 
+--- Find the line numbers of all functions in a file
+---@param file_content string
+---@return table<string, {name: string, line: number}>
 local function find_function_line_numbers(file_content)
   local line_numbers = {}
   local current_function_name
@@ -25,7 +33,12 @@ local function find_function_line_numbers(file_content)
   return line_numbers
 end
 
-local append_testcases = function(log_content, pattern, testcases, line_numbers)
+--- Append testcases to the testcases table
+---@param log_content table
+---@param pattern string
+---@param testcases table
+---@param line_numbers table
+local function append_testcases(log_content, pattern, testcases, line_numbers)
   for testcase, name in log_content:gmatch(pattern) do
     local test_information = {
       testcase = testcase,
@@ -38,7 +51,10 @@ local append_testcases = function(log_content, pattern, testcases, line_numbers)
   end
 end
 
-local reverse_table = function(tbl)
+--- Reverse a table
+---@param tbl table
+---@return table
+local function reverse_table(tbl)
   local reversed = {}
   for i = #tbl, 1, -1 do
     table.insert(reversed, tbl[i])
