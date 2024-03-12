@@ -1,4 +1,10 @@
-require('telescope').setup({
+local ok, telescope = pcall(require, 'telescope')
+
+if not ok then
+  return
+end
+
+telescope.setup({
   picker = {
     hidden = false,
     layout_config = {
@@ -69,11 +75,3 @@ require('telescope').setup({
     buffer_previewer_maker = require('telescope.previewers').buffer_previewer_maker,
   },
 })
-
-local extensions = { 'themes', 'terms', 'fzf' }
-
-pcall(function()
-  for _, ext in pairs(extensions) do
-    require('telescope').load_extension(ext)
-  end
-end)
