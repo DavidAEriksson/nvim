@@ -66,7 +66,7 @@ return require('packer').startup({
     })
 
     use({
-      'davidosomething/format-ts-errors.nvim',
+      'dmmulroy/ts-error-translator.nvim',
     })
 
     -- Refactoring
@@ -265,6 +265,10 @@ return require('packer').startup({
       'nvim-neorg/neorg',
       run = ':Neorg sync-parsers',
       requires = 'nvim-lua/plenary.nvim',
+    })
+
+    use({
+      'NStefan002/speedtyper.nvim',
     })
 
     if packer_bootstrap then
