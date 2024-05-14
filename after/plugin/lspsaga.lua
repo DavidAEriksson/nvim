@@ -16,4 +16,7 @@ saga.setup({
   lightbulb = {
     enable = false,
   },
+  hover = {
+    max_width = 0.5,
+  },
 })
