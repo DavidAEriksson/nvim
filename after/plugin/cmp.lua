@@ -21,34 +21,36 @@ require('luasnip.loaders.from_vscode').lazy_load({
 
 vim.opt.completeopt = 'menu,menuone,noselect'
 
--- find more here: https://www.nerdfonts.com/cheat-sheet
-local kind_icons = {
-  Text = '',
-  Method = 'm',
-  Function = '',
-  Constructor = '',
-  Field = '',
-  Variable = '',
-  Class = '',
-  Interface = '',
-  Module = '',
-  Property = '',
-  Unit = '',
-  Value = '',
-  Enum = '',
-  Keyword = '',
-  Snippet = '',
-  Color = '',
-  File = '',
-  Reference = '',
-  Folder = '',
-  EnumMember = '',
-  Constant = '',
-  Struct = '',
-  Event = '',
-  Operator = '',
-  TypeParameter = '',
-}
+local function get_lsp_completion_context(completion, source)
+  local ok, source_name = pcall(function()
+    return source.source.client.config.name
+  end)
+  if not ok then
+    return nil
+  end
+
+  if source_name == 'tsserver' then
+    return completion.detail
+  elseif source_name == 'pyright' and completion.labelDetails ~= nil then
+    return completion.labelDetails.description
+  elseif source_name == 'texlab' then
+    return completion.detail
+  elseif source_name == 'clangd' then
+    local doc = completion.documentation
+    if doc == nil then
+      return
+    end
+
+    local import_str = doc.value
+
+    local i, j = string.find(import_str, '["<].*[">]')
+    if i == nil then
+      return
+    end
+
+    return string.sub(import_str, i, j)
+  end
+end
 
 cmp.setup({
   snippet = {
@@ -60,7 +62,6 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    ['<C-y>'] = cmp.config.disable,
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
@@ -98,15 +99,64 @@ cmp.setup({
   formatting = {
     fields = { 'kind', 'abbr', 'menu' },
     format = function(entry, vim_item)
-      vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
-      vim_item.menu = ({
-        nvim_lsp = '',
-        nvim_lua = '󰢱',
-        luasnip = '',
-        buffer = '',
-        path = '',
-      })[entry.source.name]
-      return vim_item
+      if not require('cmp.utils.api').is_cmdline_mode() then
+        local abbr_width_max = 25
+        local menu_width_max = 20
+
+        local choice = require('lspkind').cmp_format({
+          ellipsis_char = '…',
+          maxwidth = abbr_width_max,
+          mode = 'symbol',
+        })(entry, vim_item)
+
+        choice.abbr = vim.trim(choice.abbr)
+
+        -- give padding until min/max width is met
+        -- https://github.com/hrsh7th/nvim-cmp/issues/980#issuecomment-1121773499
+        local abbr_width = string.len(choice.abbr)
+        if abbr_width < abbr_width_max then
+          local padding = string.rep(' ', abbr_width_max - abbr_width)
+          vim_item.abbr = choice.abbr .. padding
+        end
+
+        local cmp_ctx = get_lsp_completion_context(entry.completion_item, entry.source)
+        if cmp_ctx ~= nil and cmp_ctx ~= '' then
+          choice.menu = cmp_ctx
+        else
+          choice.menu = ''
+        end
+
+        local menu_width = string.len(choice.menu)
+        if menu_width > menu_width_max then
+          choice.menu = vim.fn.strcharpart(choice.menu, 0, menu_width_max - 1)
+          choice.menu = choice.menu .. '…'
+        else
+          local padding = string.rep(' ', menu_width_max - menu_width)
+          choice.menu = padding .. choice.menu
+        end
+        return choice
+      else
+        local abbr_width_min = 20
+        local abbr_width_max = 50
+
+        local choice = require('lspkind').cmp_format({
+          ellipsis_char = '…',
+          maxwidth = abbr_width_max,
+          mode = 'symbol',
+        })(entry, vim_item)
+
+        choice.abbr = vim.trim(choice.abbr)
+
+        -- give padding until min/max width is met
+        -- https://github.com/hrsh7th/nvim-cmp/issues/980#issuecomment-1121773499
+        local abbr_width = string.len(choice.abbr)
+        if abbr_width < abbr_width_min then
+          local padding = string.rep(' ', abbr_width_min - abbr_width)
+          vim_item.abbr = choice.abbr .. padding
+        end
+
+        return choice
+      end
     end,
     expandable_indicator = false,
   },
@@ -117,7 +167,6 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'path' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'neorg' },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
