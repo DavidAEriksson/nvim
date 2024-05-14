@@ -34,7 +34,6 @@ material.setup({
     'lspsaga',
     -- 'mini',
     'neogit',
-    'neorg',
     'nvim-cmp',
     -- 'nvim-navic',
     'nvim-tree',
