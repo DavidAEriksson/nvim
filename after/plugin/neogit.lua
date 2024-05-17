@@ -68,32 +68,53 @@ neogit.setup({
   -- Automatically show console if a command takes more than console_timeout milliseconds
   auto_show_console = true,
   status = {
-    recent_commit_count = 20,
+    show_head_commit_hash = true,
+    recent_commit_count = 10,
+    HEAD_padding = 10,
+    mode_padding = 3,
+    mode_text = {
+      M = 'modified',
+      N = 'new file',
+      A = 'added',
+      D = 'deleted',
+      C = 'copied',
+      U = 'updated',
+      R = 'renamed',
+      DD = 'unmerged',
+      AU = 'unmerged',
+      UD = 'unmerged',
+      UA = 'unmerged',
+      DU = 'unmerged',
+      AA = 'unmerged',
+      UU = 'unmerged',
+      ['?'] = '',
+    },
   },
   commit_editor = {
-    kind = 'split',
+    kind = 'auto',
+    show_staged_diff = true,
   },
   commit_select_view = {
     kind = 'tab',
   },
   commit_view = {
     kind = 'vsplit',
-    verify_commit = os.execute('which gpg') == 0, -- Can be set to true or false, otherwise we try to find the binary
+    verify_commit = vim.fn.executable('gpg') == 1, -- Can be set to true or false, otherwise we try to find the binary
   },
   log_view = {
     kind = 'tab',
   },
   rebase_editor = {
-    kind = 'split',
+    kind = 'auto',
   },
   reflog_view = {
     kind = 'tab',
   },
   merge_editor = {
-    kind = 'split',
+    kind = 'auto',
   },
   tag_editor = {
-    kind = 'split',
+    kind = 'auto',
   },
   preview_buffer = {
     kind = 'split',
@@ -111,17 +132,17 @@ neogit.setup({
   integrations = {
     -- If enabled, use telescope for menu selection rather than vim.ui.select.
     -- Allows multi-select and some things that vim.ui.select doesn't.
-    telescope = true,
+    telescope = nil,
     -- Neogit only provides inline diffs. If you want a more traditional way to look at diffs, you can use `diffview`.
     -- The diffview integration enables the diff popup.
     --
     -- Requires you to have `sindrets/diffview.nvim` installed.
-    diffview = false,
+    diffview = nil,
 
     -- If enabled, uses fzf-lua for menu selection. If the telescope integration
     -- is also selected then telescope is used instead
     -- Requires you to have `ibhagwan/fzf-lua` installed.
-    fzf_lua = false,
+    fzf_lua = nil,
   },
   sections = {
     -- Reverting/Cherry Picking
@@ -176,6 +197,10 @@ neogit.setup({
       ['<c-c><c-c>'] = 'Submit',
       ['<c-c><c-k>'] = 'Abort',
     },
+    commit_editor_I = {
+      ['<c-c><c-c>'] = 'Submit',
+      ['<c-c><c-k>'] = 'Abort',
+    },
     rebase_editor = {
       ['p'] = 'Pick',
       ['r'] = 'Reword',
@@ -189,6 +214,12 @@ neogit.setup({
       ['<cr>'] = 'OpenCommit',
       ['gk'] = 'MoveUp',
       ['gj'] = 'MoveDown',
+      ['<c-c><c-c>'] = 'Submit',
+      ['<c-c><c-k>'] = 'Abort',
+      ['[c'] = 'OpenOrScrollUp',
+      [']c'] = 'OpenOrScrollDown',
+    },
+    rebase_editor_I = {
       ['<c-c><c-c>'] = 'Submit',
       ['<c-c><c-k>'] = 'Abort',
     },
@@ -214,6 +245,7 @@ neogit.setup({
       ['X'] = 'ResetPopup',
       ['Z'] = 'StashPopup',
       ['b'] = 'BranchPopup',
+      ['B'] = 'BisectPopup',
       ['c'] = 'CommitPopup',
       ['f'] = 'FetchPopup',
       ['l'] = 'LogPopup',
@@ -221,6 +253,7 @@ neogit.setup({
       ['p'] = 'PullPopup',
       ['r'] = 'RebasePopup',
       ['v'] = 'RevertPopup',
+      ['w'] = 'WorktreePopup',
     },
     status = {
       ['q'] = 'Close',
@@ -234,10 +267,10 @@ neogit.setup({
       ['s'] = 'Stage',
       ['S'] = 'StageUnstaged',
       ['<c-s>'] = 'StageAll',
+      ['K'] = 'Untrack',
       ['u'] = 'Unstage',
       ['U'] = 'UnstageStaged',
       ['$'] = 'CommandHistory',
-      ['#'] = 'Console',
       ['Y'] = 'YankSelected',
       ['<c-r>'] = 'RefreshBuffer',
       ['<enter>'] = 'GoToFile',
@@ -246,6 +279,8 @@ neogit.setup({
       ['<c-t>'] = 'TabOpen',
       ['{'] = 'GoToPreviousHunkHeader',
       ['}'] = 'GoToNextHunkHeader',
+      ['[c'] = 'OpenOrScrollUp',
+      [']c'] = 'OpenOrScrollDown',
     },
   },
 })
