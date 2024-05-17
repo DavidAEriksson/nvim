@@ -133,7 +133,6 @@ return require('packer').startup({
     })
 
     use({
-      'numToStr/Comment.nvim',
       'JoosepAlviste/nvim-ts-context-commentstring',
     })
 
