@@ -14,7 +14,9 @@ require('nvim-treesitter.configs').setup({
     'vimdoc',
   }, -- you can also do ensure_installed = 'all'
   sync_install = false,
-  ignore_install = {},
+  ignore_install = {
+    'solidity',
+  },
   modules = {},
   auto_install = true,
   highlight = {
@@ -28,9 +30,6 @@ require('nvim-treesitter.configs').setup({
       end
     end,
     additional_vim_regex_highlighting = false,
-  },
-  autotag = {
-    enable = true,
   },
   indent = {
     enable = true,
