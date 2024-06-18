@@ -107,6 +107,7 @@ cmp.setup({
           ellipsis_char = '…',
           maxwidth = abbr_width_max,
           mode = 'symbol',
+          before = require('tailwind-tools.cmp').lspkind_format,
         })(entry, vim_item)
 
         choice.abbr = vim.trim(choice.abbr)
