@@ -12,6 +12,7 @@ require('nvim-treesitter.configs').setup({
     'markdown_inline',
     'rust',
     'vimdoc',
+    'jsdoc',
   }, -- you can also do ensure_installed = 'all'
   sync_install = false,
   ignore_install = {
