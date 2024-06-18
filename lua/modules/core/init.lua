@@ -15,6 +15,9 @@ end
 if _G.theme == 'chromia' then
   require('modules.core.colors.chromia')
 end
+if _G.theme == 'neofusion' then
+  require('modules.core.colors.neofusion')
+end
 require('modules.core.lualine')
 require('modules.core.scratch')
 require('modules.core.snip')

@@ -52,6 +52,10 @@ return require('packer').startup({
       'ray-x/lsp_signature.nvim',
       'onsails/lspkind-nvim',
     })
+    use({
+      'luckasRanarison/tailwind-tools.nvim',
+      requires = { 'nvim-treesitter/nvim-treesitter' },
+    })
 
     use({
       'nvimdev/lspsaga.nvim',
@@ -150,6 +154,7 @@ return require('packer').startup({
       'projekt0n/github-nvim-theme',
       'rebelot/kanagawa.nvim',
       'EdenEast/nightfox.nvim',
+      'diegoulloao/neofusion.nvim',
       'DavidAEriksson/chromia-theme.nvim',
     })
 
