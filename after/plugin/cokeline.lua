@@ -57,19 +57,15 @@ cokeline.setup({
       text = function(buffer)
         return ''
       end,
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       bg = dark_bg,
       sp = dark_bg,
     },
     {
       text = function(buffer)
-        return (buffer.index ~= 1) and '▎  ' or '│   '
+        return (buffer.index ~= 1) and '  ' or '   '
       end,
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       fg = dark_bg,
       sp = dark_bg,
     },
@@ -92,25 +88,19 @@ cokeline.setup({
         end
         return buffer.is_focused and buffer.devicon.color
       end,
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       sp = dark_bg,
     },
     {
       text = ' ',
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       sp = dark_bg,
     },
     {
       text = function(buffer)
         return buffer.filename .. '  '
       end,
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       sp = dark_bg,
     },
     {
@@ -119,21 +109,17 @@ cokeline.setup({
           return ''
         end
         if buffer.is_modified then
-          return '●'
+          return '⦿'
         end
-        return ''
+        return '✗'
       end,
       delete_buffer_on_left_click = true,
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       sp = dark_bg,
     },
     {
       text = '   ',
-      underline = function(buffer)
-        return not buffer.is_focused
-      end,
+      underline = false,
       sp = dark_bg,
     },
   },
