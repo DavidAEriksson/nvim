@@ -16,8 +16,6 @@ scissors.setup({
       goBackToSearch = '<BS>',
       deleteSnippet = '<C-BS>',
       openInFile = '<C-o>',
-      insertNextToken = '<C-t>', -- insert & normal mode
-      jumpBetweenBodyAndPrefix = '<C-Tab>', -- insert & normal mode
     },
   },
   telescope = {
