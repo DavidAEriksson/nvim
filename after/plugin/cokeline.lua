@@ -26,6 +26,16 @@ if _G.theme == 'nordic' then
   inactive_bg = blend(P.bg, P.black0, 0.4)
 end
 
+if _G.theme == 'gruvbox' then
+  local colors = require('gruvbox-baby.colors').config()
+  dark_bg = colors.background_dark
+  fg = colors.blue_gray
+  bg = colors.background
+  title = colors.soft_yellow
+  error = colors.error_red
+  warn = colors.orange
+end
+
 cokeline.setup({
   default_hl = {
     fg = function(buffer)
