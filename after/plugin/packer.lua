@@ -156,6 +156,7 @@ return require('packer').startup({
       'EdenEast/nightfox.nvim',
       'diegoulloao/neofusion.nvim',
       'DavidAEriksson/chromia-theme.nvim',
+      'luisiacc/gruvbox-baby',
     })
 
     use({

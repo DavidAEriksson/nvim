@@ -1,7 +1,4 @@
 vim.cmd([[
-  " Clear any existing syntax
-  syntax clear
-
   " Define comments
   syntax match rellComment "//.*" contains=@Comment
   syntax region rellBlockComment start="/\*" end="\*/" contains=@Comment

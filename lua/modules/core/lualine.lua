@@ -64,6 +64,9 @@ local function theme_name()
   if _G.theme == 'neofusion' then
     return require('neofusion.lualine')
   end
+  if _G.theme == 'gruvbox' then
+    return 'gruvbox-baby'
+  end
   print('❌ Invalid theme name. ❌')
 end
 

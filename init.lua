@@ -7,8 +7,8 @@ else
   _G.packer_installed = true
 end
 
----@string 'nordic'|'gh-light'|'kanagawa'|'chromia'|'neofusion'
-_G.theme = 'nordic'
+--- @string 'nordic'|'gh-light'|'kanagawa'|'chromia'|'neofusion'|'gruvbox'
+_G.theme = 'gruvbox'
 
 require('modules.core')
 require('modules.lsp')

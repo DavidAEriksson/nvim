@@ -18,6 +18,9 @@ end
 if _G.theme == 'neofusion' then
   require('modules.core.colors.neofusion')
 end
+if _G.theme == 'gruvbox' then
+  require('modules.core.colors.gruvboxbby')
+end
 require('modules.core.lualine')
 require('modules.core.scratch')
 require('modules.core.snip')
