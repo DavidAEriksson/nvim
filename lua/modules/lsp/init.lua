@@ -94,6 +94,7 @@ for _, server in ipairs({
   'emmet',
   'yaml',
   'tailwind',
+  'kotlin',
   -- 'eslint',
   -- 'cssmodules',
   -- 'graphql',
