@@ -270,6 +270,14 @@ return require('packer').startup({
       'NStefan002/speedtyper.nvim',
     })
 
+    use({
+      'OXY2DEV/markview.nvim',
+      requires = {
+        'nvim-treesitter/nvim-treesitter',
+        'nvim-tree/nvim-web-devicons',
+      },
+    })
+
     if packer_bootstrap then
       require('packer').sync()
     end

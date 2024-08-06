@@ -8,7 +8,7 @@
 
 #### Make sure that the folder `nvim` exists within your `~/.config` directory before proceeding, if not, create it:
 
-```
+```bash
 mkdir ~/.config/nvim
 ```
 
@@ -16,7 +16,7 @@ mkdir ~/.config/nvim
 
 This will clone the repository directly into your `nvim config` folder:
 
-```
+```bash
 git clone https://github.com/DavidAEriksson/nvim.git ~/.config/nvim
 ```
 
