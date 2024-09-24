@@ -8,6 +8,11 @@ M.setup = function(on_attach, capabilities)
       on_attach(client, bufnr)
     end,
     capabilities = capabilities,
+    before_init = function(init_params, config)
+      init_params.initializationOptions = {
+        indexCaching = true,
+      }
+    end,
   })
 end
 
