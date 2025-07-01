@@ -67,6 +67,9 @@ local function theme_name()
   if _G.theme == 'gruvbox' then
     return 'gruvbox-baby'
   end
+  if _G.theme == 'oxocarbon' then
+    return 'oxocarbon'
+  end
   print('❌ Invalid theme name. ❌')
 end
 
@@ -74,7 +77,7 @@ local lsp = {
   function()
     local msg = 'No Active Lsp'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     if next(clients) == nil then
       return msg
     end

@@ -29,6 +29,7 @@ vim.o.signcolumn = 'yes'
 vim.o.modelines = 0
 vim.o.showcmd = true
 vim.o.relativenumber = true
+
 -- Tabs and whitespace --
 vim.o.tabstop = 2
 vim.o.expandtab = true

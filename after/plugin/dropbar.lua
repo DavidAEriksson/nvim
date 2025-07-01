@@ -4,32 +4,11 @@ if not ok then
   return
 end
 
+local utils = require('dropbar.utils')
+
 dropbar.setup({
-  general = {
-    ---@type boolean|fun(buf: integer, win: integer): boolean
-    enable = function(buf, win)
-      return not vim.api.nvim_win_get_config(win).zindex
-        and vim.bo[buf].buftype == ''
-        and vim.api.nvim_buf_get_name(buf) ~= ''
-        and not vim.wo[win].diff
-    end,
-    win = {
-      update_events = {
-        'CursorMoved',
-        'CursorMovedI',
-        'DirChanged',
-        'FileChangedShellPost',
-        'TextChanged',
-        'TextChangedI',
-        'VimResized',
-        'WinResized',
-        'WinScrolled',
-      },
-    },
-  },
   icons = {
     kinds = {
-      use_devicons = true,
       symbols = {
         Array = ' ',
         Boolean = ' ',
@@ -107,30 +86,47 @@ dropbar.setup({
     },
   },
   bar = {
+    ---@type boolean|fun(buf: integer, win: integer): boolean
+    enable = function(buf, win)
+      return not vim.api.nvim_win_get_config(win).zindex
+        and vim.bo[buf].buftype == ''
+        and vim.api.nvim_buf_get_name(buf) ~= ''
+        and not vim.wo[win].diff
+    end,
+    win = {
+      update_events = {
+        'CursorMoved',
+        'CursorMovedI',
+        'DirChanged',
+        'FileChangedShellPost',
+        'TextChanged',
+        'TextChangedI',
+        'VimResized',
+        'WinResized',
+        'WinScrolled',
+      },
+    },
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@type dropbar_source_t[]|fun(buf: integer, win: integer): dropbar_source_t[]
-    sources = function(_, _)
+    sources = function(buf, _)
       local sources = require('dropbar.sources')
+      if vim.bo[buf].ft == 'markdown' then
+        return {
+          sources.path,
+          sources.markdown,
+        }
+      end
+      if vim.bo[buf].buftype == 'terminal' then
+        return {
+          sources.terminal,
+        }
+      end
       return {
         sources.path,
-        {
-          ---@diagnostic disable-next-line: unused-local
-          get_symbols = function(buf, win, cursor)
-            if vim.bo[buf].ft == 'markdown' then
-              return sources.markdown.get_symbols(buf, cursor)
-            end
-            for _, source in ipairs({
-              sources.lsp,
-              sources.treesitter,
-            }) do
-              local symbols = source.get_symbols(buf, cursor)
-              if not vim.tbl_isempty(symbols) then
-                return symbols
-              end
-            end
-            return {}
-          end,
-        },
+        utils.source.fallback({
+          sources.lsp,
+          sources.treesitter,
+        }),
       }
     end,
     padding = {
@@ -238,7 +234,7 @@ dropbar.setup({
     treesitter = {
       -- Lua pattern used to extract a short name from the node text
       -- Be aware that the match result must not be nil!
-      name_pattern = string.rep('[#~%w%._%->!]*', 4, '%s*'),
+      name_regex = string.rep('[#~%w%._%->!]*', 4, '%s*'),
       -- The order matters! The first match is used as the type
       -- of the treesitter symbol and used to show the icon
       -- Types listed below must have corresponding icons

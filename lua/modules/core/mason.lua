@@ -1,4 +1,7 @@
 require('mason').setup({
+  -- registries = {
+  --   'file:~/Development/mason-registry',
+  -- },
   ui = {
     icons = {
       package_installed = '✓',

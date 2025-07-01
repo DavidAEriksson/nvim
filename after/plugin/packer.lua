@@ -33,7 +33,6 @@ return require('packer').startup({
     use({
       'nvim-lua/plenary.nvim',
       'nvim-lua/popup.nvim',
-      'ThePrimeagen/harpoon',
       'folke/which-key.nvim',
     })
 
@@ -71,15 +70,6 @@ return require('packer').startup({
 
     use({
       'dmmulroy/ts-error-translator.nvim',
-    })
-
-    -- Refactoring
-    use({
-      'ThePrimeagen/refactoring.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        'nvim-treesitter/nvim-treesitter',
-      },
     })
 
     -- Completion
@@ -151,16 +141,7 @@ return require('packer').startup({
       'kyazdani42/nvim-web-devicons',
       'lukas-reineke/indent-blankline.nvim',
       'AlexvZyl/nordic.nvim',
-      'projekt0n/github-nvim-theme',
-      'rebelot/kanagawa.nvim',
-      'EdenEast/nightfox.nvim',
-      'diegoulloao/neofusion.nvim',
-      'DavidAEriksson/chromia-theme.nvim',
       'luisiacc/gruvbox-baby',
-    })
-
-    use({
-      'nvim-treesitter/playground',
     })
 
     -- Statusline
@@ -246,15 +227,7 @@ return require('packer').startup({
     })
 
     use({
-      'zbirenbaum/neodim',
-    })
-
-    use({
       'tomiis4/hypersonic.nvim',
-    })
-
-    use({
-      'ziontee113/color-picker.nvim',
     })
 
     use({
@@ -262,20 +235,7 @@ return require('packer').startup({
     })
 
     use({
-      'phaazon/hop.nvim',
-      branch = 'v2',
-    })
-
-    use({
-      'NStefan002/speedtyper.nvim',
-    })
-
-    use({
-      'OXY2DEV/markview.nvim',
-      requires = {
-        'nvim-treesitter/nvim-treesitter',
-        'nvim-tree/nvim-web-devicons',
-      },
+      'nyoom-engineering/oxocarbon.nvim',
     })
 
     if packer_bootstrap then

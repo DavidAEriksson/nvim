@@ -1,4 +1,3 @@
-require('telescope').load_extension('refactoring')
 local u = require('utils')
 
 local function map(mode, shortcut, command)
@@ -93,7 +92,6 @@ nmap('<leader>fb', ':Telescope buffers<CR>')
 nmap('<leader>fh', ':Telescope help_tags<CR>')
 nmap('<leader>wt', ':lua require("telescope").extensions.git_worktree.git_worktrees()<CR>')
 nmap('<leader>cw', ':lua require("telescope").extensions.git_worktree.create_git_worktree()<CR>')
-vmap('<leader>re', "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
 
 -- NeoTree
 nmap('<leader>e', '<cmd>:NeoTreeFocusToggle<CR>')
@@ -101,14 +99,6 @@ nmap('<leader>e', '<cmd>:NeoTreeFocusToggle<CR>')
 -- Floating terminal
 nmap('<leader>ter', '<cmd>:ToggleTerm<CR>')
 nmap('<leader>tel', '<cmd>:ToggleTerm direction=vertical<CR>')
-
--- Harpoon
-nmap('<leader>ha', "<cmd> lua require('harpoon.mark').add_file()<CR>")
-nmap('<leader>hm', "<cmd> lua require('harpoon.ui').toggle_quick_menu()<CR>")
-nmap('<leader>h1', "<cmd> lua require('harpoon.ui').nav_file(1)<CR>")
-nmap('<leader>h2', "<cmd> lua require('harpoon.ui').nav_file(2)<CR>")
-nmap('<leader>h3', "<cmd> lua require('harpoon.ui').nav_file(3)<CR>")
-nmap('<leader>h4', "<cmd> lua require('harpoon.ui').nav_file(4)<CR>")
 
 -- Hop!
 nmap('<leader>h', '<cmd>:HopWord<CR>')
@@ -122,8 +112,6 @@ nmap('<leader>tt', '<cmd>:TroubleToggle<CR>')
 nmap('<leader>tw', '<cmd>:TroubleToggle workspace_diagnostics<CR>')
 nmap('<leader>td', '<cmd>:TroubleToggle document_diagnostics<CR>')
 
-nmap('<leader>z', '<cmd>:TZAtaraxis<CR>')
-
 -- Zippy
 nmap('<leader>l', "<cmd>: lua require('zippy').insert_print()<CR>")
 
@@ -131,12 +119,7 @@ nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
 
 nmap('<leader>n', "<cmd>: :lua require('neogen').generate()<CR>")
 
--- Hop
-nmap('<leader>h', '<cmd>:HopWord<CR>')
-
-vim.keymap.set('n', '<leader>ps', function()
-  require('plenary.reload').reload_module('instalog')
-end)
+nmap('<leader>g', '<cmd>:Neogit<CR>')
 
 -- Copilot accept insert
 vim.keymap.set(

@@ -16,10 +16,8 @@ ibl.setup({
     show_start = false,
     show_end = false,
     char = context_char,
-    -- highlight = 'IndentBlanklineContextChar',
   },
   indent = {
     char = char,
-    -- highlight = 'IndentBlanklineChar',
   },
 })

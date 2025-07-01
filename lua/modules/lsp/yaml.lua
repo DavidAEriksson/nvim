@@ -11,7 +11,7 @@ M.setup = function(on_attach, capabilities)
     settings = {
       yaml = {
         schemas = {
-          ['https://gitlab.com/chromaway/core-tools/chromia-cli/-/raw/9cfc2645922819485678802fabf6f0e3614ee8e6/chromia-build-tools/src/main/resources/chromia-model-schema.json'] = 'chromia.yml',
+          ['https://gitlab.com/chromaway/core-tools/chromia-cli-tools/-/raw/dev/chromia-build-tools/src/main/resources/chromia-model-schema.json'] = 'chromia.yml',
         },
       },
     },

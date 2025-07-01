@@ -4,17 +4,11 @@ local api = vim.api
 local fn = vim.fn
 local border_opts = { border = 'rounded', focusable = true, scope = 'line' }
 
-require('neodev').setup({})
-
 -- diagnostics
 vim.diagnostic.config({ virtual_text = true, float = border_opts })
 fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
 fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
 fn.sign_define('DiagnosticSignInformation', { text = ' ', texthl = 'DiagnosticSignInfo' })
-
--- handlers
---[[ lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_help, border_opts) ]]
---[[ lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, border_opts) ]]
 
 -- use lsp formatting if it's available (and if it's good)
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
@@ -23,7 +17,7 @@ local lsp_formatting = function(bufnr)
   lsp.buf.format({
     bufnr = bufnr,
     filter = function(client)
-      if client.name == 'eslint' then
+      if client.name == 'eslint' or 'rell' then
         return true
       end
     end,
@@ -57,7 +51,7 @@ local on_attach = function(client, bufnr)
   u.buf_map(bufnr, 'n', '<leader>td', ':Telescope lsp_type_definitions<CR>')
   u.buf_map(bufnr, 'n', '<leader>ca', ':Lspsaga code_action<CR>')
 
-  if client.supports_method('textDocument/formatting') then
+  if client:supports_method('textDocument/formatting') then
     u.buf_command(bufnr, 'LspFormatting', function()
       lsp_formatting(bufnr)
     end)
@@ -77,28 +71,12 @@ capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- setup language servers from server name
 for _, server in ipairs({
   'tsserver',
-  'csharp_ls',
-  'go',
-  'clangd',
-  'rust_analyzer',
   'bashls',
   'pylsp',
-  'css',
-  'astro',
-  'svelte',
-  'ocaml',
   'lua_ls',
-  'solidity',
-  'prismals',
   'rell',
   'emmet',
   'yaml',
-  'tailwind',
-  'kotlin',
-  -- 'eslint',
-  -- 'cssmodules',
-  -- 'graphql',
-  -- 'denols',
 }) do
   require('modules.lsp.' .. server).setup(on_attach, capabilities)
 end

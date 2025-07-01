@@ -64,8 +64,6 @@ formatter.setup({
     yaml = {
       require('formatter.filetypes.yaml').prettier,
     },
-    -- Use the special "*" filetype for defining formatter configurations on
-    -- any filetype
     ['*'] = {
       -- "formatter.filetypes.any" defines default configurations for any
       -- filetype

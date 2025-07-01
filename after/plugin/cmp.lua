@@ -15,10 +15,6 @@ end
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
-require('luasnip.loaders.from_vscode').lazy_load({
-  paths = { vim.fn.stdpath('config') .. '/lua/modules/core/snip/vs' },
-})
-
 vim.opt.completeopt = 'menu,menuone,noselect'
 
 local function get_lsp_completion_context(completion, source)
@@ -35,20 +31,6 @@ local function get_lsp_completion_context(completion, source)
     return completion.labelDetails.description
   elseif source_name == 'texlab' then
     return completion.detail
-  elseif source_name == 'clangd' then
-    local doc = completion.documentation
-    if doc == nil then
-      return
-    end
-
-    local import_str = doc.value
-
-    local i, j = string.find(import_str, '["<].*[">]')
-    if i == nil then
-      return
-    end
-
-    return string.sub(import_str, i, j)
   end
 end
 
@@ -162,10 +144,10 @@ cmp.setup({
     expandable_indicator = false,
   },
   sources = {
+    { name = 'nvim_lsp', priority = 1 },
     { name = 'luasnip', priority = 20 },
-    { name = 'nvim_lsp', priority = 10 },
-    { name = 'nvim_lua' },
-    { name = 'buffer' },
+    { name = 'nvim_lua', priority = 30 },
+    { name = 'buffer', priority = 20 },
     { name = 'path' },
     { name = 'nvim_lsp_signature_help' },
   },

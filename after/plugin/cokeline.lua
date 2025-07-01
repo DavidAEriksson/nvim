@@ -36,6 +36,13 @@ if _G.theme == 'gruvbox' then
   warn = colors.orange
 end
 
+if _G.theme == 'oxocarbon' then
+  local oxocarbon = (require('oxocarbon')).oxocarbon
+  fg = oxocarbon.base09
+  error = oxocarbon.base10
+  warn = '#FF6F00'
+end
+
 cokeline.setup({
   default_hl = {
     fg = function(buffer)
