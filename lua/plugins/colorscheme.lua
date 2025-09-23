@@ -1,23 +1,23 @@
 return {
   {
-    "AlexvZyl/nordic.nvim",
+    'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
   },
   {
-    "luisiacc/gruvbox-baby",
+    'luisiacc/gruvbox-baby',
     lazy = true,
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    'nyoom-engineering/oxocarbon.nvim',
     lazy = true,
   },
   {
-    "stevedylandev/darkmatter-nvim",
+    'stevedylandev/darkmatter-nvim',
     lazy = true,
   },
   {
-    "metalelf0/black-metal-theme-neovim",
+    'metalelf0/black-metal-theme-neovim',
     lazy = true,
   },
 }

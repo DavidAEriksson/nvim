@@ -1,74 +1,74 @@
 return {
   {
-    "mhartington/formatter.nvim",
+    'mhartington/formatter.nvim',
     config = function()
-      require("formatter").setup({
+      require('formatter').setup({
         logging = true,
         log_level = vim.log.levels.WARN,
         filetype = {
           lua = {
-            require("formatter.filetypes.lua").stylua,
+            require('formatter.filetypes.lua').stylua,
           },
           python = {
-            require("formatter.filetypes.python").black,
+            require('formatter.filetypes.python').black,
           },
           javascript = {
-            require("formatter.filetypes.javascript").prettier,
+            require('formatter.filetypes.javascript').prettier,
           },
           typescript = {
-            require("formatter.filetypes.typescript").prettier,
+            require('formatter.filetypes.typescript').prettier,
           },
           typescriptreact = {
-            require("formatter.filetypes.typescriptreact").prettier,
+            require('formatter.filetypes.typescriptreact').prettier,
           },
           javascriptreact = {
-            require("formatter.filetypes.javascriptreact").prettier,
+            require('formatter.filetypes.javascriptreact').prettier,
           },
           json = {
-            require("formatter.filetypes.json").prettier,
+            require('formatter.filetypes.json').prettier,
           },
           html = {
-            require("formatter.filetypes.html").prettier,
+            require('formatter.filetypes.html').prettier,
           },
           css = {
-            require("formatter.filetypes.css").prettier,
+            require('formatter.filetypes.css').prettier,
           },
           scss = {
-            require("formatter.filetypes.css").prettier,
+            require('formatter.filetypes.css').prettier,
           },
           yaml = {
-            require("formatter.filetypes.yaml").prettier,
+            require('formatter.filetypes.yaml').prettier,
           },
           markdown = {
-            require("formatter.filetypes.markdown").prettier,
+            require('formatter.filetypes.markdown').prettier,
           },
-          ["*"] = {
-            require("formatter.filetypes.any").remove_trailing_whitespace,
+          ['*'] = {
+            require('formatter.filetypes.any').remove_trailing_whitespace,
           },
         },
       })
 
-      vim.api.nvim_create_augroup("FormatAutogroup", {})
-      vim.api.nvim_create_autocmd("BufWritePost", {
-        command = "FormatWrite",
-        group = "FormatAutogroup",
+      vim.api.nvim_create_augroup('FormatAutogroup', {})
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        command = 'FormatWrite',
+        group = 'FormatAutogroup',
       })
     end,
   },
   {
-    "mfussenegger/nvim-lint",
+    'mfussenegger/nvim-lint',
     config = function()
-      require("lint").linters_by_ft = {
-        javascript = { "eslint_d" },
-        typescript = { "eslint_d" },
-        javascriptreact = { "eslint_d" },
-        typescriptreact = { "eslint_d" },
-        python = { "flake8" },
+      require('lint').linters_by_ft = {
+        javascript = { 'eslint_d' },
+        typescript = { 'eslint_d' },
+        javascriptreact = { 'eslint_d' },
+        typescriptreact = { 'eslint_d' },
+        python = { 'flake8' },
       }
 
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+      vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
         callback = function()
-          require("lint").try_lint()
+          require('lint').try_lint()
         end,
       })
     end,
