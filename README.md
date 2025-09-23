@@ -20,25 +20,6 @@ This will clone the repository directly into your `nvim config` folder:
 git clone https://github.com/DavidAEriksson/nvim.git ~/.config/nvim
 ```
 
-### Package manager
-
-The config uses Packer as the package manager. All installed packages can be found in `lua/modules/plugins/pack.lua`. On clone you need to run `:PackerSync` to install all dependencies.
-
-### Install language servers (LSP)
-
-Additional language servers can be installed through `nvim-lsp-installer` and invoking `LspInstall <server>`. In `lua/modules/lsp/init.lua` servers are dynamically handled through this block of Lua script:
-
-```lua
-for _, server in ipairs({
-    'tsserver',
-    'null-ls',
-    'omnisharp',
-    -- ...
-}) do
-    require('modules.lsp' .. server).setup(on_attach, capabilities)
-end
-```
-
 ### Showcase
 
 #### Alpha
