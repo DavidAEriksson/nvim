@@ -44,7 +44,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.cmd([[set nohlsearch]])
 vim.g.incsearch = true
 
-vim.o.laststatus = 1
+vim.cmd([[set laststatus=3]])
 
 vim.o.termguicolors = true
 vim.o.colorcolumn = ''
