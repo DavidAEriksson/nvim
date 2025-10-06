@@ -56,7 +56,11 @@ return {
     end,
   },
   {
-    'NvChad/nvim-colorizer.lua',
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    config = function()
+      require('colorizer').setup()
+    end,
   },
   {
     'goolord/alpha-nvim',
@@ -118,5 +122,35 @@ return {
       vim.opt.laststatus = 3
       vim.opt.splitkeep = 'screen'
     end,
+    opts = {
+      bottom = {
+        {
+          title = 'Terminal',
+          ft = 'toggleterm',
+          size = { height = 0.2 },
+        },
+      },
+      left = {
+        -- Neo-tree filesystem always takes half the screen height
+        {
+          title = 'Filesystem',
+          ft = 'neo-tree',
+          filter = function(buf)
+            return vim.b[buf].neo_tree_source == 'filesystem'
+          end,
+          size = { height = 0.5 },
+        },
+        {
+          title = 'Git files',
+          ft = 'neo-tree',
+          filter = function(buf)
+            return vim.b[buf].neo_tree_source == 'git_status'
+          end,
+          pinned = true,
+          open = 'Neotree position=right git_status',
+        },
+        'neo-tree',
+      },
+    },
   },
 }
