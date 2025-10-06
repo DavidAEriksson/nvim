@@ -50,6 +50,10 @@ return {
       require('lspsaga').setup({
         ui = {
           border = 'rounded',
+          code_action = '',
+        },
+        beacon = {
+          enable = false,
         },
       })
     end,
@@ -69,6 +73,12 @@ return {
     'dmmulroy/ts-error-translator.nvim',
     config = function()
       require('ts-error-translator').setup()
+    end,
+  },
+  {
+    'https://codeberg.org/esensar/nvim-dev-container',
+    config = function()
+      require('devcontainer').setup({})
     end,
   },
 }
