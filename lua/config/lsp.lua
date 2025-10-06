@@ -48,24 +48,24 @@ end
 local capabilities = lsp.protocol.make_client_capabilities()
 capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
-local lspconfig = require('lspconfig')
+local lspconfig = vim.lsp.config
 
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
-lspconfig.bashls.setup({
+vim.lsp.config('bashls', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
-lspconfig.pylsp.setup({
+vim.lsp.config('pylsp', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -89,7 +89,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.emmet_language_server.setup({
+vim.lsp.config('emmet_language_server', {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {
@@ -108,12 +108,12 @@ lspconfig.emmet_language_server.setup({
   },
 })
 
-lspconfig.yamlls.setup({
+vim.lsp.config('yamlls', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
 
-lspconfig.eslint.setup({
+vim.lsp.config('eslint', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
