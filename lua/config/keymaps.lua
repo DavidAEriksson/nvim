@@ -122,3 +122,8 @@ end)
 vim.keymap.set('n', '<leader>se', function()
   require('scissors').editSnippet()
 end)
+
+-- Terminal mode keymaps
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.keymap.set('t', 'jk', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.keymap.set('t', 'kj', '<C-\\><C-n>', { noremap = true, silent = true })
