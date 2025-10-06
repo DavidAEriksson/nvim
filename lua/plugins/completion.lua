@@ -11,6 +11,7 @@ return {
         preset = 'default',
         ['<S-Tab>'] = { 'select_prev', 'fallback' },
         ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<CR>'] = { 'accept', 'fallback' },
       },
       appearance = {
         use_nvim_cmp_as_default = true,
