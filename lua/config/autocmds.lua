@@ -42,3 +42,10 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.cmd([[%s/\s\+$//e]])
   end,
 })
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = '*',
+  callback = function()
+    vim.cmd('Gitsigns toggle_current_line_blame')
+  end,
+})

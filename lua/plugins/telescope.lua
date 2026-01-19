@@ -13,8 +13,8 @@ return {
 
       telescope.setup({
         defaults = {
-          prompt_prefix = ' ',
-          selection_caret = ' ',
+          prompt_prefix = '',
+          selection_caret = ' ',
           path_display = { 'truncate' },
           mappings = {
             i = {

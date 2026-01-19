@@ -23,6 +23,17 @@ return {
     end,
   },
   {
+    'rachartier/tiny-inline-diagnostic.nvim',
+    event = 'VeryLazy',
+    priority = 1000,
+    config = function()
+      require('tiny-inline-diagnostic').setup({
+        preset = 'powerline',
+      })
+      vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+    end,
+  },
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'mason.nvim',
@@ -32,6 +43,7 @@ return {
     config = function()
       require('config.lsp')
     end,
+    opts = { diagnostics = { virtual_text = false } },
   },
   {
     'ray-x/lsp_signature.nvim',
@@ -59,11 +71,6 @@ return {
     end,
   },
   {
-    'luckasRanarison/tailwind-tools.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = {},
-  },
-  {
     'Bekaboo/dropbar.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
@@ -73,12 +80,6 @@ return {
     'dmmulroy/ts-error-translator.nvim',
     config = function()
       require('ts-error-translator').setup()
-    end,
-  },
-  {
-    'https://codeberg.org/esensar/nvim-dev-container',
-    config = function()
-      require('devcontainer').setup({})
     end,
   },
 }

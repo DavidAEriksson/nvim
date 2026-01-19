@@ -56,3 +56,7 @@ vim.cmd([[
   let g:prettier#autoformat = 1
   let g:prettier#autoformat_require_pragma = 0
 ]])
+
+vim.g.root_spec = { 'cwd' }
+
+vim.cmd('set completeopt+=noselect')
