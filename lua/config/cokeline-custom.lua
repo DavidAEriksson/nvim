@@ -38,6 +38,17 @@ if _G.theme == 'oxocarbon' then
   warn = '#FF6F00'
 end
 
+if _G.theme == 'github' then
+  fg = '#0366d6'
+  bg = '#f6f8fa'
+  dark_bg = '#e1e4e8'
+  inactive_bg = '#e1e4e8'
+  inactive_fg = '#6a737d'
+  title = '#0366d6'
+  error = '#d73a49'
+  warn = '#ffab70'
+end
+
 cokeline.setup({
   default_hl = {
     fg = function(buffer)

@@ -34,4 +34,6 @@ elseif _G.theme == 'gruvbox' then
   require('config.themes.gruvbox')
 elseif _G.theme == 'oxocarbon' then
   require('config.themes.oxocarbon')
+elseif _G.theme == 'github' then
+  require('config.themes.github')
 end
