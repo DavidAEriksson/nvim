@@ -67,4 +67,5 @@ return {
       require('todo-comments').setup()
     end,
   },
+  { 'DavidAEriksson/instalog.nvim' },
 }

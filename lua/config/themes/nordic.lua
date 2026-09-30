@@ -45,7 +45,7 @@ vim.cmd('colorscheme nordic')
 
 -- vim.api.nvim_set_hl(0, 'PMenuSel', { bg = '#D89079', fg = '#282c34' })
 -- vim.api.nvim_set_hl(0, 'PMenuThumb', { bg = '#D89079' })
--- vim.api.nvim_set_hl(0, 'Visual', { bg = '#EBCB8B', fg = '#242933' })
+vim.api.nvim_set_hl(0, 'Visual', { bg = '#EBCB8B', fg = '#242933' })
 vim.api.nvim_set_hl(0, 'DropBarMenuCurrentContext', { bg = '#D89079' })
 vim.api.nvim_set_hl(0, 'WinBar', { bg = '#242933' })
 vim.api.nvim_set_hl(0, 'WinBarNC', { bg = '#242933' })

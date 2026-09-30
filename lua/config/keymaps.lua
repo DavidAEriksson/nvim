@@ -65,7 +65,7 @@ nmap('<leader>tt', '<cmd>:TroubleToggle<CR>')
 nmap('<leader>tw', '<cmd>:TroubleToggle workspace_diagnostics<CR>')
 nmap('<leader>td', '<cmd>:TroubleToggle document_diagnostics<CR>')
 
-nmap('<leader>l', "<cmd>: lua require('zippy').insert_print()<CR>")
+nmap('<leader>l', '<cmd>: InstalogInsert<CR>')
 
 nmap('<leader>u', '<cmd>: UndotreeToggle<CR>')
 
